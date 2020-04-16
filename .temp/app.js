@@ -52,7 +52,7 @@ class App extends Component {
   componentDidCatchError() {}
 
   config = {
-    pages: ["/pages/home/index", "/pages/music/index"],
+    pages: ["/pages/home/index", "/pages/music/index", "/pages/article/index"],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -72,6 +72,10 @@ class App extends Component {
       }, {
         path: '/pages/music/index',
         componentLoader: () => import( /* webpackChunkName: "music_index" */'./pages/music/index'),
+        isIndex: false
+      }, {
+        path: '/pages/article/index',
+        componentLoader: () => import( /* webpackChunkName: "article_index" */'./pages/article/index'),
         isIndex: false
       }]} customRoutes={{}} />
                 

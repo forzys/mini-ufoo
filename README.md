@@ -9,7 +9,7 @@ git init
 git remote add origin https://xx
 # 关联远程仓库
 
-git push --set-upstream origin master
+git branch --set-upstream-to=origin/<origin branch> <branch>
 # 关联远程( 上游 )分支
 
 git add .

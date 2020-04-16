@@ -3,7 +3,7 @@ import { Provider } from '@tarojs/redux';
 
 import dva from './utils/dva';
 import models from './models';
-import Layout from './pages/layout'
+import Home from './pages/home/index'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -32,22 +32,40 @@ class App extends Component {
     pages: [
       'pages/home/index',
       'pages/music/index',
+      'pages/article/index',
+      'pages/about/index',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      list: [{
+        pagePath: 'pages/home/index',
+        text: '首页',
+        // iconPath: 'assets/home.png'
+        // selectedIconPath: 'assets/home-active.png'
+      }, {
+        pagePath: 'pages/about/index',
+        text: '关于',
+        // iconPath: 'assets/about.png'
+        // selectedIconPath: 'assets/about-active.png'
+      }],
+      color: '#333',
+      selectedColor: '#333',
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      borderStyle: 'white'
     }
   }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
   render () {
-    console.log('jjjj', this.props, store)
     return (
       <Provider store={store}>
-        <Layout />
+        <Home />
       </Provider>
 
     )

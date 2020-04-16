@@ -9,7 +9,7 @@ class Home extends Taro.Component {
     console.log('aaaa', this.props);
     return <View>
         <Text>
-          hello 1
+          hello home
         </Text>
       </View>;
   }

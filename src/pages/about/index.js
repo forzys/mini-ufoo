@@ -3,7 +3,7 @@ import { connect } from '@tarojs/redux'
 import { View, Text } from '@tarojs/components'
 
 
-class Home extends Component{
+class About extends Component{
 
   render(){
     console.log('aaaa', this.props)
@@ -21,4 +21,4 @@ class Home extends Component{
 const stateProps = ({ home })=>{
   return { home }
 }
-export default connect(stateProps)(Home)
+export default connect(stateProps)(About)

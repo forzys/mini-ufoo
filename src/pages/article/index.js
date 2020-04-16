@@ -1,16 +1,17 @@
+
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
 import { View, Text } from '@tarojs/components'
 
 
-class Home extends Component{
+class Article extends Component{
 
   render(){
     console.log('aaaa', this.props)
     return (
       <View>
         <Text>
-          hello home
+          hello article
         </Text>
       </View>
     )
@@ -18,7 +19,7 @@ class Home extends Component{
 }
 
 
-const stateProps = ({ home })=>{
-  return { home }
+const stateProps = ({ article })=>{
+  return { article }
 }
-export default connect(stateProps)(Home)
+export default connect(stateProps)(Article)
