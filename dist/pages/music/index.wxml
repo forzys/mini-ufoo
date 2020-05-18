@@ -1,4 +1,0 @@
-<block wx:if="{{$taroCompReady}}">
-    <view><text>hello music</text>
-    </view>
-</block>
