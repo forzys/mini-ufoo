@@ -4,6 +4,7 @@ import { Provider } from "@tarojs/redux-h5";
 import dva from './utils/dva';
 import models from "./models/index";
 import Nerv from 'nervjs';
+import { View, Tabbar, TabbarContainer, TabbarPanel } from '@tarojs/components';
 import { Router, createHistory, mountApis } from '@tarojs/router';
 Taro.initPxTransform({
   "designWidth": 750,
@@ -39,6 +40,29 @@ const dvaApp = dva.createApp({
 const store = dvaApp.getStore();
 
 class App extends Component {
+  state = {
+    __tabs: {
+      list: [{
+        pagePath: "/pages/home/index",
+        text: '首页'
+        // iconPath: 'assets/home.png'
+        // selectedIconPath: 'assets/home-active.png'
+      }, {
+        pagePath: "/pages/about/index",
+        text: '关于'
+        // iconPath: 'assets/about.png'
+        // selectedIconPath: 'assets/about-active.png'
+      }],
+      color: '#333',
+      selectedColor: '#333',
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      borderStyle: 'white',
+      mode: "hash",
+      basename: "/",
+      customRoutes: {}
+    }
+  };
+
 
   componentDidMount() {
     console.log(this.props, store);
@@ -52,12 +76,16 @@ class App extends Component {
   componentDidCatchError() {}
 
   config = {
-    pages: ["/pages/home/index", "/pages/music/index", "/pages/article/index"],
+    pages: ["/pages/home/index", "/pages/music/index", "/pages/article/index", "/pages/about/index"],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: { list: [{ pagePath: "/pages/home/index", text: '首页' }, { pagePath: "/pages/about/index", text: '关于' }], color: '#333', selectedColor: '#333', backgroundColor: 'rgba(255,255,255,0.9)', borderStyle: 'white', mode: "hash",
+      basename: "/",
+      customRoutes: {}
     }
 
     // 在 App 类中的 render() 函数没有实际作用
@@ -65,20 +93,31 @@ class App extends Component {
   };render() {
     return <Provider store={store}>
           
+        <TabbarContainer>
+          
+        <TabbarPanel>
+          
                 <Router mode={"hash"} history={_taroHistory} routes={[{
-        path: '/pages/home/index',
-        componentLoader: () => import( /* webpackChunkName: "home_index" */'./pages/home/index'),
-        isIndex: true
-      }, {
-        path: '/pages/music/index',
-        componentLoader: () => import( /* webpackChunkName: "music_index" */'./pages/music/index'),
-        isIndex: false
-      }, {
-        path: '/pages/article/index',
-        componentLoader: () => import( /* webpackChunkName: "article_index" */'./pages/article/index'),
-        isIndex: false
-      }]} customRoutes={{}} />
+            path: '/pages/home/index',
+            componentLoader: () => import( /* webpackChunkName: "home_index" */'./pages/home/index'),
+            isIndex: true
+          }, {
+            path: '/pages/music/index',
+            componentLoader: () => import( /* webpackChunkName: "music_index" */'./pages/music/index'),
+            isIndex: false
+          }, {
+            path: '/pages/article/index',
+            componentLoader: () => import( /* webpackChunkName: "article_index" */'./pages/article/index'),
+            isIndex: false
+          }, {
+            path: '/pages/about/index',
+            componentLoader: () => import( /* webpackChunkName: "about_index" */'./pages/about/index'),
+            isIndex: false
+          }]} tabBar={this.state.__tabs} customRoutes={{}} />
                 
+        </TabbarPanel>
+        <Tabbar conf={this.state.__tabs} homePage="pages/home/index" />
+        </TabbarContainer>
         </Provider>;
   }
 
@@ -89,6 +128,10 @@ class App extends Component {
   constructor(props, context) {
     super(props, context);
     Taro._$app = this;
+  }
+
+  componentWillMount() {
+    Taro.initTabBarApis(this, Taro);
   }
 
 }

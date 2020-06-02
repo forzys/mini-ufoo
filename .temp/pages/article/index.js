@@ -14,6 +14,19 @@ class Article extends Taro.Component {
         </Text>
       </View>;
   }
+
+  componentDidMount() {
+    super.componentDidMount && super.componentDidMount();
+  }
+
+  componentDidShow() {
+    super.componentDidShow && super.componentDidShow();
+  }
+
+  componentDidHide() {
+    super.componentDidHide && super.componentDidHide();
+  }
+
 }
 
 const stateProps = ({ article }) => {

@@ -168,11 +168,13 @@ function _possibleConstructorReturn(self, call) {
 }
 
 function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
   return function () {
     var Super = _getPrototypeOf(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -254,7 +256,7 @@ function _unsupportedIterableToArray(o, minLen) {
   if (typeof o === "string") return _arrayLikeToArray(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
 
@@ -947,11 +949,13 @@ function _possibleConstructorReturn(self, call) {
 }
 
 function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
   return function () {
     var Super = _getPrototypeOf(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -980,7 +984,7 @@ function _unsupportedIterableToArray(o, minLen) {
   if (typeof o === "string") return _arrayLikeToArray(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
 
@@ -1178,7 +1182,7 @@ function createCommonjsModule(fn, module) {
   return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-/** @license React v16.13.0
+/** @license React v16.13.1
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -3113,7 +3117,7 @@ function bindMultipleSlots(weappComponentConf, ComponentClass) {
     return;
   }
 
-  weappComponentConf.options = _objectSpread2({}, weappComponentConf.options, {}, {
+  weappComponentConf.options = _objectSpread2(_objectSpread2({}, weappComponentConf.options), {
     multipleSlots: multipleSlots
   });
 }
@@ -3739,9 +3743,9 @@ function doUpdate(component, prevProps, prevState) {
   }
 
   var cb = function cb() {
-    if (__mounted) {
-      taro.invokeEffects(component);
+    taro.invokeEffects(component);
 
+    if (__mounted) {
       if (component['$$refs'] && component['$$refs'].length > 0) {
         component['$$refs'].forEach(function (ref) {
           // 只有 component 类型能做判断。因为 querySelector 每次调用都一定返回 nodeRefs，无法得知 dom 类型的挂载状态。
@@ -3784,6 +3788,7 @@ function doUpdate(component, prevProps, prevState) {
 
   if (Object.keys(dataDiff).length === 0) {
     cb();
+    taro.invokeEffects(component);
   } else {
     component.$scope.setData(dataDiff, cb);
   }
@@ -4686,11 +4691,13 @@ function _possibleConstructorReturn(self, call) {
 }
 
 function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
   return function () {
     var Super = _getPrototypeOf(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -4719,7 +4726,7 @@ function _unsupportedIterableToArray(o, minLen) {
   if (typeof o === "string") return _arrayLikeToArray(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
 
@@ -6441,7 +6448,15 @@ var onAndSyncApis = {
   onAudioInterruptionEnd: true,
   onAudioInterruptionBegin: true,
   onLocationChange: true,
-  offLocationChange: true
+  offLocationChange: true,
+  onLocalServiceResolveFail: true,
+  onLocalServiceLost: true,
+  onLocalServiceFound: true,
+  onLocalServiceDiscoveryStop: true,
+  offLocalServiceResolveFail: true,
+  offLocalServiceLost: true,
+  offLocalServiceFound: true,
+  offLocalServiceDiscoveryStop: true
 };
 var noPromiseApis = {
   // 媒体
@@ -6615,6 +6630,8 @@ var otherApis = {
   setBackgroundTextStyle: true,
   getSelectedTextRange: true,
   hideHomeButton: true,
+  stopLocalServiceDiscovery: true,
+  startLocalServiceDiscovery: true,
   // 第三方平台
   getExtConfig: true,
   // 开放接口

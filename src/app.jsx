@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux';
 
 import dva from './utils/dva';
-import models from './models';
+import models from './models/index';
 import Home from './pages/home/index'
 
 // 如果需要在 h5 环境中开启 React Devtools

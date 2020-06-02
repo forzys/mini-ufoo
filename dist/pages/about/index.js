@@ -78,9 +78,9 @@ var About = (_temp2 = _class = function (_BaseComponent) {
 
 
 var stateProps = function stateProps(_ref2) {
-  var home = _ref2.home;
+  var about = _ref2.about;
 
-  return { home: home };
+  return { about: about };
 };
 var About__Connected = (0, _redux.connect)(stateProps)(About);
 exports.default = About__Connected;

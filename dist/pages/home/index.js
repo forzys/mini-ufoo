@@ -52,22 +52,20 @@ var Home = (_temp2 = _class = function (_BaseComponent) {
   }
 
   _createClass(Home, [{
-    key: '_constructor',
+    key: "_constructor",
     value: function _constructor(props) {
-      _get(Home.prototype.__proto__ || Object.getPrototypeOf(Home.prototype), '_constructor', this).call(this, props);
+      _get(Home.prototype.__proto__ || Object.getPrototypeOf(Home.prototype), "_constructor", this).call(this, props);
 
       this.$$refs = new _taroWeapp2.default.RefsArray();
     }
   }, {
-    key: '_createData',
+    key: "_createData",
     value: function _createData() {
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
       var __isRunloopRef = arguments[2];
       var __prefix = this.$prefix;
       ;
-
-      console.log('aaaa', this.__props);
       Object.assign(this.__state, {});
       return this.__state;
     }

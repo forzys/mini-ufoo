@@ -1,17 +1,14 @@
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
 
 class Home extends Component{
 
   render(){
-    console.log('aaaa', this.props)
     return (
       <View>
-        <Text>
-          hello home
-        </Text>
+       hello
       </View>
     )
   }

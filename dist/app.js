@@ -445,7 +445,7 @@ function _unsupportedIterableToArray(o, minLen) {
   if (typeof o === "string") return (0, _arrayLikeToArray2.default)(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return (0, _arrayLikeToArray2.default)(o, minLen);
 }
 
@@ -6579,6 +6579,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/models/about.js":
+/*!*****************************!*\
+  !*** ./src/models/about.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  namespace: 'about',
+  state: [{ a: 1 }],
+  reducers: {
+    'delete': function _delete(state, _ref) {
+      var id = _ref.payload;
+
+      return state.filter(function (item) {
+        return item.id !== id;
+      });
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./src/models/article.js":
+/*!*******************************!*\
+  !*** ./src/models/article.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  namespace: 'article',
+  state: [{ a: 1 }],
+  reducers: {
+    'delete': function _delete(state, _ref) {
+      var id = _ref.payload;
+
+      return state.filter(function (item) {
+        return item.id !== id;
+      });
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./src/models/home.js":
 /*!****************************!*\
   !*** ./src/models/home.js ***!
@@ -6594,6 +6652,35 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   namespace: 'home',
+  state: [{ a: 1 }],
+  reducers: {
+    'delete': function _delete(state, _ref) {
+      var id = _ref.payload;
+
+      return state.filter(function (item) {
+        return item.id !== id;
+      });
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./src/models/hotspot.js":
+/*!*******************************!*\
+  !*** ./src/models/hotspot.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  namespace: 'hotspot',
   state: [{ a: 1 }],
   reducers: {
     'delete': function _delete(state, _ref) {
@@ -6630,9 +6717,21 @@ var _music = __webpack_require__(/*! ./music */ "./src/models/music.js");
 
 var _music2 = _interopRequireDefault(_music);
 
+var _about = __webpack_require__(/*! ./about */ "./src/models/about.js");
+
+var _about2 = _interopRequireDefault(_about);
+
+var _article = __webpack_require__(/*! ./article */ "./src/models/article.js");
+
+var _article2 = _interopRequireDefault(_article);
+
+var _hotspot = __webpack_require__(/*! ./hotspot */ "./src/models/hotspot.js");
+
+var _hotspot2 = _interopRequireDefault(_hotspot);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = [_home2.default, _music2.default];
+exports.default = [_home2.default, _about2.default, _music2.default, _article2.default, _hotspot2.default];
 
 /***/ }),
 

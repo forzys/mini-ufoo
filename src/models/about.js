@@ -1,6 +1,5 @@
-
 export default {
-  namespace: 'home',
+  namespace: 'about',
   state: [
     { a:1 }
   ],
