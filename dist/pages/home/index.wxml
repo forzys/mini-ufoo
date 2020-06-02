@@ -1,3 +1,0 @@
-<block wx:if="{{$taroCompReady}}">
-    <view>hello</view>
-</block>

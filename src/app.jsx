@@ -4,6 +4,7 @@ import { Provider } from '@tarojs/redux';
 import dva from './utils/dva';
 import models from './models/index';
 import Home from './pages/home/index'
+import './asset/css/iconfont.css'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -34,6 +35,7 @@ class App extends Component {
       'pages/music/index',
       'pages/article/index',
       'pages/about/index',
+      'pages/liveTv/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,21 +44,24 @@ class App extends Component {
       navigationBarTextStyle: 'black'
     },
     tabBar: {
+      color: '#7A7E83',
+      selectedColor: '#c73420',
+      borderStyle: 'black',
+      backgroundColor: '#ffffff',
       list: [{
         pagePath: 'pages/home/index',
         text: '首页',
-        // iconPath: 'assets/home.png'
-        // selectedIconPath: 'assets/home-active.png'
       }, {
         pagePath: 'pages/about/index',
         text: '关于',
         // iconPath: 'assets/about.png'
         // selectedIconPath: 'assets/about-active.png'
       }],
-      color: '#333',
-      selectedColor: '#333',
-      backgroundColor: 'rgba(255,255,255,0.9)',
-      borderStyle: 'white'
+      // color: '#333',
+      // selectedColor: '#333',
+      // backgroundColor: 'rgba(255,255,255,0.9)',
+      // borderStyle: 'white'
+      requiredBackgroundModes: ["audio"]
     }
   }
 
