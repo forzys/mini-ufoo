@@ -1,8 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
-import { View, Text } from '@tarojs/components'
-import Card from './component/card'
-import './index.less'
+import { View } from '@tarojs/components'
 
 
 class Home extends Component{
@@ -23,17 +21,13 @@ class Home extends Component{
       {name: '精选音乐', info: '尽情享受精选音乐', path:'music'},
       {name: '优惠线报', info: '优惠线报实惠到家', path:'discount'},
       {name: '实时热点', info: '实时热点一网打尽', path:'hotspot'},
-      {name: '电视直播', info: '电视直播直播电视', path:'liveTv'},
+      {name: '电视直播', info: '电视直播直播电视', path:'livetv'},
       {name: '影视分享', info: '影视分享多人共享', path:'movies'},
     ]
-    
+
     return (
       <View className='home-content'>
-        {
-          arr.map(item=>{
-            return (<Card key={item.path} name={item.name} goToPath={this.goToPath.bind(this,item.path)} />)
-          })
-        }
+        hello
       </View>
     )
   }

@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: connect ETIMEDOUT 104.16.25.35:443
+  Error: connect ETIMEDOUT 104.16.16.35:443
       at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1174:14)
 
 npm manifest: 
@@ -49,20 +49,20 @@ npm manifest:
   	"author": "",
   	"license": "MIT",
   	"dependencies": {
-  		"@tarojs/components": "2.1.5",
-  		"@tarojs/components-qa": "2.1.5",
-  		"@tarojs/redux": "2.1.5",
-  		"@tarojs/redux-h5": "2.1.5",
-  		"@tarojs/router": "2.1.5",
-  		"@tarojs/taro": "2.1.5",
-  		"@tarojs/taro-alipay": "2.1.5",
-  		"@tarojs/taro-h5": "2.1.5",
-  		"@tarojs/taro-qq": "2.1.5",
-  		"@tarojs/taro-quickapp": "2.1.5",
-  		"@tarojs/taro-rn": "2.1.5",
-  		"@tarojs/taro-swan": "2.1.5",
-  		"@tarojs/taro-tt": "2.1.5",
-  		"@tarojs/taro-weapp": "2.1.5",
+  		"@tarojs/components": "2.2.6",
+  		"@tarojs/components-qa": "2.2.6",
+  		"@tarojs/redux": "2.2.6",
+  		"@tarojs/redux-h5": "2.2.6",
+  		"@tarojs/router": "2.2.6",
+  		"@tarojs/taro": "2.2.6",
+  		"@tarojs/taro-alipay": "2.2.6",
+  		"@tarojs/taro-h5": "2.2.6",
+  		"@tarojs/taro-qq": "2.2.6",
+  		"@tarojs/taro-quickapp": "2.2.6",
+  		"@tarojs/taro-rn": "2.2.6",
+  		"@tarojs/taro-swan": "2.2.6",
+  		"@tarojs/taro-tt": "2.2.6",
+  		"@tarojs/taro-weapp": "2.2.6",
   		"babel-runtime": "^6.26.0",
   		"dva-core": "^2.0.2",
   		"dva-loading": "^3.0.20",
@@ -76,8 +76,8 @@ npm manifest:
   	"devDependencies": {
   		"@types/react": "^16.4.6",
   		"@types/webpack-env": "^1.13.6",
-  		"@tarojs/mini-runner": "2.1.5",
-  		"@tarojs/webpack-runner": "2.1.5",
+  		"@tarojs/mini-runner": "2.2.6",
+  		"@tarojs/webpack-runner": "2.2.6",
   		"babel-plugin-transform-class-properties": "^6.24.1",
   		"babel-plugin-transform-decorators-legacy": "^1.3.4",
   		"babel-plugin-transform-jsx-stylesheet": "^0.6.5",
@@ -86,14 +86,14 @@ npm manifest:
   		"babel-preset-env": "^1.6.1",
   		"babel-eslint": "^8.2.3",
   		"eslint": "^5.16.0",
-  		"eslint-config-taro": "2.1.5",
+  		"eslint-config-taro": "2.2.6",
   		"eslint-plugin-react": "^7.8.2",
   		"eslint-plugin-react-hooks": "^1.6.1",
   		"eslint-plugin-import": "^2.12.0",
   		"stylelint": "9.3.0",
-  		"stylelint-config-taro-rn": "2.1.5",
-  		"stylelint-taro-rn": "2.1.5",
-  		"eslint-plugin-taro": "2.1.5"
+  		"stylelint-config-taro-rn": "2.2.6",
+  		"stylelint-taro-rn": "2.2.6",
+  		"eslint-plugin-taro": "2.2.6"
   	}
   }
 

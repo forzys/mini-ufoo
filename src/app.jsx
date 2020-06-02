@@ -2,9 +2,8 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux';
 
 import dva from './utils/dva';
-import models from './models';
+import models from './models/index';
 import Home from './pages/home/index'
-import './asset/css/iconfont.css'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -35,7 +34,7 @@ class App extends Component {
       'pages/music/index',
       'pages/article/index',
       'pages/about/index',
-      'pages/liveTv/index',
+      'pages/livetv/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -52,7 +51,7 @@ class App extends Component {
         pagePath: 'pages/home/index',
         text: '首页',
       }, {
-        pagePath: 'pages/about/index',
+        pagePath: 'pages/livetv/index',
         text: '关于',
         // iconPath: 'assets/about.png'
         // selectedIconPath: 'assets/about-active.png'

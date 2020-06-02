@@ -18,7 +18,7 @@ class About extends Component{
 }
 
 
-const stateProps = ({ home })=>{
-  return { home }
+const stateProps = ({ about })=>{
+  return { about }
 }
 export default connect(stateProps)(About)

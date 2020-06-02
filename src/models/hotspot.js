@@ -1,6 +1,6 @@
 
 export default {
-  namespace: 'home',
+  namespace: 'hotspot',
   state: [
     { a:1 }
   ],

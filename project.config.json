@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "book",
 	"description": "book",
-	"appid": "touristappid",
+	"appid": "wx77a1c127b9c784e7",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
