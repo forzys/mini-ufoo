@@ -7,12 +7,13 @@ import './index.less'
 
 
 function LiveTv(){
-	const [hidden,setHidden] = useState(0)
+  const [hidden,setHidden] = useState(0)
+  const [tvFull,setTvFull] = useState(false)
 	const [tvMuted,setTvMuted] = useState(false)
-	const [tvFull,setTvFull] = useState(false)
-  const dispatch = useDispatch();
+
   const livetv = useSelector(state => state.livetv);
   const {tvList, tvUrl, tvTitle} = livetv
+  const dispatch = useDispatch();
 
   const tvOnChange = useCallback((params)=>{
     const query = {...params}
@@ -58,11 +59,11 @@ function LiveTv(){
             list={tvList}
             onChange={tvOnChange}
           >
-            <View className='tv_extra'>
-              <Text className={['icon', tvMuted?'icon-mute':'icon-volume']} onClick={tvOnMuted}></Text>
-              <Text className='icon icon-full-screen' onClick={tvOnFullScreen}></Text>
-            </View>
           </ScrollList>
+          <View className={['tv_extra', hidden&&'hidden']}>
+            <Text className={['icon', tvMuted?'icon-mute':'icon-volume']} onClick={tvOnMuted}></Text>
+            <Text className='icon icon-full-screen' onClick={tvOnFullScreen}></Text>
+          </View>
         </View>
         <View className='tv_video'>
           <Video
