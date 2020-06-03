@@ -20,26 +20,37 @@ page {
   position: relative;
   width: 98%;
   height: 100%;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   overflow-y: auto;
   background-color: rgba(0,0,0,0.5);
   color:rgba(255, 255, 255, 0.64);
-  border-right: 1rpx solid rgba(255,255,255,0.25);
+	border-right: 1rpx solid rgba(255,255,255,0.25);
 }
 .scroll_title{
-	text-align: center;
-	padding: 10rpx;
-	border-bottom: 1rpx solid rgba(255,255,255,0.25);
+	position:sticky;
+	top:0;
+	padding: 20rpx 10rpx;
+	text-indent: 15rpx;
+	overflow: hidden;
+  text-overflow:ellipsis;
+	white-space: nowrap;
+	background-color: rgba(19,19,19,1);
+	// border-bottom: 1rpx solid rgba(255,255,255,0.25);
 }
 
 .item_scroll{
-  padding: 20rpx 10rpx;
+  padding:40rpx 10rpx;
   text-indent: 15rpx;
   overflow: hidden;
   text-overflow:ellipsis;
-  white-space: nowrap;
+	white-space: nowrap;
+	border-bottom:1rpx solid rgba(255,255,255,0.08);
 }
-
 .active{
   color: var(--active-color)
+}
+::-webkit-scrollbar{
+	width:0;
+	height:0;
+	display: none;
 }

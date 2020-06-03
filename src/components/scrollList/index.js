@@ -5,7 +5,7 @@ import './index.less'
 
 
 function ScrollList(props){
-  const {list,name,title,onChange} = props
+  const {list,name,title,renderPrefix,renderSuffix,onChange} = props
   const [allList,setAllList] = useState([])
   const [showList,setShowList] = useState([])
   const [showIndex,setShowIndex] = useState(0)
@@ -37,7 +37,6 @@ function ScrollList(props){
    console.log(params)
   },[onChange,name])
 
-
   return (
     <View className='scroll_bar' onTouchMove={_onTouchMove.bind(this)}>
       {this.props.renderHeader}
@@ -52,7 +51,7 @@ function ScrollList(props){
           item[name]===active?_class+=' active': null
           return (
             <View key={`${item[name]}-${k}`} className={_class} onClick={_onClick.bind(this,item)}>
-              <Text>{item[name]||item.name}</Text>
+							<Text>{item[name]||item.name}</Text>
             </View>
           )
         })

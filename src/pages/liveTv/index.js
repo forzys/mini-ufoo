@@ -1,5 +1,5 @@
 
-import Taro, {useCallback, useState} from '@tarojs/taro'
+import Taro, {useCallback, useState,useMemo} from '@tarojs/taro'
 import { useSelector, useDispatch } from '@tarojs/redux'
 import { View,Text, Video } from '@tarojs/components'
 import ScrollList from '../../components/scrollList'
@@ -10,6 +10,7 @@ function LiveTv(){
   const [hidden,setHidden] = useState(0)
   const [tvFull,setTvFull] = useState(false)
 	const [tvMuted,setTvMuted] = useState(false)
+	const [tvFloating,setTvFloating] = useState([])
 
   const livetv = useSelector(state => state.livetv);
   const {tvList, tvUrl, tvTitle} = livetv
@@ -46,7 +47,34 @@ function LiveTv(){
   const tvOnFullChange = useCallback((event)=>{
     const detail = event.detail
     setTvFull(detail.fullScreen)
-  },[])
+	},[])
+	
+	const tvOnFloating= useCallback(()=>{
+		const floating = ['push','pop']
+		setTvFloating(floating)
+		try{
+			setTimeout(()=>{
+				Taro.switchTab({url:'/pages/home/index'})
+			},500)
+		}catch(e){
+			Taro.showToast({
+				title: '操作失败',
+				icon: 'error',
+				duration: 2000
+			})
+		}
+	},[])
+
+	const tvOnCollect = useCallback((params)=>{
+		console.log(params)
+	},[])
+
+	const Collect=useMemo((params)=>(
+		<Text 
+			className='icon icon-collect' 
+			// onClick={tvOnCollect.bind(this,params)} 
+		/>
+	),[])
 
 
   return (
@@ -54,13 +82,16 @@ function LiveTv(){
       <View className='tv_control'>
         <View className={['tv_list', hidden&&'hidden']}>
           <ScrollList
-            name='name'
+						name='name'
             title='节目表'
             list={tvList}
-            onChange={tvOnChange}
+						onChange={tvOnChange}
+						renderSuffix={x=>(<Collect params={x} />)}
           >
+				
           </ScrollList>
           <View className={['tv_extra', hidden&&'hidden']}>
+            <Text className='icon icon-floating-window' onClick={tvOnFloating}></Text>
             <Text className={['icon', tvMuted?'icon-mute':'icon-volume']} onClick={tvOnMuted}></Text>
             <Text className='icon icon-full-screen' onClick={tvOnFullScreen}></Text>
           </View>
@@ -77,7 +108,8 @@ function LiveTv(){
             showMuteBtn // 显示静音按钮
             showPlayBtn={false} // 下方播放按钮vslideGesture
             autoPauseIfOpenNative
-            show-center-play-btn={false} // 中间播放按钮
+						show-center-play-btn={false} // 中间播放按钮
+						picture-in-picture-mode={['push','pop']}
             // playBtnPosition='center' // 暂停播放按钮位置
             // enablePlayGesture // 双击暂停播放
             onClick={tvOnToggle} // 点击控件
