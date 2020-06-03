@@ -1,11 +1,11 @@
 
-import Taro, { useEffect, useMemo, useCallback, useState } from '@tarojs/taro';
+import Taro, { useEffect, useCallback, useState } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components'
 import './index.less'
 
 
 function ScrollList(props){
-  const { list,name,title,onChange} = props
+  const {list,name,title,onChange} = props
   const [allList,setAllList] = useState([])
   const [showList,setShowList] = useState([])
   const [showIndex,setShowIndex] = useState(0)
@@ -33,17 +33,22 @@ function ScrollList(props){
     setActive(params[name])
   },[onChange,name])
 
+  const _onTouchMove = useCallback((params)=>{
+   console.log(params)
+  },[onChange,name])
+
 
   return (
-    <View className='scroll_bar'>
+    <View className='scroll_bar' onTouchMove={_onTouchMove.bind(this)}>
+      {this.props.renderHeader}
       <View className='scroll_title'>
       	<Text> { title } </Text>
       </View>
       {
         showList.map((item,k)=>{
           let _class = 'item_scroll'
-          showNumber*0.2===k?_class+=' pre_scroll':
-          showNumber*0.7===k?_class+=' next_scroll':
+          showNumber*0.2===k ?_class+=' pre_scroll':
+          showNumber*0.7===k ?_class+=' next_scroll':
           item[name]===active?_class+=' active': null
           return (
             <View key={`${item[name]}-${k}`} className={_class} onClick={_onClick.bind(this,item)}>
@@ -52,8 +57,14 @@ function ScrollList(props){
           )
         })
       }
+      {this.props.children}
+      {this.props.renderFooter}
     </View>
   )
+}
+
+ScrollList.config={
+  addGlobalClass: true,
 }
 
 export default Taro.memo(ScrollList)

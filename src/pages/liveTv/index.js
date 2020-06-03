@@ -1,73 +1,99 @@
 
-import Taro, { useEffect, useMemo, useCallback, useState} from '@tarojs/taro'
+import Taro, {useCallback, useState} from '@tarojs/taro'
 import { useSelector, useDispatch } from '@tarojs/redux'
-import { View, Text, Video } from '@tarojs/components'
+import { View,Text, Video } from '@tarojs/components'
 import ScrollList from '../../components/scrollList'
-
 import './index.less'
 
 
 function LiveTv(){
 	const [hidden,setHidden] = useState(0)
+	const [tvMuted,setTvMuted] = useState(false)
+	const [tvFull,setTvFull] = useState(false)
   const dispatch = useDispatch();
   const livetv = useSelector(state => state.livetv);
-  const {tvList,playingURL,playingName='电视'} = livetv
+  const {tvList, tvUrl, tvTitle} = livetv
 
-  console.log(dispatch)
-  console.log(livetv)
-
-  const playOnChange = useCallback((params)=>{
+  const tvOnChange = useCallback((params)=>{
     const query = {...params}
     dispatch({
       type:'livetv/updateState',
       payload:{
-        playingName:query.name,
-        playingURL:query.url,
+        tvTitle:query.name,
+        tvUrl:query.url,
       }
     })
 	},[dispatch])
-	
-	const tvlistOnToggle = useCallback((params)=>{
+
+	const tvOnToggle = useCallback((params)=>{
 		console.log(params)
 		const isNumber = typeof hidden === 'number'
 		if(isNumber && Number.isFinite(hidden)){
 			setHidden(1^hidden)
-		}
-	},[hidden])
+    }
+  },[hidden])
+
+  const tvOnMuted = useCallback(()=>{ setTvMuted(!tvMuted) },[tvMuted])
+
+  const tvOnFullScreen = useCallback(()=>{
+    if(!tvFull){
+      const video =  Taro.createVideoContext('video_tv')
+      video.requestFullScreen()
+    }
+  },[tvFull])
+
+  const tvOnFullChange = useCallback((event)=>{
+    const detail = event.detail
+    setTvFull(detail.fullScreen)
+  },[])
 
 
   return (
     <View className='tv_live'>
       <View className='tv_control'>
-        <View className={['tv_list',hidden&&'hidden']}>
-          <ScrollList title='节目表' name='name' list={tvList} onChange={playOnChange} />
+        <View className={['tv_list', hidden&&'hidden']}>
+          <ScrollList
+            name='name'
+            title='节目表'
+            list={tvList}
+            onChange={tvOnChange}
+          >
+            <View className='tv_extra'>
+              <Text className={['icon', tvMuted?'icon-mute':'icon-volume']} onClick={tvOnMuted}></Text>
+              <Text className='icon icon-full-screen' onClick={tvOnFullScreen}></Text>
+            </View>
+          </ScrollList>
         </View>
         <View className='tv_video'>
           <Video
-            title={playingName}
-            src={playingURL} // 路径
-            controls={false} // 显示video控制控件
+            id='video_tv'
+            title={tvTitle} // 全屏时展示标题
+            muted={tvMuted} // 是否静音播放
+            src={tvUrl} // 路径
+            controls={tvFull} // 显示video控制控件
             autoplay  // 自动播放
-						showMuteBtn // 显示静音按钮
-						showPlayBtn={false} // 下方播放按钮
-						vslideGesture
-						autoPauseIfNavigate
-						autoPauseIfOpenNative
-						show-center-play-btn={false} // 中间播放按钮
+            pageGesture // 非全屏允许亮度音量调节
+            showMuteBtn // 显示静音按钮
+            showPlayBtn={false} // 下方播放按钮vslideGesture
+            autoPauseIfOpenNative
+            show-center-play-btn={false} // 中间播放按钮
             // playBtnPosition='center' // 暂停播放按钮位置
-						// enablePlayGesture // 双击暂停播放
-						onClick={tvlistOnToggle}
+            // enablePlayGesture // 双击暂停播放
+            onClick={tvOnToggle} // 点击控件
+            onFullscreenChange={tvOnFullChange} // 全屏变化
             initialTime='0'
-						loop={false}
+            loop={false}
           />
         </View>
-        </View>
+      </View>
     </View>
   )
 }
 
 LiveTv.config = {
   disableScroll:true,
+  addGlobalClass: true,
+  navigationBarTitleText:'电视'
 }
 
 export default LiveTv

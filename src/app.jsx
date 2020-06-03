@@ -1,9 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux';
-
 import dva from './utils/dva';
 import models from './models/index';
 import Home from './pages/home/index'
+import './asset/styles/iconfont.less'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -15,17 +15,14 @@ const dvaApp = dva.createApp({
   models: models,
 });
 const store = dvaApp.getStore();
-
 class App extends Component {
 
   componentDidMount () {
-    console.log( this.props, store)
+    // console.log( this.props, store)
   }
 
   componentDidShow () {}
-
   componentDidHide () {}
-
   componentDidCatchError () {}
 
   config = {
@@ -39,7 +36,7 @@ class App extends Component {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      // navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     },
     tabBar: {
@@ -52,7 +49,7 @@ class App extends Component {
         text: '首页',
       }, {
         pagePath: 'pages/livetv/index',
-        text: '关于',
+        text: '直播',
         // iconPath: 'assets/about.png'
         // selectedIconPath: 'assets/about-active.png'
       }],
