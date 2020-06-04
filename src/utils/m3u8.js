@@ -2,6 +2,7 @@
 
 export default [
   // cctv
+{name:'CCTV测试', url:'http://cctvalih5ca.v.myalicdn.com/live/cctv1_20/index.m3u8'},
 {name:'CCTV1综合', url:'http://cctvalih5ca.v.myalicdn.com/live/cctv1_2/index.m3u8'},
 {name:'CCTV2财经',url:'http://cctvalih5ca.v.myalicdn.com/live/cctv2_2/index.m3u8'},
 {name:'CCTV3综艺',url:'http://cctvalih5ca.v.myalicdn.com/live/cctv3_2/index.m3u8'},
