@@ -1,5 +1,5 @@
 
-import Taro, {useCallback, useState} from '@tarojs/taro'
+import Taro, {useCallback, useState,useDidShow} from '@tarojs/taro'
 import { useSelector, useDispatch } from '@tarojs/redux'
 import { View,Text, Video } from '@tarojs/components'
 import TvList from './components/tvList'
@@ -13,6 +13,7 @@ function LiveTv(){
   const [videoId] = useState('video-tv')
   const [hidden,setHidden] = useState(0)
   const [loading,setLoading] = useState('')
+  const [tvBackdrop,setTvBackdrop] = useState('')
   const [tvFull,setTvFull] = useState(false)
 	const [tvMuted,setTvMuted] = useState(0)
 	// const [tvFloating,setTvFloating] = useState([])
@@ -21,6 +22,12 @@ function LiveTv(){
   const {tvList, tvUrl, tvTitle} = livetv
   const dispatch = useDispatch();
 
+
+	// 切换前台
+	useDidShow(() => {
+		console.log('componentDidShow')
+		setHidden(0)
+	})
   // tv change
   const onTvChange = useCallback((params)=>{
     const query = {...params}
@@ -84,6 +91,9 @@ function LiveTv(){
     if(params.type==='error'){
       setLoading('fail') // 视频元数据加载完成
     }
+    if(params.type==='waiting'){
+      setLoading('loading') // 视频缓冲数据
+    }
   },[])
 
   // tv close
@@ -97,7 +107,26 @@ function LiveTv(){
         tvUrl:'',
       }
     })
-  },[videoId,dispatch])
+	},[videoId,dispatch])
+
+	const  onVideoBackDrop = useCallback(()=>{
+		Taro.chooseImage({
+			count: 1, // 默认9
+			sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+			sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有，在H5浏览器端支持使用 `user` 和 `environment`分别指定为前后摄像头
+			success: function (res) {
+				// 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+				const file = res.tempFilePaths
+				const url = file[0]
+				setTvBackdrop(url)
+				Taro.showToast({
+					title: '长按背景图标清除背景',
+					icon: 'none',
+					duration: 1000,
+				})
+			}
+		})
+	},[])
 
 
   // tv floating
@@ -107,8 +136,18 @@ function LiveTv(){
       icon: 'none',
       duration: 1500,
     })
-  },[])
+	},[])
+	
+	const onClearBackDrop = useCallback(()=>{
+		setTvBackdrop('')
+		Taro.showToast({
+      title: '清除成功',
+      icon: 'none',
+      duration: 1000,
+    })
+	},[])
 
+	console.log(tvBackdrop)
 
   return (
     <View className='tv_live'>
@@ -128,26 +167,30 @@ function LiveTv(){
           <Text className='icon icon-close' onClick={onTvClose}></Text>
           <Text className='icon icon-floating' onClick={onTvFloating}></Text>
           <Text className={['icon', tvMuted?'icon-mute':'icon-volume']} onClick={onMutedToggle}></Text>
+          <Text className='icon icon-backdrop' onClick={onVideoBackDrop} onLongPress={onClearBackDrop}></Text>
           <Text className='icon icon-full' onClick={onVideoFull}></Text>
           <Text className={['icon',`icon-${loading}`]} />
         </View>
       </View>
 
-      <View className='tv_video'>
+      <View className='tv_video' style={{background:`#000 url(${tvBackdrop}) no-repeat center`}}>
         <Video
-          src={tvUrl} // 路径
+					src={tvUrl} // 路径
+					
           id={videoId}
           autoplay  // 自动播放
           loop={false}
           showMuteBtn // 显示静音按钮
           pageGesture  // 非全屏允许亮度音量调节
-          initialTime='0'
+					initialTime='0'
+					className={tvBackdrop?'backdrop':''}
           title={tvTitle} // 全屏时展示标题
           muted={tvMuted} // 是否静音播放
           controls={tvFull} // 显示video控制控件
           showPlayBtn={false} // 下方播放按钮
           onClick={onVideoToggle} // 点击控件
-          onError={onVideoWaiting} // 视频加载出错
+					onError={onVideoWaiting} // 视频加载出错
+					onWaiting={onVideoWaiting}
           onLoadedMetaData={onVideoWaiting} // 视频元数据加载完成
           autoPauseIfNavigate // 自动暂停视频
           autoPauseIfOpenNative // 自动暂停视频
