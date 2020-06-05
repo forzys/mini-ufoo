@@ -76,10 +76,20 @@ page{
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   background-color: rgba(0,0,0,0.5);
   color:rgba(255, 255, 255, 0.64);
+
+  .list_scroll{
+    width:100%;
+    height:100%;
+    overflow-anchor:none;
+    &::-webkit-scrollbar{
+      width:0;
+      height:0;
+      display: none;
+    }
+  }
 
   .list_item{
     padding:30px 5px;
@@ -88,12 +98,6 @@ page{
     text-overflow:ellipsis;
     white-space: nowrap;
     border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-
-  &::-webkit-scrollbar{
-    width:0;
-    height:0;
-    display: none;
   }
 }
 

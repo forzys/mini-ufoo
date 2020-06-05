@@ -7,8 +7,6 @@ import './index.less'
 
 
 
-
-
 function LiveTv(){
   const [videoId] = useState('video-tv')
   const [hidden,setHidden] = useState(0)
@@ -22,79 +20,16 @@ function LiveTv(){
   const {tvList, tvUrl, tvTitle} = livetv
   const dispatch = useDispatch();
 
-
 	// 切换前台
 	useDidShow(() => {
 		console.log('componentDidShow')
 		setHidden(0)
 	})
-  // tv change
-  const onTvChange = useCallback((params)=>{
-    const query = {...params}
-    setLoading('loading') // loading
-    dispatch({
-      type:'livetv/updateState',
-      payload:{
-        tvTitle:query.name,
-        tvUrl:query.url,
-      }
-    })
-  },[dispatch])
 
   // title change
   const onTitleChange = useCallback(()=>{
     console.log(tvList)
   },[tvList])
-
-  // video Toggle
-	const onVideoToggle = useCallback(()=>{
-		// console.log(params)
-		const isNumber = typeof hidden === 'number'
-		if(isNumber && Number.isFinite(hidden)){
-      setHidden(1^hidden)
-    }
-  },[hidden])
-
-  // muted Toggle
-  const onMutedToggle = useCallback(()=>{
-    const muted = 1^tvMuted
-    setTvMuted(muted)
-    const title = ['关闭静音','开启静音'][muted]
-
-    Taro.showToast({
-      title: title,
-      icon: 'none',
-      duration: 1000,
-    })
-  },[tvMuted])
-
-  // video full
-  const onVideoFull = useCallback(()=>{
-    if(!tvFull){
-      const video =  Taro.createVideoContext(videoId)
-      video.requestFullScreen() // 请求全屏
-    }
-  },[tvFull,videoId])
-
-  // full change
-  const onFullChange = useCallback((event)=>{
-    const detail = event.detail
-    setTvFull(detail.fullScreen)
-	},[])
-
-  // loading status
-	const onVideoWaiting = useCallback((params)=>{
-    console.log('wating',params)
-    if(params.type==='loadedmetadata'){
-      setLoading('') // 视频元数据加载完成
-    }
-    if(params.type==='error'){
-      setLoading('fail') // 视频元数据加载完成
-    }
-    if(params.type==='waiting'){
-      setLoading('loading') // 视频缓冲数据
-    }
-  },[])
 
   // tv close
   const onTvClose = useCallback(()=>{
@@ -103,31 +38,62 @@ function LiveTv(){
     dispatch({
       type:'livetv/updateState',
       payload:{
-        tvTitle:'',
         tvUrl:'',
+        tvTitle:'',
       }
     })
-	},[videoId,dispatch])
+  },[videoId,dispatch])
 
-	const  onVideoBackDrop = useCallback(()=>{
-		Taro.chooseImage({
-			count: 1, // 默认9
-			sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-			sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有，在H5浏览器端支持使用 `user` 和 `environment`分别指定为前后摄像头
-			success: function (res) {
-				// 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-				const file = res.tempFilePaths
-				const url = file[0]
-				setTvBackdrop(url)
-				Taro.showToast({
-					title: '长按背景图标清除背景',
-					icon: 'none',
-					duration: 1000,
-				})
-			}
-		})
-	},[])
+    // tv change
+    const onTvChange = useCallback((params)=>{
+      const query = {...params}
+      setLoading('loading') // loading
+      dispatch({
+        type:'livetv/updateState',
+        payload:{
+          tvTitle:query.name,
+          tvUrl:query.url,
+        }
+      })
+    },[dispatch])
 
+
+  // loading status
+	const onVideoWaiting = useCallback((params)=>{
+    console.log('status',params.type)
+    if(params.type==='error'){
+      setLoading('fail') // 视频元数据加载完成
+    }
+    if(params.type==='waiting'){
+      setLoading('loading') // 视频缓冲数据
+    }
+    if(params.type==='loadedmetadata'){
+      setLoading('') // 视频元数据加载完成
+    }
+  },[])
+
+  // full change
+  const onFullChange = useCallback((event)=>{
+    const detail = event.detail
+    setTvFull(detail.fullScreen)
+  },[])
+
+  // video full
+  const onVideoFull = useCallback(()=>{
+    if(!tvFull){
+      const video = Taro.createVideoContext(videoId)
+      video.requestFullScreen() // 请求全屏
+    }
+  },[tvFull,videoId])
+
+  // video Toggle
+	const onVideoToggle = useCallback(()=>{
+    if(tvFull){
+      setHidden(0)
+    }else if(Number.isFinite(hidden)){
+      setHidden(1^hidden)
+    }
+  },[hidden,tvFull])
 
   // tv floating
   const onTvFloating = useCallback(()=>{
@@ -137,17 +103,46 @@ function LiveTv(){
       duration: 1500,
     })
 	},[])
-	
+
+  // tv clearbd
 	const onClearBackDrop = useCallback(()=>{
 		setTvBackdrop('')
 		Taro.showToast({
-      title: '清除成功',
+      title: '背景清除成功',
       icon: 'none',
       duration: 1000,
     })
-	},[])
+  },[])
 
-	console.log(tvBackdrop)
+  // muted Toggle
+  const onMutedToggle = useCallback(()=>{
+    const muted = 1^tvMuted
+    const title = ['关闭静音','开启静音'][muted]
+    setTvMuted(muted)
+    Taro.showToast({
+      title: title,
+      icon: 'none',
+      duration: 1000,
+    })
+  },[tvMuted])
+
+  const  onVideoBackDrop = useCallback(()=>{
+		Taro.chooseImage({
+			count: 1, // 默认 9
+			sizeType: ['compressed'], // 可以指定是原图还是压缩图，
+			sourceType: ['album'], // 可以指定来源是相册还是相机，
+			success: function (res) { // 返回选定照片的本地文件路径列表
+				const file = res.tempFilePaths
+				const url = file[0]
+				setTvBackdrop(url)
+				Taro.showToast({
+					title: '长按图标清除背景',
+					icon: 'none',
+					duration: 1500,
+				})
+			}
+		})
+  },[])
 
   return (
     <View className='tv_live'>
@@ -175,22 +170,21 @@ function LiveTv(){
 
       <View className='tv_video' style={{background:`#000 url(${tvBackdrop}) no-repeat center`}}>
         <Video
-					src={tvUrl} // 路径
-					
+          src={tvUrl} // 路径
           id={videoId}
           autoplay  // 自动播放
           loop={false}
           showMuteBtn // 显示静音按钮
           pageGesture  // 非全屏允许亮度音量调节
-					initialTime='0'
-					className={tvBackdrop?'backdrop':''}
+          initialTime='0'
+          className={tvBackdrop?'backdrop':''}
           title={tvTitle} // 全屏时展示标题
           muted={tvMuted} // 是否静音播放
           controls={tvFull} // 显示video控制控件
           showPlayBtn={false} // 下方播放按钮
           onClick={onVideoToggle} // 点击控件
-					onError={onVideoWaiting} // 视频加载出错
-					onWaiting={onVideoWaiting}
+          onError={onVideoWaiting} // 视频加载出错
+          onWaiting={onVideoWaiting}
           onLoadedMetaData={onVideoWaiting} // 视频元数据加载完成
           autoPauseIfNavigate // 自动暂停视频
           autoPauseIfOpenNative // 自动暂停视频
