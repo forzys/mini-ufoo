@@ -4,9 +4,9 @@ import storage from "./common/storage";
 
 class App extends Component {
   componentDidMount() {
-    Taro.getSystemInfo({
+    wx.getSystemInfo({
       success: (e) => {
-        const capsule = Taro.getMenuButtonBoundingClientRect();
+        const capsule = wx.getMenuButtonBoundingClientRect();
         storage.setSessionStorage("custom", capsule);
         storage.setSessionStorage("statusBarH", e.statusBarHeight);
         storage.setSessionStorage(
@@ -20,11 +20,11 @@ class App extends Component {
     });
   }
 
-  componentDidShow() {}
+  componentDidShow() { }
 
-  componentDidHide() {}
+  componentDidHide() { }
 
-  componentDidCatchError() {}
+  componentDidCatchError() { }
 
   // this.props.children 是将要会渲染的页面
   render() {
