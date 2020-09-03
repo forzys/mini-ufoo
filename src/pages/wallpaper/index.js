@@ -5,8 +5,11 @@ import VirtualList from "@tarojs/components/virtual-list";
 import Base64 from "../../common/base64";
 import { useFetchRequest } from "../../common/request";
 
-import "./index.less";
+// 热门 https://service.picasso.adesk.com/v1/vertical/vertical?limit=30&skip=180&adult=false&first=0&order=hot
+// 最新 https://service.picasso.adesk.com/v1/vertical/vertical?limit=30&skip=180&adult=false&first=0&order=new
+// 搜索 https://so.picasso.adesk.com/v1/search/wallpaper/resource/hello?limit=30&skip=0&adult=false&first=0&order=`
 
+import "./index.less";
 export default function IPTV(props) {
   const [play, setPlay] = useState({});
   const [list, setList] = useState([]);

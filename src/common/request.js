@@ -3,14 +3,16 @@ import storage from "./storage";
 import { useRef, useState } from "nervjs";
 
 const useFetchRequest = () => {
+  const requestRef = useRef();
   const [froce, setFroce] = useState(false);
   const [loading, setLoading] = useState(false);
-  const requestRef = useRef();
+
   const fetch = (params) => {
     setLoading(true);
     let keepAlive = null;
-    const { url, header, data, callback, alive = true, keep } = params;
+    const { url } = params;
     const path = API[url] || url;
+    const { header, data, callback, alive = true, keep } = params;
 
     // 缓存判断
     if (alive) {
@@ -22,8 +24,8 @@ const useFetchRequest = () => {
     }
 
     if (keepAlive) {
-      callback && callback(keepAlive, requestRef);
       setLoading(false);
+      callback && callback(keepAlive, requestRef);
     }
 
     if (!keepAlive) {
@@ -33,11 +35,9 @@ const useFetchRequest = () => {
         data: data && { ...data },
         success: (result) => {
           if (alive) {
-            if (keep) {
-              storage.setLocalStorage(path, result, keep);
-            } else {
-              storage.setSessionStorage(path, result);
-            }
+            keep
+              ? storage.setLocalStorage(path, result, keep)
+              : storage.setSessionStorage(path, result);
           }
           callback && callback(result, requestRef);
         },
