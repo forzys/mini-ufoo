@@ -19,7 +19,6 @@ export default function IPTV(props) {
       callback: (res) => {
         console.log(res);
         const content = res.data.data;
-        // const strParse = JSON.parse(content);
         setList(content);
       },
     });
@@ -31,10 +30,6 @@ export default function IPTV(props) {
       poster: params.playLogo,
     });
   }, []);
-
-  const showOnChange = useCallback(() => {
-    show === "hidden" ? setShow("visible") : setShow("hidden");
-  }, [show]);
 
   return (
     <View className="iptv">
