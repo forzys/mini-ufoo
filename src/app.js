@@ -9,6 +9,7 @@ class App extends Component {
         const capsule = wx.getMenuButtonBoundingClientRect();
         storage.setSessionStorage("custom", capsule);
         storage.setSessionStorage("statusBarH", e.statusBarHeight);
+        storage.setSessionStorage("windowH", e.windowHeight);
         storage.setSessionStorage(
           "customBarH",
           capsule.bottom + capsule.top - e.statusBarHeight
@@ -18,13 +19,19 @@ class App extends Component {
         }
       },
     });
+    // 初始化动画 等待调用
+    const _animation = wx.createAnimation({
+      duration: 300,
+      timingFunction: "linear",
+    });
+    storage.setSessionStorage("animation", _animation);
   }
 
-  componentDidShow() { }
+  componentDidShow() {}
 
-  componentDidHide() { }
+  componentDidHide() {}
 
-  componentDidCatchError() { }
+  componentDidCatchError() {}
 
   // this.props.children 是将要会渲染的页面
   render() {

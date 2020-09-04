@@ -1,0 +1,101 @@
+.door-custom {
+  width: 100%;
+  position: relative;
+  .door-bar {
+    top: 0;
+    display: flex;
+    width: 100%;
+    min-height: 0px;
+    position: relative;
+    align-items: center;
+    box-shadow: 0rpx 0rpx 0rpx;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.1);
+    .bar-custom {
+      display: flex;
+      align-items: center;
+    }
+    .back {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      margin: 0 30rpx;
+      font-size: 36rpx;
+    }
+    .content {
+      flex: 1;
+      margin: auto;
+      font-size: 32rpx;
+      cursor: none;
+      pointer-events: none;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .door-lock {
+    width: 100%;
+    height: 90rpx;
+    margin: 10rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1005;
+    bottom: 5rpx;
+    background-color: red;
+    .iconfont {
+      font-size: 38rpx;
+    }
+  }
+
+  .fixed {
+    position: fixed;
+    z-index: 1024;
+    box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1);
+  }
+  .ripple {
+    opacity: 0.85;
+    position: fixed;
+    bottom: 0;
+    z-index: 1003;
+    background-color: rosybrown;
+  }
+  .door-facade {
+    width: 100%;
+    display: flex;
+    bottom: 0;
+    top: 0;
+    padding-bottom: 15rpx;
+    flex-direction: column-reverse;
+    z-index: 1004;
+    .item-list {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      .item {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .animation {
+      animation-name: bounceInDown;
+      animation-duration: 0.45s;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+    }
+  }
+
+  // .open {
+  //   animation: 0.3s linear 0s menuO;
+  //   animation-fill-mode: both;
+  // }
+
+  // .close {
+  //   animation: 0.3s linear 0s menuC;
+  //   animation-fill-mode: both;
+  // }
+}

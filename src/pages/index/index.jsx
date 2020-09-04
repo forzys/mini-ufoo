@@ -1,7 +1,8 @@
 import Nerv, { useEffect, useCallback, useState } from "nervjs";
 import Taro from "@tarojs/taro";
-import { View, Text, Video, Image, Swiper } from "@tarojs/components";
+import { View, Block, Text, Video, Image, Swiper } from "@tarojs/components";
 import SwiperTip from "../../components/SwiperTip";
+import Door from "../../components/CustomDoor";
 import { useFetchRequest } from "../../common/request";
 import "./index.less";
 
@@ -32,12 +33,16 @@ const Index = (props) => {
 
   return (
     <View className="index">
-      <SwiperTip swiperList={[]} duration={100} />
+      {/* <SwiperTip swiperList={[]} duration={100} /> */}
+      <Door
+        isBack
+        bgColor="bg-gradual-blue"
+        renderContent={<Block>今日热点</Block>}
+      />
 
-      <Video className="img" src="" controls={false} />
-      <View onClick={navigateTo} style={{ margin: 100 }}>
+      {/* <View onClick={navigateTo} style={{ color: "red" }}>
         直播测试
-      </View>
+      </View> */}
     </View>
   );
 };
