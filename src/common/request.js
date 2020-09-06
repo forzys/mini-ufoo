@@ -40,8 +40,8 @@ const useFetchRequest = () => {
               : storage.setSessionStorage(path, result);
           }
           callback && callback(result, requestRef);
+          setLoading(false)
         },
-        complete: setLoading.bind(null, false),
       });
     }
   };

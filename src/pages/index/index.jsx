@@ -19,16 +19,16 @@ const Index = (props) => {
   }, []);
 
   useEffect(() => {
-    fetch({
-      url: "bing",
-      callback: (res) => {
-        const list = res.data.images;
-        if (Array.isArray(list)) {
-          const url = list[1].url;
-          setImg(base + url);
-        }
-      },
-    });
+    // fetch({
+    //   url: "bing",
+    //   callback: (res) => {
+    //     const list = res.data.images;
+    //     if (Array.isArray(list)) {
+    //       const url = list[1].url;
+    //       setImg(base + url);
+    //     }
+    //   },
+    // });
   }, []);
 
   return (
@@ -40,9 +40,9 @@ const Index = (props) => {
         renderContent={<Block>今日热点</Block>}
       />
 
-      {/* <View onClick={navigateTo} style={{ color: "red" }}>
+      <View onClick={navigateTo} style={{ color: "red" }}>
         直播测试
-      </View> */}
+      </View>
     </View>
   );
 };

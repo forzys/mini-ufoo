@@ -1,6 +1,6 @@
 import Nerv, { useEffect, useCallback, useState } from "nervjs";
 import Taro from "@tarojs/taro";
-import { View, Text, Video, Image } from "@tarojs/components";
+import { View, Text, Video, Swiper, SwiperItem, Image } from "@tarojs/components";
 import VirtualList from "@tarojs/components/virtual-list";
 import Base64 from "../../common/base64";
 import { useFetchRequest } from "../../common/request";
@@ -9,8 +9,7 @@ import { useFetchRequest } from "../../common/request";
 // 最新 https://service.picasso.adesk.com/v1/vertical/vertical?limit=30&skip=180&adult=false&first=0&order=new
 // 搜索 https://so.picasso.adesk.com/v1/search/wallpaper/resource/hello?limit=30&skip=0&adult=false&first=0&order=`
 
-import "./index.less";
-export default function IPTV(props) {
+export default function WallPaper(props) {
   const [play, setPlay] = useState({});
   const [list, setList] = useState([]);
   const [show, setShow] = useState({});
@@ -18,7 +17,7 @@ export default function IPTV(props) {
 
   useEffect(() => {
     fetch({
-      url: "iptv",
+      url: "wallpaper",
       callback: (res) => {
         console.log(res);
         const content = res.data.data;
