@@ -39,7 +39,6 @@ export default function WallPaper(props) {
   const { loading, fetch } = useFetchRequest();
 
   useEffect(() => {
-    console.log("xxxx");
     fetch({
       url: "wallpaper",
       data: {
