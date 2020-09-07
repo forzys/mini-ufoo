@@ -76,8 +76,8 @@ export default function CustomDoor(props) {
     _isLockOpen = !_isLockOpen;
     _isLockOpen
       ? setTimeout(() => {
-          setIsLockOpen(_isLockOpen);
-        }, 200)
+        setIsLockOpen(_isLockOpen);
+      }, 200)
       : setIsLockOpen(_isLockOpen);
     // setAnimation(_animation);
   }, [isLockOpen, windowH]);
@@ -157,7 +157,7 @@ export default function CustomDoor(props) {
           {isBack && (
             <View
               className="back"
-              onClick={onBackPage}
+              onClick={customBarBackClass && onBackPage}
               style={{ ...backStyle }}
             >
               <Text className={[customBarBackClass]}></Text>

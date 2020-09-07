@@ -1,4 +1,4 @@
-import Nerv, { useEffect, useCallback, useState } from "nervjs";
+import Nerv, { useEffect, useCallback, useState, useRef } from "nervjs";
 import Taro from "@tarojs/taro";
 import {
   View,
@@ -7,9 +7,11 @@ import {
   Swiper,
   SwiperItem,
   Image,
+  ScrollView,
 } from "@tarojs/components";
 import VirtualList from "@tarojs/components/virtual-list";
 import Base64 from "../../common/base64";
+import storage from "../../common/storage";
 import Door from "../../components/CustomDoor";
 import { useFetchRequest } from "../../common/request";
 import "./index.less";
@@ -34,40 +36,68 @@ const list = [
 ];
 
 export default function WallPaper(props) {
+  const imgWall = useRef({})
   const [focus, setFocus] = useState("hot");
+  const [pageH, setPageH] = useState(0);
+  const [customBarH, setCustomBarH] = useState(0);
   const [wallpaper, setWallpaper] = useState([]);
   const { loading, fetch } = useFetchRequest();
 
   useEffect(() => {
-    fetch({
-      url: "wallpaper",
-      data: {
-        first: 0,
-        order: "hot",
-        limit: 30,
-        skip: 180,
-        adult: false,
-      },
-      callback: (res) => {
-        const data = res.data.res;
-        const vertical = data.vertical;
+    const _windowH = storage.getSessionStorage("windowH");
+    const _customBarH = storage.getSessionStorage("customBarH");
+    const _pageH = _windowH - _customBarH
+    setPageH(_pageH)
+    console.log(_pageH)
+  }, [])
 
-        if (Array.isArray(vertical)) {
-          setWallpaper(vertical);
-        }
-      },
-    });
+
+  useEffect(() => {
+    ['hot', 'new'].forEach(item => {
+      fetch({
+        url: "wallpaper",
+        data: {
+          first: 0,
+          order: item,
+          limit: 30,
+          skip: 180,
+          adult: false,
+        },
+        callback: (res) => {
+          const data = res.data.res;
+          const vertical = data.vertical;
+          if (Array.isArray(vertical)) {
+            const list = []
+            for (let i = 1; i < vertical.length; i += 2) {
+              const item = [vertical[i - 1], vertical[i]]
+              list.push(item)
+            }
+            imgWall[item] = list
+            setFocus('hot')
+          }
+        },
+      });
+    })
+
   }, []);
+
+
+  const swiperOnChange = useCallback((e) => {
+    const current = e.detail.current
+    const _key = list[current].key
+    setFocus(_key)
+  }, [])
 
   return (
     <View className="wallpaper">
       <Door
         isBack
         bgColor="bg-gradual-blue"
+        renderBack={<Text style={{ fontSize: 33 }} className="iconfont icon-my"></Text>}
         renderContent={<Block>壁纸</Block>}
       />
 
-      <View className="wall-type">
+      <View className="wall-type" style={{ height: 0.1 * pageH }}>
         <View className="type-name flex">
           {list.map((item) => (
             <View
@@ -81,45 +111,55 @@ export default function WallPaper(props) {
         </View>
       </View>
 
+
+
       <View className="wall-list">
         <Swiper
-          className="paper-list"
           indicatorColor="#999"
           indicatorActiveColor="#333"
           vertical={false}
           circular
           autoplay={false}
-          current={0}
+          style={{ height: 0.9 * pageH }}
+          onChange={swiperOnChange}
         >
-          {list.map((item) => {
-            return (
-              <SwiperItem>
-                <View className="channel">
-                  <VirtualList
-                    height={550} /* 列表的高度 */
-                    width="100%" /* 列表的宽度 */
-                    itemData={wallpaper} /* 渲染列表的数据 */
-                    itemCount={wallpaper.length} /*  渲染列表的长度 */
-                    itemSize={40} /* 列表单项的高度  */
-                    overscanCount={5}
-                  >
-                    {({ index, style, data }) => (
-                      <View style={style}>
-                        <View className="tv-item">
-                          <Image
-                            src={data[index].img}
-                            style="width: 300px;height:400px"
-                          />
-                        </View>
-                      </View>
-                    )}
-                  </VirtualList>
-                </View>
-              </SwiperItem>
-            );
-          })}
+          {
+            list.map(names => {
+              if (['hot', 'new'].includes(names.key)) {
+                return (
+                  <SwiperItem style={{ height: 0.9 * pageH }}>
+                    <ScrollView
+                      scrollY
+                      scrollWithAnimation
+                      style={{ height: 0.9 * pageH }}
+                    >
+                      {
+                        imgWall[names.key] && imgWall[names.key].map((item) => {
+                          return (<View className="row-item" style={{ height: 0.45 * pageH }}>
+                            {
+                              item.map(img => {
+                                return (
+                                  <Image className="item" lazyLoad src={img.img} />
+                                )
+                              })
+                            }
+                          </View>)
+                        })
+                      }
+                    </ScrollView>
+                  </SwiperItem>
+                )
+              }
+
+              return (
+                <SwiperItem>
+                  <View>每日一图</View>
+                </SwiperItem>
+              )
+            })
+          }
         </Swiper>
       </View>
-    </View>
+    </View >
   );
 }
