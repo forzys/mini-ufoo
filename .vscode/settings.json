@@ -1,48 +1,48 @@
-{
-    "workbench.colorCustomizations": {
-        "editorGroupHeader.tabsBackground": "#FFFAE8", // 标题栏未使用的地方
-        "editorLineNumber.foreground": "#9F9371", //代码行号颜色        
-        "editor.lineHighlightBackground": "#E8DFC4", //代码选中高亮颜色
-        "editor.selectionBackground": "#BCD68D",
-        "editor.background": "#FFFAE8",
-        "editorIndentGuide.background": "#cecdc2", //代码对齐线颜色
-        //标题栏颜色设置
-        "titleBar.activeBackground": "#fffef9",
-        "titleBar.inactiveBackground": "#fffef9", //失去焦点时titlebar颜色
-        //活动栏颜色
-        "activityBar.background": "#FFFAE8",
-        "activityBar.activeBorder": "#41A863",
-        //选项卡颜色设置       
-        "tab.activeModifiedBorder": "#41A863",
-        "tab.hoverBackground": "#daeace",
-        "tab.border": "#fffae8",
-        "tab.activeBackground": "#41A863",
-        "tab.activeForeground": "#ffffff",
-        "tab.inactiveBackground": "#fffae8",
-        "tab.inactiveForeground": "#41A863",
-        //侧边栏颜色设置
-        "sideBarSectionHeader.background": "#FFFAE8",
-        "sideBar.background": "#FFFAE8",
-        "sideBarSectionHeader.foreground": "#AB7E05",
-        "sideBar.border": "#d8ca9e",
-        "sideBar.foreground": "#46433c",
-        "sideBarTitle.foreground": "#46433c",
-        //底部状态栏颜色设置
-        "statusBar.background": "#fffdf4",
-        //滚动条颜色
-        "scrollbarSlider.background": "#cfb56a",
-        "scrollbarSlider.hoverBackground": "#cfb56a",
-        "scrollbarSlider.activeBackground": "#cfb56a",
-        //终端窗口面板颜色设置
-        "panel.background": "#fffcf3",
-        "panel.border": "#d8ca9e",
-        //弹出小窗口：选项设置提示窗口，源代码补全窗口
-        "editorWidget.background": "#BCD68D", // 弹出小窗口的背景
-        "editorSuggestWidget.selectedBackground": "#e8dfc4", //代码提示选中行高亮
-        "list.hoverBackground": "#e8dfc4", // 鼠标所在行的颜色
-        "editorWidget.border": "#BCD68D", // 弹出小窗口的边框
-        "list.activeSelectionBackground": "#41A863", //侧边栏选中高亮
-        "list.inactiveSelectionBackground": "#d8ca9e" //侧边栏选中未获得焦点颜色
-    },
-    "editor.fontSize": 15,
-}
+// {
+//     "workbench.colorCustomizations": {
+//         "editorGroupHeader.tabsBackground": "#FFFAE8", // 标题栏未使用的地方
+//         "editorLineNumber.foreground": "#9F9371", //代码行号颜色
+//         "editor.lineHighlightBackground": "#E8DFC4", //代码选中高亮颜色
+//         "editor.selectionBackground": "#BCD68D",
+//         "editor.background": "#FFFAE8",
+//         "editorIndentGuide.background": "#cecdc2", //代码对齐线颜色
+//         //标题栏颜色设置
+//         "titleBar.activeBackground": "#fffef9",
+//         "titleBar.inactiveBackground": "#fffef9", //失去焦点时titlebar颜色
+//         //活动栏颜色
+//         "activityBar.background": "#FFFAE8",
+//         "activityBar.activeBorder": "#41A863",
+//         //选项卡颜色设置
+//         "tab.activeModifiedBorder": "#41A863",
+//         "tab.hoverBackground": "#daeace",
+//         "tab.border": "#fffae8",
+//         "tab.activeBackground": "#41A863",
+//         "tab.activeForeground": "#ffffff",
+//         "tab.inactiveBackground": "#fffae8",
+//         "tab.inactiveForeground": "#41A863",
+//         //侧边栏颜色设置
+//         "sideBarSectionHeader.background": "#FFFAE8",
+//         "sideBar.background": "#FFFAE8",
+//         "sideBarSectionHeader.foreground": "#AB7E05",
+//         "sideBar.border": "#d8ca9e",
+//         "sideBar.foreground": "#46433c",
+//         "sideBarTitle.foreground": "#46433c",
+//         //底部状态栏颜色设置
+//         "statusBar.background": "#fffdf4",
+//         //滚动条颜色
+//         "scrollbarSlider.background": "#cfb56a",
+//         "scrollbarSlider.hoverBackground": "#cfb56a",
+//         "scrollbarSlider.activeBackground": "#cfb56a",
+//         //终端窗口面板颜色设置
+//         "panel.background": "#fffcf3",
+//         "panel.border": "#d8ca9e",
+//         //弹出小窗口：选项设置提示窗口，源代码补全窗口
+//         "editorWidget.background": "#BCD68D", // 弹出小窗口的背景
+//         "editorSuggestWidget.selectedBackground": "#e8dfc4", //代码提示选中行高亮
+//         "list.hoverBackground": "#e8dfc4", // 鼠标所在行的颜色
+//         "editorWidget.border": "#BCD68D", // 弹出小窗口的边框
+//         "list.activeSelectionBackground": "#41A863", //侧边栏选中高亮
+//         "list.inactiveSelectionBackground": "#d8ca9e" //侧边栏选中未获得焦点颜色
+//     },
+//     "editor.fontSize": 15,
+// }

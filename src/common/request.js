@@ -40,7 +40,10 @@ const useFetchRequest = () => {
               : storage.setSessionStorage(path, result);
           }
           callback && callback(result, requestRef);
-          setLoading(false)
+          setLoading(false);
+        },
+        fail: (e) => {
+          console.log(e);
         },
       });
     }

@@ -2,7 +2,6 @@ import { Component } from "nervjs";
 import "./app.less";
 import storage from "./common/storage";
 
-
 class App extends Component {
   componentDidMount() {
     wx.getSystemInfo({
@@ -11,10 +10,8 @@ class App extends Component {
         storage.setSessionStorage("custom", capsule);
         storage.setSessionStorage("statusBarH", e.statusBarHeight);
         storage.setSessionStorage("windowH", e.windowHeight);
-        storage.setSessionStorage(
-          "customBarH",
-          capsule.bottom + capsule.top - e.statusBarHeight
-        );
+        const customBarH = capsule.bottom + capsule.top - e.statusBarHeight;
+        storage.setSessionStorage("customBarH", customBarH);
         if (!capsule) {
           storage.setSessionStorage("customBarH", e.statusBarHeight + 50);
         }
@@ -26,14 +23,13 @@ class App extends Component {
       timingFunction: "linear",
     });
     storage.setSessionStorage("animation", _animation);
-
   }
 
-  componentDidShow() { }
+  componentDidShow() {}
 
-  componentDidHide() { }
+  componentDidHide() {}
 
-  componentDidCatchError() { }
+  componentDidCatchError() {}
 
   // this.props.children 是将要会渲染的页面
   render() {

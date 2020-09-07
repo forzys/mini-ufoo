@@ -60,7 +60,6 @@ page {
   font-size: 28rpx;
   color: var(--black);
   font-family: Helvetica Neue, Helvetica, sans-serif;
-  // font-family: "iconfont";
 }
 
 .item .string {
@@ -100,12 +99,12 @@ page {
 }
 
 .icon-loading:before {
-  content: "\e602"; 
-  display: inline-block; 
+  content: "\e602";
+  display: inline-block;
   font-size: 50px;
-  animation: iconSpin 2s infinite linear; 
+  animation: iconSpin 2s infinite linear;
 }
- 
+
 .icon-backdrop:before {
   content: "\e603";
 }
@@ -162,7 +161,6 @@ page {
   }
 }
 
-
 image {
   max-width: 100%;
   display: inline-block;
@@ -200,18 +198,18 @@ image.loading::after {
   display: block;
 }
 
-@keyframes iconSpin { 
-  0% { 
+@keyframes iconSpin {
+  0% {
     transform: rotate(0deg);
-    color: var(--yellow)
+    color: var(--yellow);
   }
- 
-  50% { 
+
+  50% {
     transform: rotate(180deg);
-    color: var(--orange)
+    color: var(--orange);
   }
-  100% { 
+  100% {
     transform: rotate(359deg);
-    color: var(--yellow)
+    color: var(--yellow);
   }
 }

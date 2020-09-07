@@ -4,7 +4,6 @@ import { View, Text, Video, Image } from "@tarojs/components";
 import VirtualList from "@tarojs/components/virtual-list";
 import Base64 from "../../common/base64";
 import { useFetchRequest } from "../../common/request";
-
 import "./index.less";
 
 export default function IPTV(props) {
