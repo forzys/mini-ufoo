@@ -40,7 +40,7 @@ export default function CustomDoor(props) {
     // 获取配置数据
     fetch({
       url: "menu2",
-      duration: 3600,
+      keep: 3600,
       callback: (res) => {
         console.log(res);
         const str = res.data.content;

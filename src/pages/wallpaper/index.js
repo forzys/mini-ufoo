@@ -20,18 +20,40 @@ import "./index.less";
 // 最新 https://service.picasso.adesk.com/v1/vertical/vertical?limit=30&skip=180&adult=false&first=0&order=new
 // 搜索 https://so.picasso.adesk.com/v1/search/wallpaper/resource/hello?limit=30&skip=0&adult=false&first=0&order=`
 
-const list = [
+const wall = [
   {
     name: "热门",
     key: "hot",
+    index: 1,
+    api: 'wallpaper',
+    data: {
+      first: 0,
+      order: 'hot',
+      limit: 30,
+      skip: 0,
+      adult: false,
+    },
   },
   {
     name: "最新",
     key: "new",
+    index: 1,
+    api: 'wallpaper',
+    data: {
+      first: 0,
+      order: 'new',
+      limit: 30,
+      skip: 0,
+      adult: false,
+    },
   },
   {
     name: "每日一图",
     key: "day",
+    list: [],
+    api: 'bing',
+    data: {},
+    base: "https://cn.bing.com/",
   },
 ];
 
@@ -39,8 +61,6 @@ export default function WallPaper(props) {
   const imgWall = useRef({})
   const [focus, setFocus] = useState("hot");
   const [pageH, setPageH] = useState(0);
-  const [customBarH, setCustomBarH] = useState(0);
-  const [wallpaper, setWallpaper] = useState([]);
   const { loading, fetch } = useFetchRequest();
 
   useEffect(() => {
@@ -48,45 +68,86 @@ export default function WallPaper(props) {
     const _customBarH = storage.getSessionStorage("customBarH");
     const _pageH = _windowH - _customBarH
     setPageH(_pageH)
-    console.log(_pageH)
   }, [])
 
 
   useEffect(() => {
-    ['hot', 'new'].forEach(item => {
+    for (let i = 0; i < wall.length; i += 1) {
+      if (i === 0) {
+        setFocus(wall[i].key)
+      }
       fetch({
-        url: "wallpaper",
-        data: {
-          first: 0,
-          order: item,
-          limit: 30,
-          skip: 180,
-          adult: false,
-        },
+        url: wall[i].api,
+        data: wall[i].data,
         callback: (res) => {
-          const data = res.data.res;
-          const vertical = data.vertical;
-          if (Array.isArray(vertical)) {
-            const list = []
-            for (let i = 1; i < vertical.length; i += 2) {
-              const item = [vertical[i - 1], vertical[i]]
-              list.push(item)
+          if (wall[i].api === 'wallpaper') {
+            const data = res.data.res;
+            const vertical = data.vertical;
+            if (Array.isArray(vertical)) {
+              const list = []
+              for (let j = 1; j < vertical.length; j += 2) {
+                const item = [vertical[j - 1], vertical[j]]
+                list.push(item)
+              }
+              imgWall.current[wall[i].key] = list
             }
-            imgWall[item] = list
-            setFocus('hot')
           }
-        },
-      });
-    })
 
+          if (wall[i].api === 'bing') {
+            const images = res.data.images
+            if (Array.isArray(images)) {
+              const base = wall[i].base
+              const list = images.map(i => ({
+                ...i,
+                img: base + i.url,
+                tag: i.enddate,
+                text: i.copyright,
+              }));
+              imgWall.current[wall[i].key] = list
+            }
+          }
+        }
+      })
+    }
   }, []);
 
 
   const swiperOnChange = useCallback((e) => {
     const current = e.detail.current
-    const _key = list[current].key
-    setFocus(_key)
-  }, [])
+    const _key = wall[current].key
+    if (focus !== _key) {
+      setFocus(_key)
+    }
+  }, [focus])
+
+  const scrollOnLower = useCallback(e => {
+    if (imgWall.current.isLoading) return
+    imgWall.current.isLoading = true
+    const wallItem = wall.find(item => item.key === focus)
+    fetch({
+      url: wallItem.api,
+      alive: false,
+      data: { ...wallItem.data, skip: wallItem.index * wallItem.data.limit },
+      callback: (res) => {
+        wallItem.index = wallItem.index + 1
+        const _list = imgWall.current[wallItem.key]
+        const data = res.data.res;
+        const vertical = data.vertical;
+        if (Array.isArray(vertical)) {
+          const list = []
+          for (let j = 1; j < vertical.length; j += 2) {
+            const item = [vertical[j - 1], vertical[j]]
+            list.push(item)
+          }
+          imgWall.current[wallItem.key] = [..._list, ...list]
+          imgWall.current.isLoading = false
+        }
+      }
+    })
+  }, [focus])
+
+
+  console.log(imgWall.current, imgWall)
 
   return (
     <View className="wallpaper">
@@ -99,9 +160,9 @@ export default function WallPaper(props) {
 
       <View className="wall-type" style={{ height: 0.1 * pageH }}>
         <View className="type-name flex">
-          {list.map((item) => (
+          {wall.map((item) => (
             <View
-              key={item.name}
+              key={item.key}
               onClick={setFocus.bind(null, item.key)}
               className={["name-item flex", item.key === focus ? "focus" : ""]}
             >
@@ -119,22 +180,24 @@ export default function WallPaper(props) {
           indicatorActiveColor="#333"
           vertical={false}
           circular
-          autoplay={false}
+          current={['hot', 'new', 'day'].indexOf(focus)}
           style={{ height: 0.9 * pageH }}
           onChange={swiperOnChange}
         >
           {
-            list.map(names => {
-              if (['hot', 'new'].includes(names.key)) {
+            wall.map(names => {
+              if (names.api === 'wallpaper') {
                 return (
-                  <SwiperItem style={{ height: 0.9 * pageH }}>
+                  <SwiperItem key={names.key} itemId={names.key} style={{ height: 0.9 * pageH }}>
                     <ScrollView
                       scrollY
                       scrollWithAnimation
                       style={{ height: 0.9 * pageH }}
+                      lowerThreshold={0.9 * pageH}
+                      onScrollToLower={scrollOnLower}
                     >
                       {
-                        imgWall[names.key] && imgWall[names.key].map((item) => {
+                        imgWall.current[names.key] && imgWall.current[names.key].map((item) => {
                           return (<View className="row-item" style={{ height: 0.45 * pageH }}>
                             {
                               item.map(img => {
@@ -146,14 +209,36 @@ export default function WallPaper(props) {
                           </View>)
                         })
                       }
+                      <View className="row-item" style={{ height: 0.2 * pageH }}>
+                        <Text className="iconfont icon-loading" />
+                        <Text > 加载中... </Text>
+                      </View>
                     </ScrollView>
                   </SwiperItem>
                 )
               }
 
               return (
-                <SwiperItem>
-                  <View>每日一图</View>
+                <SwiperItem itemId="day">
+                  <ScrollView
+                    scrollY
+                    scrollWithAnimation
+                    style={{ height: 0.9 * pageH }}
+                    lowerThreshold={0.9 * pageH}
+                  >
+                    {
+                      imgWall.current[names.key] && imgWall.current[names.key].map((item) => {
+                        return (
+                          <View className="row-item" style={{ height: 0.35 * pageH }}>
+                            <Image className="item" lazyLoad src={item.img} />
+                          </View>)
+                      })
+                    }
+                    <View className="row-item" style={{ height: 0.2 * pageH }}>
+                      <Text>数据来源必应每日壁纸 bing.com</Text>
+                    </View>
+                  </ScrollView>
+
                 </SwiperItem>
               )
             })
