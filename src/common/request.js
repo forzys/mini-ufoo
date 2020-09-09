@@ -3,7 +3,7 @@ import storage from "./storage";
 import { useRef, useState } from "nervjs";
 
 const useFetchRequest = () => {
-  const requestRef = useRef();
+  const requestRef = useRef({});
   const [froce, setFroce] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -55,7 +55,7 @@ const useFetchRequest = () => {
     }
     setFroce(!froce);
   };
-  return { froce, loading, fetch, updateRef, ...requestRef.current };
+  return { froce, loading, fetch, updateRef, ...requestRef.current, requestRef };
 };
 
 export { useFetchRequest };

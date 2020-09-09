@@ -1,4 +1,4 @@
-import Nerv, { useEffect, useCallback, useState, useRef } from "nervjs";
+import Nerv, { useEffect, useCallback, useMemo, useState, useRef } from "nervjs";
 import Taro from "@tarojs/taro";
 import {
   View,
@@ -58,10 +58,10 @@ const wall = [
 ];
 
 export default function WallPaper(props) {
-  const imgWall = useRef({})
   const [focus, setFocus] = useState("hot");
   const [pageH, setPageH] = useState(0);
-  const { loading, fetch } = useFetchRequest();
+  const imgWall = useFetchRequest();
+  const { fetch, updateRef, requestRef } = imgWall
 
   useEffect(() => {
     const _windowH = storage.getSessionStorage("windowH");
@@ -79,7 +79,7 @@ export default function WallPaper(props) {
       fetch({
         url: wall[i].api,
         data: wall[i].data,
-        callback: (res) => {
+        callback: (res, ref) => {
           if (wall[i].api === 'wallpaper') {
             const data = res.data.res;
             const vertical = data.vertical;
@@ -89,7 +89,8 @@ export default function WallPaper(props) {
                 const item = [vertical[j - 1], vertical[j]]
                 list.push(item)
               }
-              imgWall.current[wall[i].key] = list
+              const name = wall[i].key
+              updateRef({ [name]: list })
             }
           }
 
@@ -101,9 +102,10 @@ export default function WallPaper(props) {
                 ...i,
                 img: base + i.url,
                 tag: i.enddate,
-                text: i.copyright,
+                info: i.copyright,
               }));
-              imgWall.current[wall[i].key] = list
+              const name = wall[i].key
+              updateRef({ [name]: list })
             }
           }
         }
@@ -121,8 +123,8 @@ export default function WallPaper(props) {
   }, [focus])
 
   const scrollOnLower = useCallback(e => {
-    if (imgWall.current.isLoading) return
-    imgWall.current.isLoading = true
+    if (requestRef.current.isLoading) return
+    requestRef.current.isLoading = true
     const wallItem = wall.find(item => item.key === focus)
     fetch({
       url: wallItem.api,
@@ -130,7 +132,7 @@ export default function WallPaper(props) {
       data: { ...wallItem.data, skip: wallItem.index * wallItem.data.limit },
       callback: (res) => {
         wallItem.index = wallItem.index + 1
-        const _list = imgWall.current[wallItem.key]
+        const _list = requestRef.current[wallItem.key]
         const data = res.data.res;
         const vertical = data.vertical;
         if (Array.isArray(vertical)) {
@@ -139,15 +141,13 @@ export default function WallPaper(props) {
             const item = [vertical[j - 1], vertical[j]]
             list.push(item)
           }
-          imgWall.current[wallItem.key] = [..._list, ...list]
-          imgWall.current.isLoading = false
+          updateRef({ [wallItem.key]: [..._list, ...list], isLoading: false })
         }
       }
     })
   }, [focus])
 
-
-  console.log(imgWall.current, imgWall)
+  const wallKeys = useMemo(() => wall.map(i => i.key), [])
 
   return (
     <View className="wallpaper">
@@ -180,7 +180,7 @@ export default function WallPaper(props) {
           indicatorActiveColor="#333"
           vertical={false}
           circular
-          current={['hot', 'new', 'day'].indexOf(focus)}
+          current={wallKeys.indexOf(focus)}
           style={{ height: 0.9 * pageH }}
           onChange={swiperOnChange}
         >
@@ -197,12 +197,12 @@ export default function WallPaper(props) {
                       onScrollToLower={scrollOnLower}
                     >
                       {
-                        imgWall.current[names.key] && imgWall.current[names.key].map((item) => {
+                        imgWall[names.key] && imgWall[names.key].map((item) => {
                           return (<View className="row-item" style={{ height: 0.45 * pageH }}>
                             {
                               item.map(img => {
                                 return (
-                                  <Image className="item" lazyLoad src={img.img} />
+                                  <Image mode="widthFix" className="item" lazyLoad src={img.img} />
                                 )
                               })
                             }
@@ -227,15 +227,23 @@ export default function WallPaper(props) {
                     lowerThreshold={0.9 * pageH}
                   >
                     {
-                      imgWall.current[names.key] && imgWall.current[names.key].map((item) => {
+                      imgWall[names.key] && imgWall[names.key].map((item) => {
+                        var cut = imgWall['tag'] !== item.tag
                         return (
-                          <View className="row-item" style={{ height: 0.35 * pageH }}>
-                            <Image className="item" lazyLoad src={item.img} />
+                          <View className="bing" style={{ height: 0.35 * pageH }}>
+                            <Image className="img" lazyLoad src={item.img} />
+                            <Text className="tag bg-blue flex">{item.tag}</Text>
+                            <View
+                              className="info"
+                              onClick={updateRef.bind(null, { tag: item.tag })}>
+                              <Text className={cut ? 'text-cut' : ''}> {item.info}</Text>
+                            </View>
                           </View>)
                       })
                     }
-                    <View className="row-item" style={{ height: 0.2 * pageH }}>
-                      <Text>数据来源必应每日壁纸 bing.com</Text>
+                    <View className="row-item" style={{ marginBottom: 40 }}>
+                      <Text>必应每日壁纸</Text>
+                      <Text>bing.com</Text>
                     </View>
                   </ScrollView>
 
