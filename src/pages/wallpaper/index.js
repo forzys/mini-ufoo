@@ -61,7 +61,7 @@ export default function WallPaper(props) {
   const [focus, setFocus] = useState("hot");
   const [pageH, setPageH] = useState(0);
   const imgWall = useFetchRequest();
-  const { fetch, updateRef, requestRef } = imgWall
+  const { fetch: imgFetch, updateRef, requestRef } = imgWall
 
   useEffect(() => {
     const _windowH = storage.getSessionStorage("windowH");
@@ -76,7 +76,7 @@ export default function WallPaper(props) {
       if (i === 0) {
         setFocus(wall[i].key)
       }
-      fetch({
+      imgFetch({
         url: wall[i].api,
         data: wall[i].data,
         callback: (res, ref) => {
@@ -126,7 +126,7 @@ export default function WallPaper(props) {
     if (requestRef.current.isLoading) return
     requestRef.current.isLoading = true
     const wallItem = wall.find(item => item.key === focus)
-    fetch({
+    imgFetch({
       url: wallItem.api,
       alive: false,
       data: { ...wallItem.data, skip: wallItem.index * wallItem.data.limit },
