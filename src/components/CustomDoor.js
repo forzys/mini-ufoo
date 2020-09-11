@@ -76,8 +76,8 @@ export default function CustomDoor(props) {
     _isLockOpen = !_isLockOpen;
     _isLockOpen
       ? setTimeout(() => {
-        setIsLockOpen(_isLockOpen);
-      }, 200)
+          setIsLockOpen(_isLockOpen);
+        }, 200)
       : setIsLockOpen(_isLockOpen);
     // setAnimation(_animation);
   }, [isLockOpen, windowH]);
@@ -213,7 +213,7 @@ export default function CustomDoor(props) {
                     </View>
                   );
                 })}
-              {item.type === 2 && (
+              {item.type === 3 && (
                 <Swiper
                   className="banner-list"
                   style={item.style}
