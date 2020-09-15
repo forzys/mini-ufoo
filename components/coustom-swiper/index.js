@@ -28,6 +28,9 @@ Component({
       type: Array,
       value: [],
     },
+    swiperData: {
+      type: Object,
+    },
   },
   data: {
     // 这里是一些组件内部数据
@@ -35,7 +38,7 @@ Component({
   },
   methods: {
     // 这里是一个自定义方法
-    customMethod: function () {},
+    customMethod: function () { },
     onChangeCurrent: function (e) {
       const dataset = e.currentTarget.dataset;
       this.setData({

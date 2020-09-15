@@ -5,13 +5,14 @@ class FetchRequest {
   constructor() {
     this.loading = false;
     this.state = {};
+    this.apis = API;
   }
   useFetchRef(params) {
     for (let k in params) {
       this.state[k] = params[k];
     }
   }
-  fetch() {
+  fetch(params) {
     this.loading = true;
     let keepAlive = null;
     const { url } = params;
@@ -52,11 +53,9 @@ class FetchRequest {
 const useFetchRequest = () => {
   const request = new FetchRequest();
   return {
-    // request,
-    fetch: request.fetch,
-    useFetchRef: request.useFetchRef,
-    loading: request.loading,
-    ...request.state,
+    ...request,
+    fetch: (params) => request.fetch(params),
+    useFetchRef: (params) => request.useFetchRef(params),
   };
 };
 

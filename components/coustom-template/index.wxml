@@ -1,6 +1,22 @@
 <template name="wallpaper_swiper_scroll">
     <block>
-        <slot></slot>
-        <view bindtap="swipertap">wallpaper_swiper_scrolwallpaper_swiper_scrol ces</view>
+        <view bindtap="swipertap">
+            <view wx:if="{{item.key === 'bing'}}">
+                <block wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key">
+                    <view>
+                        <image src="{{paper.img}}" />
+                    </view>
+                </block>
+            </view>
+            <view wx:if="{{item.key !== 'bing'}}">
+                <block wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key">
+                    <view style="display:flex" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
+                        <view style=" flex:1">
+                            <image src="{{paper.img}}" />
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
     </block>
 </template>

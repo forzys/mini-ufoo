@@ -15,7 +15,7 @@
         <swiper model:current="{{current}}" bindchange="onChangeCurrent" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}">
             <block wx:for="{{swiperList}}" wx:key="key">
                 <swiper-item>
-                    <template is="{{templateId}}">
+                    <template is="{{templateId}}" data="{{item,swiperData}}">
                         <slot></slot>
                     </template>
                 </swiper-item>
