@@ -1,0 +1,25 @@
+<!-- import template -->
+<import src="../coustom-template/index.wxml" />
+<!-- swiper -->
+<view class="cu-swiper">
+    <!-- tltle遍历列表 -->
+    <view class="swiper-nav">
+        <block wx:for="{{swiperList}}" wx:key="key">
+            <view class="nav-item {{current === index? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent">
+                <text>{{item[swiperName]}}</text>
+            </view>
+        </block>
+    </view>
+    <!-- list遍历列表 -->
+    <view class="swiper-list">
+        <swiper model:current="{{current}}" bindchange="onChangeCurrent" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}">
+            <block wx:for="{{swiperList}}" wx:key="key">
+                <swiper-item>
+                    <template is="{{templateId}}">
+                        <slot></slot>
+                    </template>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>

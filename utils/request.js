@@ -19,11 +19,9 @@ class FetchRequest {
     const { header, data, callback, alive = true, keep } = params;
     // 缓存判断
     if (alive) {
-      if (keep) {
-        keepAlive = storage.getLocalStorage(path);
-      } else {
-        keepAlive = storage.getSessionStorage(path);
-      }
+      keepAlive = keep
+        ? storage.getLocalStorage(path)
+        : storage.getSessionStorage(path);
     }
     if (keepAlive) {
       this.loading = false;
@@ -53,7 +51,13 @@ class FetchRequest {
 
 const useFetchRequest = () => {
   const request = new FetchRequest();
-  return { request, ...request, ...request.state };
+  return {
+    // request,
+    fetch: request.fetch,
+    useFetchRef: request.useFetchRef,
+    loading: request.loading,
+    ...request.state,
+  };
 };
 
 export { useFetchRequest };

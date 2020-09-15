@@ -1,0 +1,6 @@
+<template name="wallpaper_swiper_scroll">
+    <block>
+        <slot></slot>
+        <view bindtap="swipertap">wallpaper_swiper_scrolwallpaper_swiper_scrol ces</view>
+    </block>
+</template>

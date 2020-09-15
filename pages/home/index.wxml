@@ -1,0 +1,28 @@
+<!-- index.wxml -->
+<!-- <view class="container">
+  <view class="userinfo">
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+    </block>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      获取头像昵称
+    </button>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{nickName}}</text>
+  </view>
+</view> -->
+<view class="container">
+  <view class="userinfo">
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+    </block>
+    <coustom-swiper templateId="wallpaper_swiper_scroll" swiperList="{{[{id:1,name:'2222'},{id:2,name:'asdf'}]}}">
+      <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+      <view>模板传递solt</view>
+    </coustom-swiper>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{nickName}}</text>
+  </view>
+</view>

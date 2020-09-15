@@ -1,7 +1,7 @@
-const { getGlobalInfo } = require('./utils/util')
+const { getGlobalInfo } = require("./utils/util");
 //app.js
 App({
   onLaunch: function () {
-    getGlobalInfo()
-  }
-})
+    getGlobalInfo();
+  },
+});
