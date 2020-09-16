@@ -11,7 +11,7 @@
         </block>
     </view>
     <!-- list遍历列表 -->
-    <view class="swiper-list">
+    <view class="swiper-list" style="height:{{ radio * pageH}}px">
         <swiper class="swiper-bar" model:current="{{current}}" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}" style="height:{{ radio * pageH}}px">
             <block wx:for="{{swiperList}}" wx:key="key">
                 <swiper-item>

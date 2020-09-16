@@ -3,10 +3,11 @@ const storage = require("./storage");
 
 class FetchRequest {
   constructor() {
-    this.loading = false;
-    this.state = {};
     this.apis = API;
+    this.state = {};
+    this.loading = false;
   }
+
   useFetchRef(params) {
     for (let k in params) {
       this.state[k] = params[k];
@@ -36,17 +37,22 @@ class FetchRequest {
     const { url } = params;
     const path = API[url] || url;
     const { header, data, callback, alive = true, keep } = params;
+
+    // 判断逻辑
     let str = this.getParams(data, path);
     // 缓存判断
     if (alive) {
       keepAlive = keep
         ? storage.getLocalStorage(path + str)
         : storage.getSessionStorage(path + str);
+
+      if (keepAlive) {
+        this.loading = false;
+        callback && callback(keepAlive);
+      }
     }
-    if (keepAlive) {
-      this.loading = false;
-      callback && callback(keepAlive);
-    }
+
+    //
     if (!keepAlive) {
       wx.request({
         url: path,

@@ -83,3 +83,56 @@ image {
   padding: 200rpx 0;
   box-sizing: border-box;
 } */
+
+@font-face {
+  font-family: "iconfont"; /* project id 418567 */
+  src: url("//at.alicdn.com/t/font_418567_n5igl3w8ls8.eot");
+  src: url("//at.alicdn.com/t/font_418567_n5igl3w8ls8.eot?#iefix")
+      format("embedded-opentype"),
+    url("//at.alicdn.com/t/font_418567_n5igl3w8ls8.woff2") format("woff2"),
+    url("//at.alicdn.com/t/font_418567_n5igl3w8ls8.woff") format("woff"),
+    url("//at.alicdn.com/t/font_418567_n5igl3w8ls8.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_418567_n5igl3w8ls8.svg#iconfont") format("svg");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: inherit;
+  font-style: normal;
+}
+.icon-loading:before {
+  content: "\e602";
+  display: inline-block;
+  font-size: 50rpx;
+  animation: iconSpin 2s infinite linear;
+}
+.icon-backdrop:before {
+  content: "\e603";
+}
+.icon-collect:before {
+  content: "\e6b7";
+}
+.icon-my:before {
+  content: "\e62b";
+}
+.icon-home:before {
+  content: "\e654";
+}
+@keyframes iconSpin {
+  0% {
+    transform: rotate(0deg);
+    color: var(--yellow);
+  }
+
+  50% {
+    transform: rotate(180deg);
+    color: var(--orange);
+  }
+  100% {
+    transform: rotate(359deg);
+    color: var(--yellow);
+  }
+}
+
+/* .filter {
+  filter: blur(15rpx);
+} */

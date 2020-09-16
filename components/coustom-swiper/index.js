@@ -1,9 +1,10 @@
 const storage = require("../../utils/storage");
 const pageH = storage.getSessionStorage("pageH");
 Component({
-  // options: {
-  //   multipleSlots: false, // 在组件定义时的选项中启用多slot支持
-  // },
+  options: {
+    multipleSlots: false, // 在组件定义时的选项中启用多slot支持
+    styleIsolation: "apply-shared",
+  },
   properties: {
     radio: {
       type: Number,
@@ -49,8 +50,6 @@ Component({
   },
   methods: {
     // 这里是一个自定义方法
-    customMethod: function () {},
-
     onChangeCurrent: function (e) {
       const dataset = e.currentTarget.dataset;
       this.setData({ current: dataset.current });

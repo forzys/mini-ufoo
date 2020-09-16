@@ -11,12 +11,19 @@
                     </view>
                 </view>
             </view>
+            <view class="paper-row">
+                <text style="color:var(--gray)">必应每日壁纸 bing.com</text>
+            </view>
         </block>
         <block wx:if="{{item.key !== 'bing'}}">
             <view wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key" class="paper-row flex" style="height:{{0.5*radio*pageH}}px">
                 <view class="paper-col flex-item" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
                     <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
                 </view>
+            </view>
+            <view class="paper-row flex">
+                <text class="iconfont icon-loading"></text>
+                <text>加载中...</text>
             </view>
         </block>
     </scroll-view>
