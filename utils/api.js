@@ -9,5 +9,5 @@ module.exports = {
   menu: "https://cdn.jsdelivr.net/gh/mforz/dataset@latest/config/menu.json",
   menu2:
     "https://gitee.com/api/v5/repos/mforz/dataset/contents/config/menu.json",
-  novel_cats: "https://api.zhuishushenqi.com/cats/lv2/statistics",
+  webfiction: "https://api.zhuishushenqi.com",
 };

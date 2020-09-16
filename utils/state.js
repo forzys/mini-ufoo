@@ -32,4 +32,23 @@ const wallpaper = [
   },
 ];
 
-module.exports = { wallpaper };
+const webfiction = [
+  {
+    name: '分类',
+    key: 'statistics',
+    url: 'webfiction',
+    data: '/cats/lv2/statistics'
+  },
+  {
+    name: '排行',
+    key: 'gender',
+    url: 'webfiction',
+    data: '/ranking/gender'
+  },
+  {
+    name: '书架',
+    key: 'bookshelf',
+  }
+]
+
+module.exports = { wallpaper, webfiction };

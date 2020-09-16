@@ -36,7 +36,7 @@ class FetchRequest {
     let keepAlive = null;
     const { url } = params;
     const path = API[url] || url;
-    const { header, data, callback, alive = true, keep } = params;
+    const { header, data, join, callback, alive = true, keep } = params;
 
     // 判断逻辑
     let str = this.getParams(data, path);
@@ -55,9 +55,9 @@ class FetchRequest {
     //
     if (!keepAlive) {
       wx.request({
-        url: path,
-        header: header && { ...header },
-        data: data && { ...data },
+        url: path + (join ? data : ''),
+        header: header,
+        data: data,
         success: (result) => {
           if (alive) {
             keep

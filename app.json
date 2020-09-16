@@ -1,5 +1,9 @@
 {
-  "pages": ["pages/home/index", "pages/wallpaper/index"],
+  "pages": [
+    "pages/home/index",
+    "pages/wallpaper/index",
+    "pages/webfiction/index"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
