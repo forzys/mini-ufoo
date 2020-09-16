@@ -3,19 +3,19 @@
 <!-- swiper -->
 <view class="cu-swiper">
     <!-- tltle遍历列表 -->
-    <view class="swiper-nav">
-        <block wx:for="{{swiperList}}" wx:key="key">
-            <view class="nav-item {{current === index? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent">
+    <view class="swiper-nav" style="height:{{ (1-radio) *  pageH}}px">
+        <block wx:for="{{swiperList}}" wx:key="key" wx:for-index="index">
+            <view class="nav-item {{current === index ? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent">
                 <text>{{item[swiperName]}}</text>
             </view>
         </block>
     </view>
     <!-- list遍历列表 -->
     <view class="swiper-list">
-        <swiper model:current="{{current}}" bindchange="onChangeCurrent" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}">
+        <swiper class="swiper-bar" model:current="{{current}}" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}" style="height:{{ radio * pageH}}px">
             <block wx:for="{{swiperList}}" wx:key="key">
                 <swiper-item>
-                    <template is="{{templateId}}" data="{{item,swiperData}}">
+                    <template is="{{templateId}}" data="{{item, swiperData, radio, onScrollLower, pageH}}">
                         <slot></slot>
                     </template>
                 </swiper-item>

@@ -1,5 +1,5 @@
-import API from "./api";
-import storage from "./storage";
+const API = require("./api");
+const storage = require("./storage");
 
 class FetchRequest {
   constructor() {
@@ -59,4 +59,4 @@ const useFetchRequest = () => {
   };
 };
 
-export { useFetchRequest };
+module.exports = { useFetchRequest };

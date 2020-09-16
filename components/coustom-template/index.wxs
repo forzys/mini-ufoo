@@ -1,0 +1,5 @@
+// temp js 模块
+
+module.exports = {
+  pageX: 11,
+};

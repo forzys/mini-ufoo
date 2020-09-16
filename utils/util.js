@@ -1,5 +1,4 @@
-const storage = require("./storage").default;
-
+const storage = require("./storage");
 const formatTime = (date) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -38,11 +37,15 @@ const getGlobalInfo = (callback) => {
   wx.getSystemInfo({
     success: (e) => {
       const capsule = wx.getMenuButtonBoundingClientRect();
-      storage.setSessionStorage("custom", capsule);
-      storage.setSessionStorage("statusBarH", e.statusBarHeight);
-      storage.setSessionStorage("windowH", e.windowHeight);
       const customBarH = capsule.bottom + capsule.top - e.statusBarHeight;
+      const pageH = e.windowHeight - customBarH;
+
+      storage.setSessionStorage("pageH", pageH);
+      storage.setSessionStorage("custom", capsule);
+      storage.setSessionStorage("windowH", e.windowHeight);
       storage.setSessionStorage("customBarH", customBarH);
+      storage.setSessionStorage("statusBarH", e.statusBarHeight);
+
       if (!capsule) {
         storage.setSessionStorage("customBarH", e.statusBarHeight + 50);
       }

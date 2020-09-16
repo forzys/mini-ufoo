@@ -1,22 +1,23 @@
+<wxs src="./index.wxs" module="temp" />
 <template name="wallpaper_swiper_scroll">
-    <block>
-        <view bindtap="swipertap">
-            <view wx:if="{{item.key === 'bing'}}">
-                <block wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key">
-                    <view>
-                        <image src="{{paper.img}}" />
+    <scroll-view scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="onScrollLower">
+        <block wx:if="{{item.key === 'bing'}}">
+            <view wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key" class="paper-row flex" style="height:30vh">
+                <view class="paper-col">
+                    <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
+                    <text class="text-tag">{{paper.tag}}</text>
+                    <view class="text-shadow">
+                        <text class="text-cut"></text>
                     </view>
-                </block>
+                </view>
             </view>
-            <view wx:if="{{item.key !== 'bing'}}">
-                <block wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key">
-                    <view style="display:flex" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
-                        <view style=" flex:1">
-                            <image src="{{paper.img}}" />
-                        </view>
-                    </view>
-                </block>
+        </block>
+        <block wx:if="{{item.key !== 'bing'}}">
+            <view wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key" class="paper-row flex" style="height:{{0.5*radio*pageH}}px">
+                <view class="paper-col flex-item" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
+                    <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
+                </view>
             </view>
-        </view>
-    </block>
+        </block>
+    </scroll-view>
 </template>

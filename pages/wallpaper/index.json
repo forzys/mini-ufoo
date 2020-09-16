@@ -2,5 +2,6 @@
   "usingComponents": {
     "coustom-swiper": "../../../components/coustom-swiper",
     "render-template": "../../../components/coustom-scroll"
-  }
+  },
+  "disableScroll": true
 }
