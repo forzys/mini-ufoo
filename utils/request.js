@@ -12,17 +12,36 @@ class FetchRequest {
       this.state[k] = params[k];
     }
   }
+
+  getParams(data, path) {
+    let str = "";
+    if (typeof data === "object") {
+      const keys = Object.keys(data);
+      if (keys.length) {
+        const paramsList = keys.map((key) => `${key}=${data[key]}`);
+        const dots = path.includes("?") ? "&" : "?";
+        str = dots + paramsList.join("&");
+      }
+    }
+    if (typeof data === "string") {
+      const dots = path.includes("?") ? "&" : "?";
+      str = dots + data;
+    }
+    return str;
+  }
+
   fetch(params) {
     this.loading = true;
     let keepAlive = null;
     const { url } = params;
     const path = API[url] || url;
     const { header, data, callback, alive = true, keep } = params;
+    let str = this.getParams(data, path);
     // 缓存判断
     if (alive) {
       keepAlive = keep
-        ? storage.getLocalStorage(path)
-        : storage.getSessionStorage(path);
+        ? storage.getLocalStorage(path + str)
+        : storage.getSessionStorage(path + str);
     }
     if (keepAlive) {
       this.loading = false;
@@ -36,8 +55,8 @@ class FetchRequest {
         success: (result) => {
           if (alive) {
             keep
-              ? storage.setLocalStorage(path, result, keep)
-              : storage.setSessionStorage(path, result);
+              ? storage.setLocalStorage(path + str, result, keep)
+              : storage.setSessionStorage(path + str, result);
           }
           callback && callback(result);
           this.loading = false;

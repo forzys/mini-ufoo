@@ -1,0 +1,38 @@
+.nav-bar {
+  width: 100%;
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.nav-content {
+  top: 0;
+  min-height: 0px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  box-shadow: 0rpx 0rpx 0rpx;
+  z-index: 9999;
+}
+.content-bar {
+  display: flex;
+  align-items: center;
+}
+.back {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+  font-size: 36rpx;
+}
+.content {
+  flex: 1;
+  margin: auto;
+  font-size: 32rpx;
+  cursor: none;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

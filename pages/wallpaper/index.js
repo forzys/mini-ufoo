@@ -45,7 +45,8 @@ Page({
   // 处理 逻辑
   setPaperList(list, key) {
     const data = this.data;
-    const init = data.initState;
+    const initState = data.initState;
+    const papers = {};
     if (!Array.isArray(list)) {
       return;
     }
@@ -58,11 +59,11 @@ Page({
         picasso.push(item);
       }
       //  数组合并
-      if (Array.isArray(init[key])) {
-        temp_list = init[key];
+      if (Array.isArray(initState[key])) {
+        temp_list = initState[key];
       }
-      init[key] = [...temp_list, ...picasso];
-      this.setData({ initState: init });
+      papers[key] = [...temp_list, ...picasso];
+      this.setData({ initState: { ...initState, ...papers } });
     }
     if (key === "bing") {
       const bing = list.map((x) => ({
@@ -71,8 +72,8 @@ Page({
         tag: x.enddate,
         info: x.copyright,
       }));
-      init[key] = bing;
-      this.setData({ initState: init });
+      papers[key] = bing;
+      this.setData({ initState: { ...initState, ...papers } });
     }
   },
 });

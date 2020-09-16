@@ -1,0 +1,12 @@
+<view class="nav-bar" style="height:{{config.customBarH}}px">
+    <view class="nav-content fixed" style="height:{{config.customBarH}}px">
+        <view class="content-bar" style="width:{{config.custom.left}}px;padding-top:{{config.statusBarH}}px">
+            <view class="back" bindtap="onBack">
+                <slot name="back"></slot>
+            </view>
+            <view class="content">
+                <slot name="name"></slot>
+            </view>
+        </view>
+    </view>
+</view>

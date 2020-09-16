@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "coustom-swiper": "../../../components/coustom-swiper",
-    "render-template": "../../../components/coustom-scroll"
+    "coustom-navbar": "../../../components/coustom-navbar"
   },
+  "navigationStyle": "custom",
   "disableScroll": true
 }

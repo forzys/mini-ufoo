@@ -13,6 +13,9 @@
   </view>
 </view> -->
 <view class="container">
+  <coustom-navbar>
+    <view slot="name">Welcome</view>
+  </coustom-navbar>
   <view class="userinfo">
     <block>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
