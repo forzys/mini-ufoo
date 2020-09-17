@@ -1,8 +1,9 @@
 .flex {
-  width: 100%;
-  display: flex;
-  align-items: center;
+  display: flex; 
   justify-content: center;
+}
+.flex.center{
+  align-items: center;
 }
 .flex-item {
   flex: 1;
@@ -13,10 +14,31 @@
 .flex > .tag {
   flex: 15%;
 }
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
 .text-cut {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.text-tag{
+  color: var(--red);
+  background-color: var(--redLight);
+	font-size: 20rpx;
+	vertical-align: middle;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 0rpx 12rpx;
+	height: 32rpx;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+  white-space: nowrap; 
+  border-radius: 5000rpx;
 }
 .focus {
   font-size: 16px;
@@ -47,3 +69,4 @@
   left: auto;
   transform: rotate(3deg);
 }
+
