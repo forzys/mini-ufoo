@@ -46,6 +46,14 @@ Page({
   setWallImgList(imglist, key) {
     const { initState } = this.data;
     const papers = { ...initState };
+    key === "bing" &&
+      (papers[key] = imglist.map((x) => ({
+        ...x,
+        tag: x.enddate,
+        info: x.copyright,
+        img: apis.baseBing + x.url,
+      })));
+
     if (key !== "bing") {
       const picasso = [];
       const keylist = papers[key] || [];
@@ -53,16 +61,8 @@ Page({
         picasso.push([imglist[i - 1], imglist[i]]);
       }
       papers[key] = [...keylist, ...picasso];
-      this.setData({ initState: { ...papers } });
     }
-    if (key === "bing") {
-      papers[key] = imglist.map((x) => ({
-        ...x,
-        tag: x.enddate,
-        info: x.copyright,
-        img: apis.baseBing + x.url,
-      }));
-      this.setData({ initState: { ...papers } });
-    }
+
+    this.setData({ initState: { ...papers } });
   },
 });

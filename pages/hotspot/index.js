@@ -26,9 +26,9 @@ Page({
       callback: (res) => {
         let list = [];
         const data = res.data;
-        item.key === "baidu" && (list = data.result.topwords);
-        item.key === "weibo" && (list = data.data.data.data);
         item.key === "zhihu" && (list = data.data);
+        item.key === "weibo" && (list = data.data.data.data);
+        item.key === "baidu" && (list = data.result.topwords);
         list && list.length && this.setHotspotList(list, item.key);
       },
     });
@@ -37,26 +37,24 @@ Page({
   setHotspotList(potlist, key) {
     const { initState } = this.data;
     const hots = { ...initState };
-    if (key === "baidu") {
-      hots[key] = potlist.map((i) => ({
+    key === "baidu" &&
+      (hots[key] = potlist.map((i) => ({
         name: i.keyword,
         hot: replaceNumber(i.searches),
-      }));
-    }
-    if (key === "weibo") {
-      hots[key] = potlist.map((i) => ({
+      })));
+    key === "weibo" &&
+      (hots[key] = potlist.map((i) => ({
         name: i.word,
         hot: replaceNumber(i.num),
-      }));
-    }
-    if (key === "zhihu") {
-      hots[key] = potlist.map((i) => ({
+      })));
+    key === "zhihu" &&
+      (hots[key] = potlist.map((i) => ({
         name: i.target.title,
         hot: replaceNumber(i.detail_text, "万热度", "w"),
         target: i.target,
         img: i.children[0] && i.children[0].thumbnail,
-      }));
-    }
+      })));
+
     this.setData({ initState: { ...hots } });
   },
 });
