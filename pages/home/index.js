@@ -17,17 +17,16 @@ Page({
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
-      url: "../webfiction/index",
+      url: "../hotspot/index",
     });
   },
   onLoad: function () {
-    console.log(storage);
     const userInfo = storage.getSessionStorage("userInfo");
     if (userInfo) {
       this.setData({
-        avatarUrl: userInfo.avatarUrl,
-        nickName: userInfo.nickName,
         hasUserInfo: true,
+        nickName: userInfo.nickName,
+        avatarUrl: userInfo.avatarUrl,
       });
     } else if (this.data.canIUse) {
       getGlobalInfo((res) => {

@@ -1,0 +1,15 @@
+/* .hotspot-row + .hotspot-row {
+  margin-top: 30upx;
+} */
+
+.hotspot-row > .hotspot-col {
+  transition: all 0.6s ease-in-out 0s;
+  /* transform: translateX(0upx); */
+}
+
+.hotspot_scroll_bar {
+  border-radius: 10px;
+  /* border: 1px solid red; */
+  transition: all 0.38s ease-in-out 0s;
+  box-shadow: 0 -1upx 6upx rgba(0, 0, 0, 0.1);
+}

@@ -1,3 +1,28 @@
+/**
+ * 存放 List 数组
+ * 用于 页面 分类
+ * 统一 请求数据
+ */
+
+// hotspot 页面
+const hotspot = [
+  {
+    name: "百度热点",
+    url: "hotspotBaidu",
+    key: "baidu",
+  },
+  {
+    name: "微博热搜",
+    url: "hotspotWeibo",
+    key: "weibo",
+  },
+  {
+    name: "知乎热榜",
+    url: "hotspotZhihu",
+    key: "zhihu",
+  },
+];
+// wallpaper 页面
 const wallpaper = [
   {
     name: "热门",
@@ -31,24 +56,24 @@ const wallpaper = [
     url: "bing",
   },
 ];
-
+// webfiction 页面
 const webfiction = [
   {
-    name: '分类',
-    key: 'statistics',
-    url: 'webfiction',
-    data: '/cats/lv2/statistics'
+    name: "推荐",
+    key: "statistics",
+    url: "pingcc",
+    data: "/cats/lv2/statistics",
   },
   {
-    name: '排行',
-    key: 'gender',
-    url: 'webfiction',
-    data: '/ranking/gender'
+    name: "排行",
+    key: "gender",
+    url: "pingcc",
+    data: "/ranking/gender",
   },
   {
-    name: '书架',
-    key: 'bookshelf',
-  }
-]
+    name: "书架",
+    key: "bookshelf",
+  },
+];
 
-module.exports = { wallpaper, webfiction };
+module.exports = { wallpaper, webfiction, hotspot };

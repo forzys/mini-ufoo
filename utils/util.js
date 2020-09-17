@@ -18,6 +18,20 @@ const formatNumber = (n) => {
   return n[1] ? n : "0" + n;
 };
 
+const replaceNumber = (n, str, word) => {
+  n && (n = n.toString());
+  if (!str && !word) {
+    n.length > 4 && (n = n.substr(0, n.length - 4) + "w");
+  }
+  if (str && !word) {
+    n = n.replace(str, "w");
+  }
+  if (str && word) {
+    n = n.replace(str, word);
+  }
+  return n;
+};
+
 const getGlobalInfo = (callback) => {
   // 获取用户信息
   wx.getSetting({
@@ -39,7 +53,6 @@ const getGlobalInfo = (callback) => {
       const capsule = wx.getMenuButtonBoundingClientRect();
       const customBarH = capsule.bottom + capsule.top - e.statusBarHeight;
       const pageH = e.windowHeight - customBarH;
-
       storage.setSessionStorage("pageH", pageH);
       storage.setSessionStorage("custom", capsule);
       storage.setSessionStorage("windowH", e.windowHeight);
@@ -55,5 +68,6 @@ const getGlobalInfo = (callback) => {
 
 module.exports = {
   formatTime: formatTime,
+  replaceNumber: replaceNumber,
   getGlobalInfo: getGlobalInfo,
 };

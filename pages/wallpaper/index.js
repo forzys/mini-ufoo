@@ -2,7 +2,7 @@
 //获取应用实例
 const { wallpaper } = require("../../utils/state");
 const { useFetchRequest } = require("../../utils/request");
-const { apis, useFetchRef, state, fetch } = useFetchRequest();
+const { apis, useFetchRef, state, fetch: FetchImg } = useFetchRequest();
 
 Page({
   data: {
@@ -27,9 +27,9 @@ Page({
   },
   // 获取数据 更改
   getFetchImg(item) {
-    fetch({
+    FetchImg({
       url: item.url,
-      alive: item.index ? false : true,
+      alive: !item.index,
       data: item.data && { ...item.data, skip: item.index * item.data.limit },
       callback: (res) => {
         let list = [];
@@ -37,43 +37,32 @@ Page({
         item.url === "bing" && (list = data.images);
         item.url === "picasso" && (list = data.res.vertical);
         item.data && (item.index += 1);
-        this.setPaperList(list, item.key);
+        list && list.length && this.setWallImgList(list, item.key);
         useFetchRef({ isLoading: false });
       },
     });
   },
   // 处理 逻辑
-  setPaperList(list, key) {
-    const data = this.data;
-    const initState = data.initState;
-    const papers = {};
-    if (!Array.isArray(list)) {
-      return;
-    }
+  setWallImgList(imglist, key) {
+    const { initState } = this.data;
+    const papers = { ...initState };
     if (key !== "bing") {
       const picasso = [];
-      let temp_list = [];
-      // 两个一组 分类成新数组
-      for (let i = 1; i < list.length; i += 2) {
-        const item = [list[i - 1], list[i]];
-        picasso.push(item);
+      const keylist = papers[key] || [];
+      for (let i = 1; i < imglist.length; i += 2) {
+        picasso.push([imglist[i - 1], imglist[i]]);
       }
-      //  数组合并
-      if (Array.isArray(initState[key])) {
-        temp_list = initState[key];
-      }
-      papers[key] = [...temp_list, ...picasso];
-      this.setData({ initState: { ...initState, ...papers } });
+      papers[key] = [...keylist, ...picasso];
+      this.setData({ initState: { ...papers } });
     }
     if (key === "bing") {
-      const bing = list.map((x) => ({
+      papers[key] = imglist.map((x) => ({
         ...x,
-        img: apis.baseBing + x.url,
         tag: x.enddate,
         info: x.copyright,
+        img: apis.baseBing + x.url,
       }));
-      papers[key] = bing;
-      this.setData({ initState: { ...initState, ...papers } });
+      this.setData({ initState: { ...papers } });
     }
   },
 });

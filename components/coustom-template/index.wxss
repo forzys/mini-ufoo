@@ -1,9 +1,49 @@
 .flex {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .flex-item {
   flex: 1;
+}
+.flex > .name {
+  flex: 85%;
+}
+.flex > .tag {
+  flex: 15%;
+}
+.text-cut {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.focus {
+  font-size: 16px;
+  color: var(--brown);
+}
+.name {
+  padding: 10rpx;
+}
+
+.shadow-warp {
+  position: relative;
+  box-shadow: 0 0 10upx rgba(0, 0, 0, 0.1);
+}
+.shadow-warp:before,
+.shadow-warp:after {
+  position: absolute;
+  content: "";
+  top: 20upx;
+  bottom: 30upx;
+  left: 20upx;
+  width: 50%;
+  box-shadow: 0 30upx 20upx rgba(0, 0, 0, 0.2);
+  transform: rotate(-3deg);
+  z-index: -1;
+}
+.shadow-warp:after {
+  right: 20upx;
+  left: auto;
+  transform: rotate(3deg);
 }

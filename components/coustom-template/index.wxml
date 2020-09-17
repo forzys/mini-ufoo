@@ -1,4 +1,7 @@
 <wxs src="./index.wxs" module="temp" />
+<template name="">
+    <block></block>
+</template>
 <template name="wallpaper_swiper_scroll">
     <scroll-view scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="onScrollLower">
         <block wx:if="{{item.key === 'bing'}}">
@@ -22,6 +25,52 @@
                 </view>
             </view>
             <view class="paper-row flex">
+                <text class="iconfont icon-loading"></text>
+                <text>加载中...</text>
+            </view>
+        </block>
+    </scroll-view>
+</template>
+<template name="hotspot_scroll">
+    <scroll-view scroll-y scroll-with-animation class="hotspot_scroll_bar" style="height:{{radio * pageH }}px">
+        <block wx:if="{{item.key === 'baidu'}}">
+            <view wx:for="{{accordionData[item.key]}}" wx:for-item="baidu" wx:key="key" class="hotspot-row flex">
+                <view class="hotspot-col flex">
+                    <text class="text-cut name">{{baidu.name}}</text>
+                    <text class="text-tag tag">{{baidu.hot}}</text>
+                </view>
+            </view>
+            <view wx:if="{{accordionData[item.key]}}" class="flex">数据来源：baidu</view>
+            <view class="flex" wx:if="{{!accordionData[item.key]}}">
+                <text class="iconfont icon-loading"></text>
+                <text>加载中...</text>
+            </view>
+        </block>
+        <block wx:if="{{item.key === 'weibo'}}">
+            <view wx:for="{{accordionData[item.key]}}" wx:for-item="weibo" wx:key="key" class="hotspot-row flex">
+                <view class="hotspot-col flex">
+                    <text class="text-cut name">{{weibo.name}}</text>
+                    <text class="text-tag tag">{{weibo.hot}}</text>
+                </view>
+            </view>
+            <view wx:if="{{accordionData[item.key]}}" class="flex">数据来源：weibo</view>
+            <view class="flex" wx:if="{{!accordionData[item.key]}}">
+                <text class="iconfont icon-loading"></text>
+                <text>加载中...</text>
+            </view>
+        </block>
+        <block wx:if="{{item.key === 'zhihu'}}">
+            <view wx:for="{{accordionData[item.key]}}" wx:for-item="zhihu" wx:key="key" class="hotspot-row flex">
+                <view class="hotspot-col flex">
+                    <view>
+                        <text class="text-row">{{zhihu.name}}</text>
+                        <text class="text-tag">{{zhihu.hot}}</text>
+                    </view>
+                    <image class="hotspot-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
+                </view>
+            </view>
+            <view wx:if="{{accordionData[item.key]}}" class="flex">数据来源：zhihu</view>
+            <view class="flex" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
             </view>

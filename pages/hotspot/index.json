@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "coustom-navbar": "../../../components/coustom-navbar",
+    "coustom-accordion": "../../../components/coustom-accordion"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

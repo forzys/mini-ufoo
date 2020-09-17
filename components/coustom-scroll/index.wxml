@@ -1,7 +1,0 @@
-<import src="../coustom-template/index.wxml" />
-<view class="cu-scroll" style="width:500px;height:500px;color:red">
-    <!-- tltle遍历列表 -->
-    <scroll-view class="swiper-nav">
-        <template is="{{templateId}}"></template>
-    </scroll-view>
-</view>
