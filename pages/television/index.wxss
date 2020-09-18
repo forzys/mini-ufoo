@@ -1,0 +1,37 @@
+.iptv-video {
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.video-bar {
+  width: auto;
+  height: 80%;
+  margin: 15px;
+  display: flex;
+  position: relative;
+}
+.round {
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.television_scroll_bar {
+  padding-bottom: 30px;
+}
+
+.iptv-row {
+  width: auto;
+  margin: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.iptv-row > .iptv-col {
+  width: 100%;
+  padding-left: 24rpx;
+  transition: all 0.6s ease-in-out 0s;
+}

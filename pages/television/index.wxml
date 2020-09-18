@@ -1,0 +1,11 @@
+<!-- index.wxml -->
+<view class="television">
+    <coustom-navbar>
+        <view slot="name">television</view>
+    </coustom-navbar>
+    <coustom-swiper model:current="{{current}}" radio="{{radio}}" headerClass="flex center" swiperList="{{initList}}" swiperData="{{initList}}" template="television_scroll" bindscrollTap="onScrollTap">
+        <view slot="header" class="video-bar">
+            <video class="iptv-video flex round" autoplay src="{{play}}"></video>
+        </view>
+    </coustom-swiper>
+</view>

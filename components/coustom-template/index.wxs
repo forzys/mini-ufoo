@@ -1,5 +1,14 @@
 // temp js 模块
-
+var wxsFunction = function (event, ownerInstance) {
+  var instance = ownerInstance.selectComponent(".classSelector"); // 返回组件的实例
+  instance.setStyle({
+    "font-size": "14px", // 支持rpx
+  });
+  instance.getDataset();
+  instance.setClass(className);
+  // ...
+  return false; // 不往上冒泡，相当于调用了同时调用了stopPropagation和preventDefault
+};
 module.exports = {
   pageX: 11,
 };

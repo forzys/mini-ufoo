@@ -7,10 +7,10 @@ const { apis, useFetchRef, state, fetch: FetchHotspot } = useFetchRequest();
 
 Page({
   data: {
-    initList: [...hotspot],
-    initState: {},
     radio: 0.7,
     current: 0,
+    initState: {},
+    initList: [...hotspot],
   },
 
   onLoad: function () {
@@ -49,12 +49,11 @@ Page({
       })));
     key === "zhihu" &&
       (hots[key] = potlist.map((i) => ({
-        name: i.target.title,
-        hot: replaceNumber(i.detail_text, "万热度", "w"),
         target: i.target,
+        name: i.target.title,
         img: i.children[0] && i.children[0].thumbnail,
+        hot: replaceNumber(i.detail_text, "万热度", "w"),
       })));
-
     this.setData({ initState: { ...hots } });
   },
 });

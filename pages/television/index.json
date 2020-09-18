@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "coustom-navbar": "../../../components/coustom-navbar",
+    "coustom-swiper": "../../../components/coustom-swiper"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

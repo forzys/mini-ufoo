@@ -1,8 +1,8 @@
 .flex {
-  display: flex; 
+  display: flex;
   justify-content: center;
 }
-.flex.center{
+.flex.center {
   align-items: center;
 }
 .flex-item {
@@ -14,30 +14,30 @@
 .flex > .tag {
   flex: 15%;
 }
-.flex-col{
+.flex-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: space-between;
 }
 .text-cut {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.text-tag{
+.text-tag {
   color: var(--red);
   background-color: var(--redLight);
-	font-size: 20rpx;
-	vertical-align: middle;
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	padding: 0rpx 12rpx;
-	height: 32rpx;
-	font-family: Helvetica Neue, Helvetica, sans-serif;
-  white-space: nowrap; 
+  font-size: 20rpx;
+  vertical-align: middle;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0rpx 12rpx;
+  height: 32rpx;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  white-space: nowrap;
   border-radius: 5000rpx;
 }
 .focus {
@@ -70,3 +70,13 @@
   transform: rotate(3deg);
 }
 
+.text-gray {
+  color: var(--gray);
+}
+.text-orange {
+  color: var(--orange);
+}
+
+.icon-title {
+  font-size: 36rpx;
+}

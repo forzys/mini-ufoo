@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/index",
     "pages/hotspot/index",
+    "pages/television/index",
     "pages/wallpaper/index",
     "pages/webfiction/index"
   ],

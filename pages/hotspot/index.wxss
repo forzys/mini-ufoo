@@ -1,13 +1,16 @@
-.hotspot_scroll_bar{
-  width:100vw;
+.hotspot_scroll_bar {
+  width: 100vw;
+  border-radius: 10px;
+  transition: all 0.38s ease-in-out 0s;
 }
-.hotspot-row   {
-  width:auto;
-  margin:15px; 
+
+.hotspot-row {
+  width: auto;
+  margin: 15px;
   padding-bottom: 15px;
-  border-bottom: 1rpx solid rgba(0, 0, 0, .1);
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
 }
-.hotspot-img{
+.hotspot-img {
   position: relative;
   width: 240rpx;
   height: 6.4em;
@@ -16,11 +19,5 @@
 }
 .hotspot-row > .hotspot-col {
   width: 100%;
-  transition: all 0.6s ease-in-out 0s; 
-}
-
-.hotspot_scroll_bar {
-  border-radius: 10px;
-  /* border: 1px solid red; */
-  transition: all 0.38s ease-in-out 0s;
+  transition: all 0.6s ease-in-out 0s;
 }

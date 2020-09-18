@@ -1,8 +1,14 @@
 <wxs src="./index.wxs" module="temp" />
+<!-- ...
+模板默认 
+... -->
 <template name="">
     <block></block>
 </template>
-<template name="wallpaper_swiper_scroll">
+<!-- ...
+wallpaper 
+... -->
+<template name="wallpaper_scroll">
     <scroll-view scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="onScrollLower">
         <block wx:if="{{item.key === 'bing'}}">
             <view wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key" class="paper-row flex" style="height:30vh">
@@ -31,6 +37,21 @@
         </block>
     </scroll-view>
 </template>
+<!-- ...
+television 
+... -->
+<template name='television_scroll'>
+    <scroll-view scroll-y scroll-with-animation class="television_scroll_bar" style="height:{{radio * pageH }}px">
+        <view wx:for="{{item.list}}" wx:for-item="iptv" wx:key="key" class="iptv-row flex">
+            <view class="iptv-col flex-item" data-params="{{iptv}}" bindtap="onScrollTap">
+                <text>{{iptv.name}}</text>
+            </view>
+        </view>
+    </scroll-view>
+</template>
+<!-- ...
+hotspot
+.. -->
 <template name="hotspot_scroll">
     <scroll-view scroll-y scroll-with-animation class="hotspot_scroll_bar" style="height:{{radio * pageH }}px">
         <block wx:if="{{item.key === 'baidu'}}">
@@ -40,7 +61,9 @@
                     <text class="text-tag tag">{{baidu.hot}}</text>
                 </view>
             </view>
-            <view wx:if="{{accordionData[item.key]}}" class="flex">数据来源：baidu</view>
+            <view wx:if="{{accordionData[item.key]}}" class="flex text-gray">
+                数据来源：{{item.key}}
+            </view>
             <view class="flex" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
@@ -53,7 +76,9 @@
                     <text class="text-tag tag">{{weibo.hot}}</text>
                 </view>
             </view>
-            <view wx:if="{{accordionData[item.key]}}" class="flex">数据来源：weibo</view>
+            <view wx:if="{{accordionData[item.key]}}" class="flex text-gray">
+                数据来源：{{item.key}}
+            </view>
             <view class="flex center" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
@@ -72,7 +97,9 @@
                     <image wx:if="{{zhihu.img}}" class="hotspot-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
                 </view>
             </view>
-            <view wx:if="{{accordionData[item.key]}}" class="flex">数据来源：zhihu</view>
+            <view wx:if="{{accordionData[item.key]}}" class="flex text-gray">
+                数据来源：{{item.key}}
+            </view>
             <view class="flex center" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>

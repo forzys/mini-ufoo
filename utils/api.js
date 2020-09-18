@@ -8,8 +8,7 @@ module.exports = {
     "https://cdn.jsdelivr.net/gh/mforz/dataset@latest/font/fontquan0001.ttf",
 
   // iptv github 手动更新
-  iptv: "https://cdn.jsdelivr.net/gh/mforz/dataset/iptv/index.json",
-
+  iptv: "https://cdn.jsdelivr.net/gh/mforz/dataset/iptv/iptv.json",
   // wallpaper
   picasso: "https://service.picasso.adesk.com/v1/vertical/vertical",
 
@@ -40,3 +39,10 @@ module.exports = {
   hotspotZhihu:
     "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=50&desktop=true",
 };
+
+// plan
+/**
+ * 天气
+ * iptv
+ *
+ */

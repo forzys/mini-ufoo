@@ -4,10 +4,11 @@
     <view class="accordion-list" wx:for="{{accordionList}}" wx:key="key" wx:for-index="index">
         <view class="accordion-name shadow-warp {{current === index ? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent" style="height:{{pageH*((1-radio)/accordionList.length)}}px">
             <view class="title">
-                <text class="icon"></text>
+                <text class="iconfont icon-titles text-orange"></text>
                 <text class="name">{{item.name}}</text>
             </view>
         </view>
+        <!-- template -->
         <view class="accordion-content">
             <template is="{{template}}" data="{{item,accordionData,pageH,radio:current===index?radio:0}}">
                 <slot name="{{item.key}}"></slot>
