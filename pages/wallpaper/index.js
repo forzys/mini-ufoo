@@ -6,10 +6,10 @@ const { apis, useFetchRef, state, fetch: FetchImg } = useFetchRequest();
 
 Page({
   data: {
-    initList: [...wallpaper],
-    initState: {},
     radio: 0.9,
     current: 0,
+    initState: {},
+    initList: [...wallpaper],
   },
   onLoad: function () {
     const { initList } = this.data;

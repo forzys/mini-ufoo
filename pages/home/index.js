@@ -15,9 +15,11 @@ Page({
     canIUse: wx.canIUse("button.open-type.getUserInfo"),
   },
   //事件处理函数
-  bindViewTap: function () {
+  bindViewTap: function (e) {
+    const dataset = e.currentTarget.dataset;
+    const url = dataset.url;
     wx.navigateTo({
-      url: "../hotspot/index",
+      url: `../${url}/index`,
     });
   },
   onLoad: function () {
