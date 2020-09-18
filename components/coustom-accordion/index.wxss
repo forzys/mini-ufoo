@@ -7,23 +7,25 @@
   position: relative;
 }
 
-.accordion-list {
-  box-shadow: 0 -1upx 6upx rgba(0, 0, 0, 0.1);
+.accordion-list { 
   display: block;
   overflow: hidden;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-list:first-child{
+  box-shadow: none;
 }
 
 .accordion-name {
   width: 100%;
-  display: flex;
-  margin: 30upx;
+  display: flex; 
   overflow: hidden;
   font-size: 16px;
-  border-radius: 10upx;
+  border-radius: 10rpx;
   align-items: center;
   transition: all 0.15s ease;
-  background-color: #ffffff;
-  box-shadow: 0 -1upx 6upx rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; 
 }
 
 .focus {
