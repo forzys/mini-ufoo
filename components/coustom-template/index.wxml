@@ -41,8 +41,8 @@ wallpaper
 television 
 ... -->
 <template name='television_scroll'>
-    <scroll-view scroll-y scroll-with-animation class="television_scroll_bar" style="height:{{radio * pageH }}px">
-        <view wx:for="{{item.list}}" wx:for-item="iptv" wx:key="key" class="iptv-row flex">
+    <scroll-view class="television_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
+        <view class="iptv-row flex" wx:for="{{item.list}}" wx:for-item="iptv" wx:key="key">
             <view class="iptv-col flex-item" data-params="{{iptv}}" bindtap="onScrollTap">
                 <text>{{iptv.name}}</text>
             </view>
@@ -57,11 +57,15 @@ hotspot
         <block wx:if="{{item.key === 'baidu'}}">
             <view wx:for="{{accordionData[item.key]}}" wx:for-item="baidu" wx:key="key" class="hotspot-row flex">
                 <view class="hotspot-col flex center">
-                    <text class="text-cut name">{{baidu.name}}</text>
-                    <text class="text-tag tag">{{baidu.hot}}</text>
+                    <view class="action">
+                        <text class="text-cut">{{baidu.name}}</text>
+                    </view>
+                    <view class="tag">
+                        <text class="text-tag">{{baidu.hot}}</text>
+                    </view>
                 </view>
             </view>
-            <view wx:if="{{accordionData[item.key]}}" class="flex text-gray">
+            <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
             <view class="flex" wx:if="{{!accordionData[item.key]}}">
@@ -72,11 +76,15 @@ hotspot
         <block wx:if="{{item.key === 'weibo'}}">
             <view wx:for="{{accordionData[item.key]}}" wx:for-item="weibo" wx:key="key" class="hotspot-row flex">
                 <view class="hotspot-col flex center">
-                    <text class="text-cut name">{{weibo.name}}</text>
-                    <text class="text-tag tag">{{weibo.hot}}</text>
+                    <view class="action">
+                        <text class="text-cut">{{weibo.name}}</text>
+                    </view>
+                    <view class="tag">
+                        <text class="text-tag">{{weibo.hot}}</text>
+                    </view>
                 </view>
             </view>
-            <view wx:if="{{accordionData[item.key]}}" class="flex text-gray">
+            <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
             <view class="flex center" wx:if="{{!accordionData[item.key]}}">
@@ -97,7 +105,7 @@ hotspot
                     <image wx:if="{{zhihu.img}}" class="hotspot-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
                 </view>
             </view>
-            <view wx:if="{{accordionData[item.key]}}" class="flex text-gray">
+            <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
             <view class="flex center" wx:if="{{!accordionData[item.key]}}">

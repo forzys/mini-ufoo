@@ -8,38 +8,20 @@
 .flex-item {
   flex: 1;
 }
-.flex > .name {
+.flex > .action {
   flex: 85%;
 }
 .flex > .tag {
   flex: 15%;
+  text-align: right;
 }
 .flex-col {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.text-cut {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.text-tag {
-  color: var(--red);
-  background-color: var(--redLight);
-  font-size: 20rpx;
-  vertical-align: middle;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0rpx 12rpx;
-  height: 32rpx;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  white-space: nowrap;
-  border-radius: 5000rpx;
-}
+ 
+ 
 .focus {
   font-size: 16px;
   color: var(--brown);
@@ -70,13 +52,110 @@
   transform: rotate(3deg);
 }
 
+
+.icon-title {
+  font-size: 36rpx;
+}
+
+/* 
+  text 
+  文本 
+*/
+
+.text-xs {
+	font-size: 20rpx;
+}
+
+.text-sm {
+	font-size: 24rpx;
+}
+
+.text-df {
+	font-size: 28rpx;
+}
+
+.text-lg {
+	font-size: 32rpx;
+}
+
+.text-xl {
+	font-size: 36rpx;
+}
+
+.text-xxl {
+	font-size: 44rpx;
+}
+
+.text-sl {
+	font-size: 80rpx;
+}
+
+.text-xsl {
+	font-size: 120rpx;
+}
+
+.text-Abc {
+	text-transform: Capitalize;
+}
+
+.text-ABC {
+	text-transform: Uppercase;
+}
+
+.text-abc {
+	text-transform: Lowercase;
+}
+
+.text-price::before {
+	content: "¥";
+	font-size: 80%;
+	margin-right: 4upx;
+}
+
+.text-cut {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-content {
+	line-height: 1.6;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
 .text-gray {
   color: var(--gray);
 }
 .text-orange {
   color: var(--orange);
 }
-
-.icon-title {
-  font-size: 36rpx;
+.text-tag {
+  color: var(--red);
+  background-color: var(--redLight);
+  font-size: 20rpx;
+  vertical-align: middle;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0rpx 12rpx;
+  height: 32rpx;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  white-space: nowrap;
+  border-radius: 5000rpx;
 }
