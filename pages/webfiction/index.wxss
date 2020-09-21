@@ -1,0 +1,19 @@
+.category_scroll_bar,
+.webfiction_scroll_bar{
+    display: inline-block;
+}
+
+.category_scroll_bar{
+    width: 30%;
+}
+ 
+.swiper-bar .swiper-item{
+    display: flex;
+}
+.category-item{
+    margin-top: 15px;
+    text-indent:1em;
+}
+.focus { 
+  color: var(--brown);
+}

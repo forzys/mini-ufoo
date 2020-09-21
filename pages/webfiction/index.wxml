@@ -4,5 +4,13 @@
         <view slot="name">webfication</view>
     </coustom-navbar>
     <!-- 推荐 - 更多 - 书架 -->
-    <coustom-swiper headerClass="paper-col flex center" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" templateId="webfiction_scroll"></coustom-swiper>
+    <coustom-swiper headerClass="page flex center" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" template="webfiction_scroll" bindscrollTap="onScrollTap">
+        <scroll-view slot="content" class="category_scroll_bar" scroll-y style="height:{{radio * pageH }}px">
+            <view class="category-item" wx:for="{{initState.category}}" wx:key="key">
+                <view class="category-name {{category===item.name?'focus':'' }}" data-params="{{item}}" bindtap="onCategoryChange">
+                    {{item.name}}
+                </view>
+            </view>
+        </scroll-view>
+    </coustom-swiper>
 </view>

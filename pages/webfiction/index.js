@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+const storage = require("../../utils/storage");
 const { webfiction } = require("../../utils/state");
 const { useFetchRequest } = require("../../utils/request");
 const { apis, useFetchRef, state, fetch } = useFetchRequest();
@@ -10,20 +11,29 @@ Page({
     initState: {},
     radio: 0.9,
     current: 0,
+    category: '全部',
+    pageH: storage.getSessionStorage("pageH"),
   },
   onLoad: function () {
     const { initList } = this.data;
     const item = initList[0];
     this.getFetchNovel(item);
   },
-  // 滚动到底部 限流获取数据
-  // onScollLower: function (e) {
-  //     if (state.isLoading) return;
-  //     useFetchRef({ isLoading: true });
-  //     const { current, initList } = this.data;
-  //     const item = initList[current];
-  //     this.getFetchNovel(item);
-  // },
+  onScrollTap: function (e) {
+    const { initList } = this.data;
+    const params = e.detail.params
+    const word = params.keyword
+    const item = initList[1];
+    this.getFetchNovel({ ...item, data: { xsname: word } });
+  },
+  onCategoryChange: function (e) {
+    const { initList } = this.data;
+    const dataset = e.currentTarget.dataset
+    const params = dataset.params
+    const item = initList[0];
+    this.setData({ category: params.name })
+    this.getFetchNovel({ ...item, data: params.data });
+  },
   // 获取数据 更改
   getFetchNovel(item) {
     fetch({
@@ -31,17 +41,9 @@ Page({
       join: item.join,
       data: item.data,
       callback: (res) => {
+        console.log(res)
         const data = res.data.result;
         this.setNovelList(item.key, data);
-
-        // console.log(data.topwords);
-        // let list = [];
-        // const data = res.data;
-        // item.url === "bing" && (list = data.images);
-        // item.url === "picasso" && (list = data.res.vertical);
-        // item.data && (item.index += 1);
-        // this.setPaperList(list, item.key);
-        // useFetchRef({ isLoading: false });
       },
     });
   },

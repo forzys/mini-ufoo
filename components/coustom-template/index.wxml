@@ -43,7 +43,7 @@ television
 <template name='television_scroll'>
     <scroll-view class="television_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
         <view class="iptv-row flex" wx:for="{{item.list}}" wx:for-item="iptv" wx:key="key">
-            <view class="iptv-col flex-item" data-params="{{iptv}}" bindtap="onScrollTap">
+            <view class="iptv-col flex-item" data-params="{{iptv}}" bindtap="{{comm.onTapScroll}}">
                 <text>{{iptv.name}}</text>
             </view>
         </view>
@@ -119,9 +119,12 @@ hotspot
  webfiction 
  .. -->
 <template name='webfiction_scroll'>
-    <scroll-view class="television_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
-        <view class="iptv-row flex" wx:for="{{swiperData[item.key]}}" wx:for-item="novel" wx:key="key">
-            <view class="iptv-col flex-item" data-params="{{novel}}" bindtap="onScrollTap">
+    <block>
+        <slot name="content"></slot>
+    </block>
+    <scroll-view class="webfiction_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
+        <view class="category-item flex" wx:for="{{swiperData[item.key]}}" wx:for-item="novel" wx:key="key">
+            <view class="flex-item" data-params="{{novel}}" bindtap="{{comm.onTapScroll}}">
                 <text>{{novel.keyword}}</text>
             </view>
         </view>

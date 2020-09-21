@@ -7,6 +7,10 @@ module.exports = {
   onScrollLower: function (event, instance) {
     instance.triggerEvent("scrollLower", {});
   },
+  onTapScroll: function (event, instance) {
+    var dataset = event.currentTarget.dataset
+    instance.triggerEvent("scrollTap", dataset);
+  },
 };
 
 /**

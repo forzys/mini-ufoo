@@ -68,7 +68,7 @@ const webfiction = [
     name: "更多",
     key: "search",
     url: "pingcc",
-    data: "/ranking/gender",
+    data: { xsname: '' },
   },
   {
     name: "书架",

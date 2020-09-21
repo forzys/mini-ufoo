@@ -19,7 +19,7 @@
 
 .accordion-name {
   width: 100%;
-  display: flex;
+  display: flex; 
   overflow: hidden;
   font-size: 16px;
   border-radius: 10rpx;
