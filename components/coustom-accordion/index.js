@@ -25,5 +25,9 @@ Component({
       const index = current === dataset.current ? -1 : dataset.current;
       this.setData({ current: index });
     },
+
+    onRefreshing: function (e) {
+      console.log("onRefreshing", e);
+    },
   },
 });

@@ -3,7 +3,7 @@
 import storage from "../../utils/storage";
 import { getGlobalInfo } from "../../utils/util";
 const iconURL = "../../static/ufo.png";
-const { useFetchRequest } = require("../../utils/request.js");
+const { useFetchRequest } = require("../../utils/request");
 
 Page({
   data: {

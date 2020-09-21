@@ -18,7 +18,7 @@
         <swiper class="swiper-bar" model:current="{{current}}" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}" style="height:{{ radio * pageH}}px">
             <block wx:for="{{swiperList}}" wx:key="key">
                 <swiper-item>
-                    <template wx:if="{{template}}" is="{{template}}" data="{{item, swiperData, radio, onScrollLower,onScrollTap, pageH}}">
+                    <template wx:if="{{template}}" is="{{template}}" data="{{item,swiperData,radio,onScrollTap, pageH}}">
                         <slot name="content"></slot>
                     </template>
                 </swiper-item>

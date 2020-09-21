@@ -7,7 +7,8 @@
 .hotspot-row {
   width: auto;
   margin: 15px;
-  padding-bottom: 15px;
+  margin-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
 }
 .hotspot-img {

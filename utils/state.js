@@ -59,14 +59,14 @@ const wallpaper = [
 // webfiction 页面
 const webfiction = [
   {
-    name: "推荐",
-    key: "statistics",
-    url: "pingcc",
-    data: "/cats/lv2/statistics",
+    name: "排行",
+    key: "ranking",
+    url: "baidu",
+    data: { b: 533, c: 42 },
   },
   {
-    name: "排行",
-    key: "gender",
+    name: "更多",
+    key: "search",
     url: "pingcc",
     data: "/ranking/gender",
   },

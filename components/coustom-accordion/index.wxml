@@ -3,8 +3,8 @@
     <!-- tltle遍历列表 -->
     <view class="accordion-list" wx:for="{{accordionList}}" wx:key="key" wx:for-index="index">
         <view class="accordion-name shadow-warp {{current === index ? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent" style="height:{{pageH*((1-radio)/accordionList.length)}}px">
-            <view class="title">
-                <text class="iconfont icon-titles text-orange"></text>
+            <view class="title flex center">
+                <text class="iconfont icon-titles text-orange text-xl"></text>
                 <text class="name">{{item.name}}</text>
             </view>
         </view>

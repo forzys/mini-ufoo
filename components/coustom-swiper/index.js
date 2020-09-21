@@ -38,9 +38,9 @@ Component({
   },
   methods: {
     // 这里是一个自定义方法
-    onScrollLower: function (e) {
-      this.triggerEvent("scrollLower", {});
-    },
+    // onScrollLower: function (e) {
+    //   this.triggerEvent("scrollLower", {});
+    // },
     onScrollTap: function (e) {
       const dataset = e.currentTarget.dataset;
       this.triggerEvent("scrollTap", { ...dataset });

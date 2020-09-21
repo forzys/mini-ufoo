@@ -7,5 +7,6 @@
     <view bindtap="bindViewTap" data-url="wallpaper" style="margin:30px">wallpaper</view>
     <view bindtap="bindViewTap" data-url="hotspot" style="margin:30px">hotspot</view>
     <view bindtap="bindViewTap" data-url="television" style="margin:30px">television</view>
+    <view bindtap="bindViewTap" data-url="webfiction" style="margin:30px">webfiction</view>
   </view>
 </view>

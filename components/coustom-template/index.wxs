@@ -1,14 +1,23 @@
 // temp js 模块
-var wxsFunction = function (event, ownerInstance) {
-  var instance = ownerInstance.selectComponent(".classSelector"); // 返回组件的实例
-  instance.setStyle({
-    "font-size": "14px", // 支持rpx
-  });
-  instance.getDataset();
-  instance.setClass(className);
-  // ...
-  return false; // 不往上冒泡，相当于调用了同时调用了stopPropagation和preventDefault
-};
+
 module.exports = {
-  pageX: 11,
+  onRefreshing: function (event, instance) {
+    instance.callMethod("onRefreshing", event);
+  },
+  onScrollLower: function (event, instance) {
+    instance.triggerEvent("scrollLower", {});
+  },
 };
+
+/**
+ *  taobaoke :
+ *  https://www.taofake.com
+ * 将淘宝生成的淘口令转换为链接
+ *  http://www.taofake.com/index/tools/gettkljm.html?tkl=%EF%BF%A5Oy8wc4LjskR%EF%BF%A5
+ * 解析二合一链接e参数,获取二合一链接的优惠券信息
+ * https://www.jianshu.com/p/db4fc94460fe
+ * 阿里妈妈推广券详情查询
+ * https://open.taobao.com/api.htm?spm=a219a.7386797.0.0.40b2669ad0ziJG&source=search&docId=31106&docType=2
+ * 根据宝贝id批量查询优惠券
+ * https://open.taobao.com/api.htm?spm=a219a.7386797.0.0.40b2669ad0ziJG&source=search&docId=28111&docType=2
+ *  */

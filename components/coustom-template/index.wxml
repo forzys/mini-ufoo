@@ -1,4 +1,4 @@
-<wxs src="./index.wxs" module="temp" />
+<wxs src="./index.wxs" module="comm" />
 <!-- ...
 模板默认 
 ... -->
@@ -9,7 +9,7 @@
 wallpaper 
 ... -->
 <template name="wallpaper_scroll">
-    <scroll-view scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="onScrollLower">
+    <scroll-view scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
         <block wx:if="{{item.key === 'bing'}}">
             <view wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key" class="paper-row flex" style="height:30vh">
                 <view class="paper-col">
@@ -80,14 +80,14 @@ hotspot
                         <text class="text-cut">{{weibo.name}}</text>
                     </view>
                     <view class="tag">
-                        <text class="text-tag">{{weibo.hot}}</text>
+                        <text class="text-tag text-sm">{{weibo.hot}}</text>
                     </view>
                 </view>
             </view>
             <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
-            <view class="flex center" wx:if="{{!accordionData[item.key]}}">
+            <view class="flex" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
             </view>
@@ -108,10 +108,22 @@ hotspot
             <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
-            <view class="flex center" wx:if="{{!accordionData[item.key]}}">
+            <view class="flex" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
             </view>
         </block>
+    </scroll-view>
+</template>
+<!-- ..
+ webfiction 
+ .. -->
+<template name='webfiction_scroll'>
+    <scroll-view class="television_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
+        <view class="iptv-row flex" wx:for="{{swiperData[item.key]}}" wx:for-item="novel" wx:key="key">
+            <view class="iptv-col flex-item" data-params="{{novel}}" bindtap="onScrollTap">
+                <text>{{novel.keyword}}</text>
+            </view>
+        </view>
     </scroll-view>
 </template>

@@ -13,9 +13,8 @@ Page({
   },
   onLoad: function () {
     const { initList } = this.data;
-    initList.forEach((item) => {
-      item.url && this.getFetchNovel(item);
-    });
+    const item = initList[0];
+    this.getFetchNovel(item);
   },
   // 滚动到底部 限流获取数据
   // onScollLower: function (e) {
@@ -30,10 +29,12 @@ Page({
     fetch({
       url: item.url,
       join: item.join,
-      // alive: item.index ? false : true,
       data: item.data,
       callback: (res) => {
-        console.log(res);
+        const data = res.data.result;
+        this.setNovelList(item.key, data);
+
+        // console.log(data.topwords);
         // let list = [];
         // const data = res.data;
         // item.url === "bing" && (list = data.images);
@@ -43,5 +44,19 @@ Page({
         // useFetchRef({ isLoading: false });
       },
     });
+  },
+  setNovelList(key, list) {
+    const { initState } = this.data;
+    const novel = { ...initState };
+
+    if (key === "ranking") {
+      novel.category = list.boards.map((i) => ({
+        name: i.boardname,
+        data: { b: i.boardid, c: i.categoryid },
+      }));
+      novel[key] = list.topwords;
+    }
+
+    this.setData({ initState: { ...novel } });
   },
 });

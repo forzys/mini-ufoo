@@ -1,10 +1,8 @@
 <!-- index.wxml -->
 <view class="wall-paper">
     <coustom-navbar>
-        <view slot="name">wallpaper</view>
+        <view slot="name">webfication</view>
     </coustom-navbar>
-    <coustom-swiper bindscrollLower="onScollLower" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" templateId="wallpaper_swiper_scroll">
-        <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
-        <!-- <view>模板传递solt</view> -->
-    </coustom-swiper>
+    <!-- 推荐 - 更多 - 书架 -->
+    <coustom-swiper headerClass="paper-col flex center" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" templateId="webfiction_scroll"></coustom-swiper>
 </view>

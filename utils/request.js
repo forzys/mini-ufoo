@@ -54,6 +54,7 @@ class FetchRequest {
 
     //
     if (!keepAlive) {
+      console.log(path + join, data);
       wx.request({
         url: path + join,
         header: header,
