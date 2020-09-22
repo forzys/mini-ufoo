@@ -11,6 +11,11 @@ module.exports = {
     var dataset = event.currentTarget.dataset
     instance.triggerEvent("scrollTap", dataset);
   },
+  onToTop: function (flag, a) {
+    if (flag) {
+      return 0
+    }
+  }
 };
 
 /**

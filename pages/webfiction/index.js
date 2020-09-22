@@ -27,18 +27,24 @@ Page({
     const item = initList[1];
     const params = e.detail.params;
     const word = params.keyword;
+    this.setFetchLoading(item.key)
     this.getFetchNovel({ ...item, data: { xsname: word } });
     this.setData({ current: 1 });
   },
   // 点击分类 根据 id 查询排行
   onCategoryChange: function (e) {
-    const { initList, initState } = this.data;
+    const { initList } = this.data;
     const item = initList[0];
     const dataset = e.currentTarget.dataset;
     const params = dataset.params;
-    initState[item.key + "Loading"] = true;
-    this.setData({ category: params.name, initState: { ...initState } });
+    this.setFetchLoading(item.key)
+    this.setData({ category: params.name });
     this.getFetchNovel({ ...item, data: params.data });
+  },
+  setFetchLoading(key) {
+    const { initState } = this.data;
+    initState[key + "Loading"] = true;
+    this.setData({ initState: { ...initState } });
   },
   // 获取数据 更改
   getFetchNovel(item) {
