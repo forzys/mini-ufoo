@@ -4,6 +4,11 @@
     <view slot="name">Welcome</view>
   </coustom-navbar>
   <view class="userinfo">
+    <!-- <navigator open-type="navigate" hover-class='none' url="/pages/{{basics}}/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+    </navigator> -->
     <view bindtap="bindViewTap" data-url="wallpaper" style="margin:30px">wallpaper</view>
     <view bindtap="bindViewTap" data-url="hotspot" style="margin:30px">hotspot</view>
     <view bindtap="bindViewTap" data-url="television" style="margin:30px">television</view>

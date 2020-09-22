@@ -1,15 +1,13 @@
-/**
-  flex
-  
-*/
+@import "./comm.wxss";
 
-.flex {
+.flex-row {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .flex.center {
   align-items: center;
+  justify-content: center;
 }
 
 .flex-item {
@@ -29,109 +27,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-/* 
-  text 
-  文本 
-*/
-
-.text-xs {
-  font-size: 20rpx;
-}
-
-.text-sm {
-  font-size: 24rpx;
-}
-
-.text-df {
-  font-size: 28rpx;
-}
-
-.text-lg {
-  font-size: 32rpx;
-}
-
-.text-xl {
-  font-size: 36rpx;
-}
-
-.text-xxl {
-  font-size: 44rpx;
-}
-
-.text-sl {
-  font-size: 80rpx;
-}
-
-.text-xsl {
-  font-size: 120rpx;
-}
-
-.text-Abc {
-  text-transform: Capitalize;
-}
-
-.text-ABC {
-  text-transform: Uppercase;
-}
-
-.text-abc {
-  text-transform: Lowercase;
-}
-
-.text-price::before {
-  content: "¥";
-  font-size: 80%;
-  margin-right: 4upx;
-}
-
-.text-cut {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-content {
-  line-height: 1.6;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-tag {
-  height: 32rpx;
-  padding: 0rpx 12rpx;
-  color: var(--red);
-  font-size: 20rpx;
-  background-color: var(--redLight);
-  position: relative;
-  vertical-align: middle;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  border-radius: 5000rpx;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-}
-.text-gray {
-  color: var(--gray);
-}
-.text-orange {
-  color: var(--orange);
 }
 
 .focus {
@@ -166,4 +61,21 @@
 
 .icon-title {
   font-size: 36rpx;
+}
+
+.cover {
+  position: relative;
+  transition: opacity 0.3s;
+}
+.spin {
+  clear: both;
+  overflow: hidden;
+  opacity: 0.4;
+  user-select: none;
+  pointer-events: none;
+}
+
+.spin:after {
+  opacity: 0.2;
+  pointer-events: auto;
 }

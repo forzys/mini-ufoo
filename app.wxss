@@ -63,26 +63,16 @@ page {
   font-family: Helvetica Neue, Helvetica, sans-serif;
 }
 view,
+image,
+input,
+button,
+label,
+textarea,
 scroll-view,
 swiper,
-button,
-input,
-textarea,
-label,
-navigator,
-image {
+navigator {
   box-sizing: border-box;
 }
-
-/* .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} */
 
 @font-face {
   font-family: "iconfont"; /* project id 418567 */
@@ -98,12 +88,13 @@ image {
   font-family: "iconfont" !important;
   font-size: inherit;
   font-style: normal;
+  position: relative;
 }
 .icon-loading:before {
   content: "\e602";
   display: inline-block;
   font-size: 50rpx;
-  animation: iconSpin 2s infinite linear;
+  animation: icon-spin 2s 0.1s infinite linear;
 }
 .icon-backdrop:before {
   content: "\e603";
@@ -120,12 +111,11 @@ image {
 .icon-titles:before {
   content: "\e661";
 }
-@keyframes iconSpin {
+@keyframes icon-spin {
   0% {
     transform: rotate(0deg);
     color: var(--yellow);
   }
-
   50% {
     transform: rotate(180deg);
     color: var(--orange);
@@ -154,12 +144,12 @@ video {
   pointer-events: none;
 }
 
-.page{
+.page {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;

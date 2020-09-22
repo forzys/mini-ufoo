@@ -1,19 +1,21 @@
-.category_scroll_bar,
-.webfiction_scroll_bar{
-    display: inline-block;
+.category_scroll_bar {
+  width: 30%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.webfiction_scroll_bar {
+  flex: auto;
 }
 
-.category_scroll_bar{
-    width: 30%;
+.category-item {
+  width: 100%;
+  padding-top: 35rpx;
+  text-indent: 1.2em;
+  color: rgba(0, 0, 0, 0.65);
 }
- 
-.swiper-bar .swiper-item{
-    display: flex;
+.category-name {
+  color: var(--grey);
 }
-.category-item{
-    margin-top: 15px;
-    text-indent:1em;
-}
-.focus { 
+.focus {
   color: var(--brown);
 }

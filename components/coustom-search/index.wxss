@@ -1,0 +1,19 @@
+.cu-search {
+  width: 100%;
+  display: flex;
+  transition: all 0.25s ease;
+}
+
+.cu-search .left {
+  transform: translateX(0);
+}
+.cu-search .right {
+  transform: translateX("100%");
+}
+
+.search-bar {
+  width: 100%;
+}
+
+.search-input {
+}

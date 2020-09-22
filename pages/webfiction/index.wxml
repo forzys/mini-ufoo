@@ -5,12 +5,15 @@
     </coustom-navbar>
     <!-- 推荐 - 更多 - 书架 -->
     <coustom-swiper headerClass="page flex center" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" template="webfiction_scroll" bindscrollTap="onScrollTap">
-        <scroll-view slot="content" class="category_scroll_bar" scroll-y style="height:{{radio * pageH }}px">
+        <scroll-view slot="ranking" class="category_scroll_bar" scroll-y style="height:{{radio* pageH }}px">
             <view class="category-item" wx:for="{{initState.category}}" wx:key="key">
                 <view class="category-name {{category===item.name?'focus':'' }}" data-params="{{item}}" bindtap="onCategoryChange">
-                    {{item.name}}
+                    <text>{{item.name}}</text>
                 </view>
             </view>
         </scroll-view>
+        <view slot="search">
+            <coustom-search width="80%"></coustom-search>
+        </view>
     </coustom-swiper>
 </view>

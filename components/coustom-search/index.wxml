@@ -1,0 +1,8 @@
+<view class="cu-search left" style="height:{{pageH}}px">
+    <view class="search-bar">
+        <view class="search-input"></view>
+    </view>
+    <view class="search-bar">
+        <view class="search-input"></view>
+    </view>
+</view>

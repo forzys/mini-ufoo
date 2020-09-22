@@ -9,32 +9,30 @@
 wallpaper 
 ... -->
 <template name="wallpaper_scroll">
-    <scroll-view scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
-        <block wx:if="{{item.key === 'bing'}}">
-            <view wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key" class="paper-row flex" style="height:30vh">
-                <view class="paper-col">
-                    <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
-                    <text class="text-tag">{{paper.tag}}</text>
-                    <view class="text-shadow">
-                        <text class="text-cut"></text>
-                    </view>
+    <scroll-view wx:if="{{item.key === 'bing'}}" scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
+        <view wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key" class="paper-row flex" style="height:30vh">
+            <view class="paper-col">
+                <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
+                <text class="text-tag">{{paper.tag}}</text>
+                <view class="text-shadow">
+                    <text class="text-cut"></text>
                 </view>
             </view>
-            <view class="paper-row">
-                <text style="color:var(--gray)">必应每日壁纸 bing.com</text>
+        </view>
+        <view class="paper-row">
+            <text style="color:var(--gray)">必应每日壁纸 bing.com</text>
+        </view>
+    </scroll-view>
+    <scroll-view wx:if="{{item.key !== 'bing'}}" scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
+        <view wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key" class="paper-row flex" style="height:{{0.5*radio*pageH}}px">
+            <view class="paper-col flex-item" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
+                <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
             </view>
-        </block>
-        <block wx:if="{{item.key !== 'bing'}}">
-            <view wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key" class="paper-row flex" style="height:{{0.5*radio*pageH}}px">
-                <view class="paper-col flex-item" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
-                    <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
-                </view>
-            </view>
-            <view class="paper-row flex center">
-                <text class="iconfont icon-loading"></text>
-                <text>加载中...</text>
-            </view>
-        </block>
+        </view>
+        <view class="paper-row flex center">
+            <text class="iconfont icon-loading"></text>
+            <text>加载中...</text>
+        </view>
     </scroll-view>
 </template>
 <!-- ...
@@ -65,10 +63,10 @@ hotspot
                     </view>
                 </view>
             </view>
-            <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
+            <view class="flex center text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
-            <view class="flex" wx:if="{{!accordionData[item.key]}}">
+            <view class="flex center margin-top" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
             </view>
@@ -84,10 +82,10 @@ hotspot
                     </view>
                 </view>
             </view>
-            <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
+            <view class="flex center text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
-            <view class="flex" wx:if="{{!accordionData[item.key]}}">
+            <view class="flex center margin-top" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
             </view>
@@ -105,10 +103,10 @@ hotspot
                     <image wx:if="{{zhihu.img}}" class="hotspot-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
                 </view>
             </view>
-            <view class="flex text-gray text-sm" wx:if="{{accordionData[item.key]}}">
+            <view class="flex center text-gray text-sm" wx:if="{{accordionData[item.key]}}">
                 数据来源：{{item.key}}
             </view>
-            <view class="flex" wx:if="{{!accordionData[item.key]}}">
+            <view class="flex center margin-top" wx:if="{{!accordionData[item.key]}}">
                 <text class="iconfont icon-loading"></text>
                 <text>加载中...</text>
             </view>
@@ -119,13 +117,12 @@ hotspot
  webfiction 
  .. -->
 <template name='webfiction_scroll'>
-    <block>
-        <slot name="content"></slot>
-    </block>
-    <scroll-view class="webfiction_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
+    <slot name="{{item.key}}"></slot>
+    <scroll-view wx:if="{{item.key==='ranking'}}" class="webfiction_scroll_bar cover {{swiperData[item.key+'Loading']?'spin':''}}" scroll-y scroll-top="{{swiperData[item.key+'Loading']? 0 : ''}}" scroll-with-animation style="height:{{radio * pageH }}px">
+        <view class="cu-load text-left padding-left-xl {{swiperData[item.key+'Loading']?'loading':'over'}}"></view>
         <view class="category-item flex" wx:for="{{swiperData[item.key]}}" wx:for-item="novel" wx:key="key">
             <view class="flex-item" data-params="{{novel}}" bindtap="{{comm.onTapScroll}}">
-                <text>{{novel.keyword}}</text>
+                <text class="text-xl text-cut">{{novel.keyword}}</text>
             </view>
         </view>
     </scroll-view>
