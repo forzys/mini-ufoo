@@ -21,3 +21,11 @@
   border-radius: 8px;
   box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1);
 }
+
+.swiper-nav {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-radius: 12rpx;
+}

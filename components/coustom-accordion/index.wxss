@@ -1,7 +1,6 @@
 @import "../coustom-template/index.wxss";
 
-.cu-accordion,
-.accordion-list {
+.cu-accordion {
   width: 100%;
   height: 100%;
   position: relative;
@@ -10,6 +9,7 @@
 .accordion-list {
   display: block;
   overflow: hidden;
+  position: relative;
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -19,7 +19,7 @@
 
 .accordion-name {
   width: 100%;
-  display: flex; 
+  display: flex;
   overflow: hidden;
   font-size: 16px;
   border-radius: 10rpx;
@@ -34,4 +34,13 @@
 
 .accordion-content {
   width: 100%;
+}
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: top;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  overflow: hidden;
 }

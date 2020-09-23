@@ -5,6 +5,7 @@
         <view class="accordion-name shadow-warp {{current === index ? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent" style="height:{{pageH*((1-radio)/accordionList.length)}}px">
             <view class="title flex center">
                 <text class="iconfont icon-titles text-orange text-xl"></text>
+                <image wx:if="{{item.icon}}" class="icon" src="{{item.icon}}" />
                 <text class="name">{{item.name}}</text>
             </view>
         </view>

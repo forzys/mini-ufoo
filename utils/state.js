@@ -8,16 +8,19 @@
 const hotspot = [
   {
     name: "百度热点",
+    icon: "https://cdn.jsdelivr.net/gh/mforz/dataset/icon/baidu_50x50.png",
     url: "hotspotBaidu",
     key: "baidu",
   },
   {
     name: "微博热搜",
+    icon: "https://cdn.jsdelivr.net/gh/mforz/dataset/icon/weibo_50x50.png",
     url: "hotspotWeibo",
     key: "weibo",
   },
   {
     name: "知乎热榜",
+    icon: "https://cdn.jsdelivr.net/gh/mforz/dataset/icon/zhihu_50x50.png",
     url: "hotspotZhihu",
     key: "zhihu",
   },
@@ -68,7 +71,7 @@ const webfiction = [
     name: "更多",
     key: "search",
     url: "pingcc",
-    data: { xsname: '' },
+    data: { xsname: "" },
   },
   {
     name: "书架",

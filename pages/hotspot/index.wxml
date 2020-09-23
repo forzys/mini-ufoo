@@ -3,7 +3,7 @@
     <coustom-navbar>
         <view slot="name">hotspot</view>
     </coustom-navbar>
-    <coustom-accordion template="hotspot_scroll" model:current="{{current}}" radio="{{radio}}" accordionList="{{initList}}" accordionData="{{initState}}">
+    <coustom-accordion template="hotspot_scroll" model:current="{{current}}" model:radio="{{radio}}" accordionList="{{initList}}" accordionData="{{initState}}">
         <block></block>
     </coustom-accordion>
 </view>

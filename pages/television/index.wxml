@@ -7,8 +7,5 @@
         <view slot="header" class="video-bar">
             <video class="iptv-video flex round" autoplay src="{{play}}"></video>
         </view>
-        <!-- <view slot="content">
-            <view class="cu-load {{initList.length?'over':'loading'}}"></view>
-        </view> -->
     </coustom-swiper>
 </view>

@@ -79,3 +79,19 @@
   opacity: 0.2;
   pointer-events: auto;
 }
+
+.cu-card {
+  display: flex;
+}
+
+.card-img {
+  position: relative;
+  width: 240rpx;
+  height: 6.4em;
+  margin-left: 20rpx;
+  border-radius: 8rpx;
+}
+
+.card-content {
+  width: auto;
+}

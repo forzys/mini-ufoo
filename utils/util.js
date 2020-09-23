@@ -1,4 +1,5 @@
 const storage = require("./storage");
+
 const formatTime = (date) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -64,6 +65,16 @@ const getGlobalInfo = (callback) => {
       }
     },
   });
+};
+
+const debounce = (fn, time) => {
+  let timeout = null;
+  return function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, time);
+  };
 };
 
 module.exports = {

@@ -11,14 +11,14 @@
   padding-bottom: 20px;
   border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
 }
-.hotspot-img {
-  position: relative;
-  width: 240rpx;
-  height: 6.4em;
-  margin-left: 20rpx;
-  border-radius: 6rpx;
-}
+
 .hotspot-row > .hotspot-col {
   width: 100%;
+  color: rgba(0, 0, 0, 0.65);
   transition: all 0.6s ease-in-out 0s;
+}
+
+.accordion-list {
+  width: calc(100vw - 24rpx);
+  margin: 0 auto;
 }

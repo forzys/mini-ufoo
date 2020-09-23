@@ -2,8 +2,22 @@
 <!-- ...
 模板默认 
 ... -->
-<template name="">
-    <block></block>
+<template name="coustom-card">
+    <view class="cu-card">
+        <image src="{{novel.cover}}" mode="aspectFill"></image>
+        <view class="card-content">
+            <view class="card-title">
+                <view class="text-cut">{{novel.name}}</view>
+            </view>
+            <view class="card-content">
+                折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由！
+            </view>
+            <view class="card-tag">
+                <view class="cu-tag bg-red light sm round">正义天使</view>
+                <view class="cu-tag bg-green light sm round">史诗</view>
+            </view>
+        </view>
+    </view>
 </template>
 <!-- ...
 wallpaper 
@@ -74,6 +88,7 @@ hotspot
         <block wx:if="{{item.key === 'weibo'}}">
             <view wx:for="{{accordionData[item.key]}}" wx:for-item="weibo" wx:key="key" class="hotspot-row flex">
                 <view class="hotspot-col flex center">
+                    q
                     <view class="action">
                         <text class="text-cut">{{weibo.name}}</text>
                     </view>
@@ -94,13 +109,12 @@ hotspot
             <view wx:for="{{accordionData[item.key]}}" wx:for-item="zhihu" wx:key="key" class="hotspot-row flex">
                 <view class="hotspot-col flex">
                     <view class="flex-item flex-col">
-                        <!-- <view> </view> -->
                         <view class="text-row">{{zhihu.name}}</view>
                         <view>
                             <text class="text-tag">{{zhihu.hot}}</text>
                         </view>
                     </view>
-                    <image wx:if="{{zhihu.img}}" class="hotspot-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
+                    <image wx:if="{{zhihu.img}}" class="card-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
                 </view>
             </view>
             <view class="flex center text-gray text-sm" wx:if="{{accordionData[item.key]}}">
@@ -127,10 +141,19 @@ hotspot
         </view>
     </scroll-view>
     <scroll-view wx:if="{{item.key==='search'}}" scroll-into-view="{{swiperData[item.key+'Loading']?'novel-search-loading':''}}" class="webfiction_scroll_bar cover {{swiperData[item.key+'Loading']?'spin':''}}" scroll-y style="height:{{radio * pageH }}px">
-        <view id="novel-search-loading" class="cu-load text-left padding-left-xl {{swiperData[item.key+'Loading']?'loading':'over'}}"></view>
+        <view id="novel-search-loading" class="cu-load flex center {{swiperData[item.key+'Loading']?'loading':'over'}}"></view>
         <view class="category-item flex" wx:for="{{swiperData[item.key]}}" wx:for-item="novel" wx:key="key">
-            <view class="flex-item" data-params="{{novel}}" bindtap="{{comm.onNovelTap}}">
-                <text class="text-lg text-cut">{{novel.name}}</text>
+            <view class="search-col flex">
+                <image wx:if="{{novel.cover}}" class="card-img" mode="aspectFill" src="{{novel.cover}}" lazy-load />
+                <view class="flex-col text-cut">
+                    <view class="text-xl">{{novel.name}}</view>
+                    <view class="text-sm">{{novel.num}}</view>
+                    <view class="text-df">{{novel.introduce}}</view>
+                    <view>
+                        <text class="text-sm">{{novel.time}}</text>
+                        <text wx:if="{{novel.tag}}" class="text-tag">{{novel.tag}}</text>
+                    </view>
+                </view>
             </view>
         </view>
     </scroll-view>

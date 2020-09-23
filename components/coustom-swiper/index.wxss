@@ -9,7 +9,6 @@
 
 .swiper-nav {
   position: relative;
-  width: 100%;
   margin: 12px auto;
   overflow: hidden;
 }

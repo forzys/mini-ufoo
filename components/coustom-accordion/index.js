@@ -23,7 +23,8 @@ Component({
       const dataset = e.currentTarget.dataset;
       const current = this.properties.current;
       const index = current === dataset.current ? -1 : dataset.current;
-      this.setData({ current: index });
+      const radio = index === -1 ? 0.6 : 0.7;
+      this.setData({ current: index, radio });
     },
 
     onRefreshing: function (e) {

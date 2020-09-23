@@ -460,7 +460,7 @@
 .text-price::before {
   content: "¥";
   font-size: 80%;
-  margin-right: 4upx;
+  margin-right: 4rpx;
 }
 
 .text-cut {

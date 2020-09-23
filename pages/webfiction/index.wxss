@@ -1,21 +1,28 @@
+.webfiction_scroll_bar {
+  flex: auto;
+  padding-bottom: 30px;
+}
 .category_scroll_bar {
   width: 30%;
   overflow: hidden;
   white-space: nowrap;
-}
-.webfiction_scroll_bar {
-  flex: auto;
+  padding-bottom: 30px;
 }
 
 .category-item {
   width: 100%;
-  padding-top: 35rpx;
+  padding-top: 40rpx;
   text-indent: 1.2em;
   color: rgba(0, 0, 0, 0.65);
 }
 .category-name {
   color: var(--grey);
 }
-.focus {
-  color: var(--brown);
+
+.swiper-nav {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-radius: 12rpx;
 }

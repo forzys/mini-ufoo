@@ -7,11 +7,11 @@ const { apis, useFetchRef, state, fetch: FetchNovel } = useFetchRequest();
 
 Page({
   data: {
-    initState: {},
-    initList: [...webfiction],
     radio: 0.9,
     current: 0,
     category: "全部",
+    initState: {},
+    initList: [...webfiction],
     pageH: storage.getSessionStorage("pageH"),
   },
   onLoad: function () {
@@ -27,7 +27,7 @@ Page({
     const item = initList[1];
     const params = e.detail.params;
     const word = params.keyword;
-    this.setFetchLoading(item.key)
+    this.setFetchLoading(item.key);
     this.getFetchNovel({ ...item, data: { xsname: word } });
     this.setData({ current: 1 });
   },
@@ -37,7 +37,7 @@ Page({
     const item = initList[0];
     const dataset = e.currentTarget.dataset;
     const params = dataset.params;
-    this.setFetchLoading(item.key)
+    this.setFetchLoading(item.key);
     this.setData({ category: params.name });
     this.getFetchNovel({ ...item, data: params.data });
   },

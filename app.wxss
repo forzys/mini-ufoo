@@ -126,9 +126,6 @@ navigator {
   }
 }
 
-/* .filter {
-  filter: blur(15rpx);
-} */
 image {
   max-width: 100%;
   display: inline-block;
