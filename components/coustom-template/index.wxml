@@ -88,7 +88,6 @@ hotspot
         <block wx:if="{{item.key === 'weibo'}}">
             <view wx:for="{{accordionData[item.key]}}" wx:for-item="weibo" wx:key="key" class="hotspot-row flex">
                 <view class="hotspot-col flex center">
-                    q
                     <view class="action">
                         <text class="text-cut">{{weibo.name}}</text>
                     </view>
