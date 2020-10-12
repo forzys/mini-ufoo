@@ -54,7 +54,6 @@ class FetchRequest {
 
     //
     if (!keepAlive) {
-      console.log(path + join, data);
       wx.request({
         url: path + join,
         header: header,
@@ -84,5 +83,4 @@ const useFetchRequest = () => {
     useFetchRef: (params) => request.useFetchRef(params),
   };
 };
-
-module.exports = { useFetchRequest };
+module.exports = useFetchRequest;

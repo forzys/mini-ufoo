@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const { wallpaper } = require("../../utils/state");
-const { useFetchRequest } = require("../../utils/request");
+const useFetchRequest = require("../../utils/request");
 const { apis, useFetchRef, state, fetch: FetchImg } = useFetchRequest();
 
 Page({

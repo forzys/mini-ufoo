@@ -2,7 +2,7 @@
 //获取应用实例
 const { hotspot } = require("../../utils/state");
 const { replaceNumber } = require("../../utils/util");
-const { useFetchRequest } = require("../../utils/request");
+const useFetchRequest = require("../../utils/request");
 const { apis, useFetchRef, state, fetch: FetchHotspot } = useFetchRequest();
 
 Page({

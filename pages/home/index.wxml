@@ -1,17 +1,18 @@
 <!-- index.wxml -->
-<view class="container">
-  <coustom-navbar>
-    <view slot="name">Welcome</view>
-  </coustom-navbar>
-  <view class="userinfo">
-    <!-- <navigator open-type="navigate" hover-class='none' url="/pages/{{basics}}/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
-      <view class="nav-title">{{item.title}}</view>
-      <view class="nav-name">{{item.name}}</view>
-      <text class='cuIcon-{{item.icon}}'></text>
-    </navigator> -->
-    <view bindtap="bindViewTap" data-url="wallpaper" style="margin:30px">wallpaper</view>
-    <view bindtap="bindViewTap" data-url="hotspot" style="margin:30px">hotspot</view>
-    <view bindtap="bindViewTap" data-url="television" style="margin:30px">television</view>
-    <view bindtap="bindViewTap" data-url="webfiction" style="margin:30px">webfiction</view>
+<view class="container" style="background:url({{backgroundUrl}})">
+  <view class="header">
+    <view>跳过</view>
+    <view>不再提示</view>
+  </view>
+  <view class="main">
+    <view>UFOO</view>
+    <view>探索未知</view>
+  </view>
+  <view class="footer">
+    <view>{{sentenceZhTxt}}</view>
+    <view>
+      <view>{{sentenceEnCon}}</view>
+      <view>{{sentenceEnTxt}}</view>
+    </view>
   </view>
 </view>
