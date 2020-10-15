@@ -1,18 +1,18 @@
 <!-- index.wxml -->
-<view class="container" style="background:url({{backgroundUrl}})">
+<view class="container daily" style="background:url({{backgroundUrl}})">
   <view class="header">
     <view>跳过</view>
     <view>不再提示</view>
   </view>
   <view class="main">
     <view>UFOO</view>
-    <view>探索未知</view>
+    <view bindtap="bindViewTap" data-url="tomap">探索未知</view>
   </view>
   <view class="footer">
-    <view>{{sentenceZhTxt}}</view>
+    <view class="daily">{{sentenceZhTxt}}</view>
     <view>
-      <view>{{sentenceEnCon}}</view>
-      <view>{{sentenceEnTxt}}</view>
+      <view class="daily">{{sentenceEnCon}}</view>
+      <view class="daily">{{sentenceEnTxt}}</view>
     </view>
   </view>
 </view>

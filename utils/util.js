@@ -54,8 +54,10 @@ const getGlobalInfo = (callback) => {
       const capsule = wx.getMenuButtonBoundingClientRect();
       const customBarH = capsule.bottom + capsule.top - e.statusBarHeight;
       const pageH = e.windowHeight - customBarH;
+
       storage.setSessionStorage("pageH", pageH);
       storage.setSessionStorage("custom", capsule);
+      storage.setSessionStorage("windowW", e.windowWidth);
       storage.setSessionStorage("windowH", e.windowHeight);
       storage.setSessionStorage("customBarH", customBarH);
       storage.setSessionStorage("statusBarH", e.statusBarHeight);

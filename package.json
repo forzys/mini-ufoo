@@ -1,0 +1,20 @@
+{
+  "name": "mini-ufoo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node server/app.js",
+  "scripts": {
+    "start":"node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mforz/mini-ufoo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mforz/mini-ufoo/issues"
+  },
+  "homepage": "https://github.com/mforz/mini-ufoo#readme"
+}

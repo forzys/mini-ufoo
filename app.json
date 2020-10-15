@@ -1,11 +1,18 @@
 {
   "pages": [
+    "pages/tomap/index",
     "pages/home/index",
     "pages/hotspot/index",
     "pages/television/index",
     "pages/wallpaper/index",
     "pages/webfiction/index"
+  
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

@@ -22,6 +22,7 @@ Page({
     });
   },
   onLoad: function () {
+    // const all = storage.getSessionStorage()
     FetchImg({
       url: "http://192.168.2.251:8080/wallBing",
       data: { format: "js", n: 1 },
@@ -40,7 +41,7 @@ Page({
         const data = res.data;
         const note = data && data.note;
         const content = data && data.content;
-        this.setData({ sentenceEnTxt: content, sentenceEnCon: note });
+        this.setData({ sentenceEnCon: content, sentenceEnTxt: note });
       },
     });
     FetchImg({

@@ -8,14 +8,14 @@ module.exports = {
     instance.triggerEvent("scrollLower", {});
   },
   onTapScroll: function (event, instance) {
-    var dataset = event.currentTarget.dataset
+    var dataset = event.currentTarget.dataset;
     instance.triggerEvent("scrollTap", dataset);
   },
   onToTop: function (flag, a) {
     if (flag) {
-      return 0
+      return 0;
     }
-  }
+  },
 };
 
 /**
