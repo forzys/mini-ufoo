@@ -1,6 +1,7 @@
 <!-- index.wxml -->
 <view class="wall-paper">
     <coustom-navbar>
+        <view slot="back" class="css-icon icon-arrow-left"></view>
         <view slot="name">wallpaper</view>
     </coustom-navbar>
     <coustom-swiper bindscrollLower="onScollLower" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" headerClass="flex center" template="wallpaper_scroll">

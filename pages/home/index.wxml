@@ -6,7 +6,10 @@
   </view>
   <view class="main">
     <view>UFOO</view>
-    <view bindtap="bindViewTap" data-url="tomap">探索未知</view>
+    <view bindtap="bindViewTap" data-url="hotspot"> 热点 </view>
+    <view bindtap="bindViewTap" data-url="television">电视 </view>
+    <view bindtap="bindViewTap" data-url="wallpaper"> 壁纸 </view>
+    <view bindtap="bindViewTap" data-url="webfiction"> 书籍 </view>
   </view>
   <view class="footer">
     <view class="daily">{{sentenceZhTxt}}</view>

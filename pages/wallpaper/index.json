@@ -4,5 +4,6 @@
     "coustom-navbar": "../../../components/coustom-navbar"
   },
   "navigationStyle": "custom",
+  "multipleSlots": true,
   "disableScroll": true
 }

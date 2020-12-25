@@ -1,6 +1,7 @@
 <!-- index.wxml -->
 <view class="wall-paper">
     <coustom-navbar>
+        <view slot="back" class="css-icon icon-arrow-left"></view>
         <view slot="name">hotspot</view>
     </coustom-navbar>
     <coustom-accordion template="hotspot_scroll" model:current="{{current}}" model:radio="{{radio}}" accordionList="{{initList}}" accordionData="{{initState}}">

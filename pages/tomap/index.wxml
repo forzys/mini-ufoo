@@ -1,6 +1,0 @@
-<!-- index.wxml -->
-<view class="container">
-    <map id="map" longitude="106.705567" latitude="26.583274" scale="{{scale}}" show-location enable-scroll="{{enable}}" enable-zoom="{{enable}}" polygons="{{polygons}}"></map>
-    <view class="pointer" bindtap="onShowCanvas">绘图</view>
-    <canvas type="2d" id="myCanvas" style="width:100%;height:100%;display:{{hidden&&'none'}}" bindtouchend="touchend" bindtouchmove="touchmove" bindtouchstart="touchstart" />
-</view>

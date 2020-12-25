@@ -1,6 +1,23 @@
 module.exports = {
   baseBing: "https://cn.bing.com/",
 
+  // host:'https://api.zoooz.xyz:2233',
+  // hotspotBaidu: '/hotspotBaidu',
+  // hotspotZhihu: '/hotspotZhihu',
+  // hotspotWeibo: '/hotspotWeibo',
+  // hotspotSogou: '/hotspotSogou',
+  // hotspotSina: '/hotspotSina',
+  // hotspotTiktok:'/hotspotIesword',
+  // _FundMnfInfo:'/fundMNFInfo',
+  // _FundSeciInfo:'/fundSeciInfo',
+  // _FundSearch:'/fundSearch',
+  // imjadHitokoto:'/imjadHitokoto',
+  // awemeTiktok:'/hotspotIesaweme',
+  // wallPicasso:'/wallPicasso',
+  // wallBing:'/wallBing',
+  // baseBing:'https://cn.bing.com/',
+
+
   // bing
   bing: "https://cn.bing.com/HPImageArchive.aspx?format=js&n=5",
   // font

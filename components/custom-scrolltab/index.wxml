@@ -1,0 +1,14 @@
+<view class="cu-scroll-tabs">
+     
+    <view class="tabs-menu" style="height:{{ (1-radio) *  pageH}}px"> 
+        <scroll-view class="tabs-menu" scroll-into-view="{{state.viewId}}">
+           <slot name="menu"></slot>
+        </scroll-view> 
+    </view>
+
+    <view class="tabs-pane" style="height:{{ (1-radio) *  pageH}}px">
+        <view class="tabs-pane">
+          <slot name="pane" />
+        </view>  
+    </view> 
+</view>

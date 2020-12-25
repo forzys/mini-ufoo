@@ -4,5 +4,6 @@
     "coustom-swiper": "../../../components/coustom-swiper"
   },
   "navigationStyle": "custom",
+  "multipleSlots": true,
   "disableScroll": true
 }

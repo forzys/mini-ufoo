@@ -1,3 +1,4 @@
+@import "./assets/icon.wxss";
 /**app.wxss**/
 page {
   /* Color 可以自定义相关配色 */

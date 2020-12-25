@@ -1,4 +1,5 @@
 var apis = {
+  zoooz: "https://api.zoooz.xyz",
   /**
    * 获取全部列表  /?name=1
    * 漫画API接口
@@ -44,6 +45,9 @@ var apis = {
    * hotspotWeibo:https://m.client.10010.com/service_toutiao/weibo/getWeiBoReSouList?pageSize=50
    * hotspotZhihu: https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=50&desktop=true,
    * hotspotDouyin: https://aweme-hl.snssdk.com/aweme/v1/hot/search/list/?detail_list=1,
+   * [4 韩国女明星榜 5 全球组合类明星榜 6 欧美女明星榜 7 欧美男明星榜 8 日本女明星榜 9 日本男明星榜 ] rankType
+   * [all 明星总榜 11 中国内地男明星榜 10 中国内地女明星榜 1 港台东南亚男明星榜 2 港台东南亚女明星榜 3 韩国男明星榜 ]
+   * hotStarBaidu: https://baike.baidu.com/api/starflower/getranklist?rankType=1&page=1
    */
   topbuzzBaidu: "https://top.baidu.com/mobile_v2/buzz/",
   hotspotSina: "https://www.sina.com.cn/api/hotword.json",
@@ -59,7 +63,7 @@ var apis = {
     "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/music/",
   hotspotWeibo:
     "https://m.client.10010.com/service_toutiao/weibo/getWeiBoReSouList",
-
+  hotStarBaidu: "https://baike.baidu.com/api/starflower/getranklist",
   /**
    * 翻译 每日一句
    *fanyiYoudao: http://fanyi.youdao.com/translate?doctype=json&i=word

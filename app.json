@@ -1,7 +1,5 @@
 {
-  "pages": [
-    "pages/tomap/index",
-    "pages/home/index",
+  "pages": [  
     "pages/hotspot/index",
     "pages/television/index",
     "pages/wallpaper/index",
@@ -18,6 +16,30 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/hotspot/index",
+        "text": "热点"
+      },
+      {
+        "pagePath": "pages/wallpaper/index",
+        "text": "壁纸"
+      },
+      {
+        "pagePath": "pages/television/index",
+        "text": "电视"
+      },
+      {
+        "pagePath": "pages/webfiction/index",
+        "text": "小说"
+      },
+      {
+        "pagePath": "pages/webfiction/index",
+        "text": "基金"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,620 @@
+.css-icon {
+display: inline-block;
+height: 1em;
+width: 1em;
+font-size: 15px;
+box-sizing: border-box;
+text-indent: -9999px;
+vertical-align: inherit; 
+position: relative;
+}
+.css-icon::before,
+.css-icon::after {
+content: "";
+box-sizing: inherit;
+position: absolute;
+left: 50%;
+top: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+/**
+icon-arrow-up
+icon-arrow-right
+icon-arrow-down
+icon-arrow-left
+*/
+
+.icon-arrow-up::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -25%) rotate(45deg);
+transform: translate(-50%, -25%) rotate(45deg);
+}
+.icon-arrow-right::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-75%, -50%) rotate(135deg);
+transform: translate(-75%, -50%) rotate(135deg);
+}
+.icon-arrow-down::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -75%) rotate(225deg);
+transform: translate(-50%, -75%) rotate(225deg);
+}
+.icon-arrow-left::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-25%, -50%) rotate(-45deg);
+transform: translate(-25%, -50%) rotate(-45deg);
+}
+
+/**
+icon-upward
+icon-forward
+icon-downward
+icon-back
+icon-caret
+*/
+
+.icon-upward::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -50%) rotate(45deg);
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon-upward::after {
+height: 0.8em;
+border-left: 2px solid;
+top: 55%;
+}
+.icon-forward::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -50%) rotate(135deg);
+transform: translate(-50%, -50%) rotate(135deg);
+}
+.icon-forward::after {
+width: 0.8em;
+border-top: 2px solid;
+left: 45%;
+}
+.icon-downward::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -50%) rotate(-135deg);
+transform: translate(-50%, -50%) rotate(-135deg);
+}
+.icon-downward::after {
+height: 0.8em;
+border-left: 2px solid;
+top: 45%;
+}
+.icon-back::before {
+height: 0.65em;
+width: 0.65em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -50%) rotate(-45deg);
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+.icon-back::after {
+width: 0.8em;
+border-top: 2px solid;
+left: 55%;
+}
+.icon-caret::before {
+border: 0.3em solid transparent;
+border-top-color: currentColor;
+-ms-transform: translate(-50%, -25%);
+transform: translate(-50%, -25%);
+}
+/**
+icon-menu
+icon-apps
+icon-more-horiz
+icon-more-vert
+*/
+.icon-menu::before {
+box-shadow: 0 -0.35em, 0 0.35em;
+border-top: 2px solid;
+width: 100%;
+}
+.icon-apps::before {
+height: 0.15em;
+width: 0.15em;
+background: currentColor;
+box-shadow: -0.35em -0.35em, -0.35em 0, -0.35em 0.35em, 0 -0.35em, 0 0.35em,
+    0.35em -0.35em, 0.35em 0, 0.35em 0.35em;
+}
+.icon-more-horiz::before {
+height: 0.2em;
+width: 0.2em;
+background: currentColor;
+border-radius: 50%;
+box-shadow: -0.4em 0, 0.4em 0;
+}
+.icon-more-vert::before {
+height: 0.2em;
+width: 0.2em;
+background: currentColor;
+border-radius: 50%;
+box-shadow: 0 -0.4em, 0 0.4em;
+}
+
+/***********************************交互icon********************/
+/**
+icon-resize-horiz
+icon-resize-vert
+icon-plus
+icon-minus
+icon-close
+icon-check
+icon-stop
+*/
+.icon-resize-horiz::before,
+.icon-resize-horiz::after {
+height: 0.4em;
+width: 0.4em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+}
+.icon-resize-horiz::before {
+-ms-transform: translate(-90%, -50%) rotate(-45deg);
+transform: translate(-90%, -50%) rotate(-45deg);
+}
+.icon-resize-horiz::after {
+-ms-transform: translate(-10%, -50%) rotate(135deg);
+transform: translate(-10%, -50%) rotate(135deg);
+}
+.icon-resize-vert::before,
+.icon-resize-vert::after {
+height: 0.4em;
+width: 0.4em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+}
+.icon-resize-vert::before {
+-ms-transform: translate(-50%, -90%) rotate(45deg);
+transform: translate(-50%, -90%) rotate(45deg);
+}
+.icon-resize-vert::after {
+-ms-transform: translate(-50%, -10%) rotate(225deg);
+transform: translate(-50%, -10%) rotate(225deg);
+}
+.icon-plus::before {
+width: 90%;
+border-top: 2px solid;
+}
+.icon-plus::after {
+height: 90%;
+border-left: 2px solid;
+}
+.icon-minus::before {
+width: 90%;
+border-top: 2px solid;
+}
+.icon-close::before {
+width: 90%;
+border-top: 2px solid;
+-ms-transform: translate(-50%, -50%) rotate(45deg);
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon-close::after {
+height: 90%;
+border-left: 2px solid;
+-ms-transform: translate(-50%, -50%) rotate(45deg);
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon-check::before {
+border-style: solid;
+border-width: 0 0 2px 2px;
+height: 0.5em;
+width: 0.9em;
+-ms-transform: translate(-50%, -0.375em) rotate(-45deg);
+transform: translate(-50%, -0.375em) rotate(-45deg);
+}
+.icon-stop::before {
+width: 0.9em;
+border-top: 2px solid;
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon-stop::after {
+width: 0.9em;
+height: 0.9em;
+border: 2px solid;
+border-radius: 50%;
+}
+.icon-shutdown::before {
+height: 0.5em;
+border-left: 2px solid;
+top: 0.2em;
+}
+.icon-shutdown::after {
+width: 0.9em;
+height: 0.9em;
+border: 2px solid;
+border-top-color: transparent;
+border-radius: 50%;
+}
+.icon-refresh::before {
+width: 0.9em;
+height: 0.9em;
+border: 2px solid;
+border-right-color: transparent;
+border-radius: 50%;
+}
+.icon-refresh::after {
+border: 0.2em solid;
+border-left-color: transparent;
+border-top-color: transparent;
+left: 75%;
+top: 20%;
+}
+.icon-search::before {
+width: 0.75em;
+height: 0.75em;
+border: 2px solid;
+border-radius: 50%;
+left: 5%;
+top: 5%;
+-ms-transform: translate(0, 0) rotate(45deg);
+transform: translate(0, 0) rotate(45deg);
+}
+.icon-search::after {
+width: 0.4em;
+border-top: 2px solid;
+left: 80%;
+top: 80%;
+-ms-transform: translate(-50%, -50%) rotate(45deg);
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon-flag::before {
+height: 0.9em;
+border-left: 2px solid;
+left: 10%;
+}
+.icon-flag::after {
+width: 0.85em;
+height: 0.675em;
+border: 2px solid;
+border-bottom-right-radius: 0.1em;
+border-left: 0;
+border-top-right-radius: 0.1em;
+left: 52%;
+top: 35%;
+}
+.icon-bookmark::before {
+width: 0.85em;
+height: 0.9em;
+border: 2px solid;
+border-bottom: 0;
+border-radius: 0.1rem 0.1em 0 0;
+}
+.icon-bookmark::after {
+width: 0.5em;
+height: 0.5em;
+border-style: solid;
+border-width: 2px 2px 0 0;
+border-radius: 2px;
+-ms-transform: translate(-50%, 0.2em) rotate(-45deg) skew(15deg, 15deg);
+transform: translate(-50%, 0.2em) rotate(-45deg) skew(15deg, 15deg);
+}
+.icon-edit::before {
+border: 2px solid;
+width: 0.85em;
+height: 0.4em;
+-ms-transform: translate(-0.35em, -0.25em) rotate(-45deg);
+transform: translate(-0.35em, -0.25em) rotate(-45deg);
+}
+.icon-edit::after {
+border: 0.15em solid;
+border-right-color: transparent;
+border-top-color: transparent;
+left: 5%;
+top: 95%;
+-ms-transform: translate(0, -100%);
+transform: translate(0, -100%);
+}
+.icon-delete::before {
+width: 0.75em;
+height: 0.6em;
+border: 2px solid;
+border-top: 0;
+border-radius: 0 0 2px 2px;
+top: 70%;
+}
+.icon-delete::after {
+width: 0.5em;
+border-top: 2px solid;
+box-shadow: -0.2em 0.2em, 0.2em 0.2em;
+top: 1px;
+}
+.icon-share {
+border: solid transparent;
+border-width: 2px 2px 0 0;
+box-shadow: inset 0 -2px, inset 2px 0;
+}
+.icon-share::before {
+width: 0.4em;
+height: 0.4em;
+border-style: solid;
+border-width: 0 2px 2px 0;
+left: 100%;
+top: 0.2em;
+-ms-transform: translate(-125%, -50%) rotate(-45deg);
+transform: translate(-125%, -50%) rotate(-45deg);
+}
+.icon-share::after {
+width: 0.6em;
+height: 0.6em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+border-radius: 75% 15%;
+}
+.icon-download {
+border: solid transparent;
+border-width: 0 1px;
+box-shadow: inset 0 -2px;
+}
+.icon-download::before {
+width: 0.5em;
+height: 0.5em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -0.3em) rotate(-135deg);
+transform: translate(-50%, -0.3em) rotate(-135deg);
+}
+.icon-download::after {
+height: 0.6em;
+border-left: 2px solid;
+top: 40%;
+}
+.icon-upload {
+border: solid transparent;
+border-width: 0 1px;
+box-shadow: inset 0 -2px;
+}
+.icon-upload::before {
+width: 0.5em;
+height: 0.5em;
+border-style: solid;
+border-width: 2px 0 0 2px;
+-ms-transform: translate(-50%, -60%) rotate(45deg);
+transform: translate(-50%, -60%) rotate(45deg);
+}
+.icon-upload::after {
+height: 0.6em;
+border-left: 2px solid;
+}
+.icon-copy::before {
+width: 0.7em;
+height: 0.8em;
+border: 2px solid;
+border-bottom-color: transparent;
+border-right-color: transparent;
+border-radius: 0.1em;
+left: 40%;
+top: 40%;
+}
+.icon-copy::after {
+width: 0.7em;
+height: 0.8em;
+border: 2px solid;
+border-radius: 0.1em;
+left: 60%;
+top: 60%;
+}
+.icon-info::before {
+width: 0.9em;
+height: 0.9em;
+border: 2px solid;
+border-radius: 50%;
+}
+.icon-info::after {
+width: 2px;
+height: 0.5em;
+border-top: 0.3em solid;
+border-bottom: 0.1em solid;
+}
+/***********************************物体图标********************/
+
+.icon-audio {
+border: solid transparent;
+border-width: 0.2em 0.3em;
+border-radius: 45%;
+box-shadow: inset 0 2px, inset 2px 0, inset -2px 0, inset 0 -2px;
+-ms-transform: translateY(-0.2em);
+transform: translateY(-0.2em);
+}
+.icon-audio::before {
+height: 0.15em;
+border-left: 2px solid;
+transform: translate(-50%, 0.5em);
+}
+.icon-audio::after {
+width: 0.7em;
+height: 0.7em;
+border: 2px solid;
+border-bottom-color: transparent;
+border-right-color: transparent;
+border-radius: 50%;
+-ms-transform: translate(-50%, -25%) rotate(-135deg);
+transform: translate(-50%, -25%) rotate(-135deg);
+}
+.icon-mail::before {
+width: 0.9em;
+height: 0.75em;
+border: 2px solid;
+border-radius: 2px;
+}
+.icon-mail::after {
+width: 0.4em;
+height: 0.4em;
+border-style: solid;
+border-width: 0 0 2px 2px;
+-ms-transform: translate(-50%, -0.35em) rotate(-45deg) skew(10deg, 10deg);
+transform: translate(-50%, -0.35em) rotate(-45deg) skew(10deg, 10deg);
+}
+.icon-person::before {
+width: 0.45em;
+height: 0.45em;
+border: 2px solid;
+border-radius: 50%;
+top: 25%;
+}
+.icon-person::after {
+width: 0.9em;
+height: 0.4em;
+border: 2px solid;
+border-radius: 50% 50% 0 0;
+top: 75%;
+}
+.icon-message {
+border: solid transparent;
+border-width: 0.05em 0.05em 0.3em;
+border-radius: 3px;
+box-shadow: inset 0 2px, inset -2px 0, inset 2px 0;
+}
+.icon-message::before {
+width: 0.85em;
+height: 2px;
+border-left: calc(2px + 0.1em) solid;
+border-right: calc(0.5em - 2px) solid;
+top: 100%;
+}
+.icon-message::after {
+width: 0.3em;
+height: 0.3em;
+border-style: solid;
+border-width: 0 0 2px 2px;
+left: calc(2px + 0.1em);
+top: calc(100% - 0.1242em);
+-ms-transform: skewY(-45deg);
+transform: skewY(-45deg);
+}
+.icon-photo {
+border: solid transparent;
+border-width: 0.1em 0.05em;
+box-shadow: inset 0 2px, inset 2px 0, inset -2px 0, inset 0 -2px;
+border-radius: 0.2em;
+}
+.icon-photo::before {
+width: 0.3em;
+height: 0.3em;
+border: 2px solid;
+border-radius: 50%;
+left: 35%;
+top: 35%;
+}
+.icon-photo::after {
+width: 0.5em;
+height: 0.5em;
+border-style: solid;
+border-width: 2px 2px 0 0;
+left: 60%;
+-ms-transform: translate(-45%, 20%) rotate(-45deg);
+transform: translate(-45%, 20%) rotate(-45deg);
+}
+.icon-time {
+border: 0.05em solid transparent;
+box-shadow: inset 0 2px, inset 2px 0, inset -2px 0, inset 0 -2px;
+border-radius: 50%;
+}
+.icon-time::before {
+height: 0.4em;
+border-left: 2px solid;
+-ms-transform: translate(-50%, -75%);
+transform: translate(-50%, -75%);
+}
+.icon-time::after {
+height: 0.25em;
+border-left: 2px solid;
+-ms-transform: translate(-50%, -75%) rotate(125deg);
+transform: translate(-50%, -75%) rotate(125deg);
+-ms-transform-origin: 50% 100%;
+transform-origin: 50% 100%;
+}
+.icon-location::before {
+width: 0.8em;
+height: 0.8em;
+border: 2px solid;
+border-radius: 50% 50% 50% 0;
+-ms-transform: translate(-50%, -60%) rotate(-45deg);
+transform: translate(-50%, -60%) rotate(-45deg);
+}
+.icon-location::after {
+width: 0.3em;
+height: 0.3em;
+border: 2px solid;
+border-radius: 50%;
+-ms-transform: translate(-50%, -0.25em);
+transform: translate(-50%, -0.25em);
+}
+.icon-link::before,
+.icon-link::after {
+width: 0.75em;
+height: 0.5em;
+border: 2px solid;
+border-right: 0;
+border-radius: 5em 0 0 5em;
+}
+.icon-link::before {
+-ms-transform: translate(-70%, -45%) rotate(-45deg);
+transform: translate(-70%, -45%) rotate(-45deg);
+}
+.icon-link::after {
+-ms-transform: translate(-30%, -55%) rotate(135deg);
+transform: translate(-30%, -55%) rotate(135deg);
+}
+.icon-eye::before {
+width: 0.9em;
+height: 0.9em;
+border: 2px solid;
+border-radius: 70% 15%;
+-ms-transform: translate(-50%, -50%) rotate(45deg);
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.icon-emoji {
+border: 0.05em solid transparent;
+box-shadow: inset 0 2px, inset 2px 0, inset -2px 0, inset 0 -2px;
+border-radius: 50%;
+}
+.icon-emoji::before {
+width: 0.2rem;
+height: 0.2rem;
+border-radius: 50%;
+box-shadow: -0.17em -0.1em, 0.17em -0.1em;
+}
+.icon-emoji::after {
+width: 0.5em;
+height: 0.5em;
+border: 2px solid;
+border-bottom-color: transparent;
+border-right-color: transparent;
+border-radius: 50%;
+-ms-transform: translate(-50%, -0.2em) rotate(-135deg);
+transform: translate(-50%, -0.2em) rotate(-135deg);
+}
+.icon-eye::after {
+width: 0.5em;
+height: 0.5em;
+border: 2px solid;
+border-radius: 50%;
+}

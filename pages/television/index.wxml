@@ -1,6 +1,7 @@
 <!-- index.wxml -->
 <view class="television">
     <coustom-navbar>
+         <view slot="back" class="css-icon icon-arrow-left"></view>
         <view slot="name">television</view>
     </coustom-navbar>
     <coustom-swiper model:current="{{current}}" radio="{{radio}}" headerClass="flex center" swiperList="{{initList}}" swiperData="{{initList}}" template="television_scroll" bindscrollTap="onScrollTap">

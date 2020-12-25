@@ -15,6 +15,8 @@ Component({
   },
   methods: {
     // 这里是一个自定义方法
-    onBack: function () {},
+    onBack: function () {
+      wx.navigateBack()
+    },
   },
 });

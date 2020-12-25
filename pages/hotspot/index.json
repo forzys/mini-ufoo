@@ -4,5 +4,6 @@
     "coustom-accordion": "../../../components/coustom-accordion"
   },
   "navigationStyle": "custom",
+  "multipleSlots": true,
   "disableScroll": true
 }

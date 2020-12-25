@@ -1,9 +1,0 @@
-<view class="nav-bar" style="height:{{height}}">
-    <view bindtap="onTapLeft">{{left||'<<'}}</view>
-    <view wx:for="{{list}}">
-        <view>
-            <text>{{ (item && item.name) || (index+1) }}</text>
-        </view>
-    </view>
-    <view bindtap="onTapRight">{{right||'>>'}}</view>
-</view>
