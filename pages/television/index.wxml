@@ -6,7 +6,7 @@
     </coustom-navbar>
     <coustom-swiper model:current="{{current}}" radio="{{radio}}"  headerClass="flex center iptv-channel" swiperList="{{initList}}" swiperData="{{extra}}" template="television_scroll" bindscrollTap="onScrollTap">
         <view slot="header" class="video-bar" bind:tap="onIptvTap">
-            <video bind:tap="onIptvTap" class="iptv-video round {{extra.status?'tip':''}}" id="iptv-video-player" bindloadedmetadata="onIptvLoad" vslide-gesture autoplay controls="{{true}}" src="{{play}}" binderror="onPlayError">
+            <video  class="iptv-video round {{extra.status?'tip':''}}" id="iptv-video-player" bindloadedmetadata="onIptvLoad" vslide-gesture autoplay controls="{{true}}" src="{{play}}" binderror="onPlayError">
                 <view class="video-text"> {{ extra.videoText }} </view>
             </video> 
         </view>
