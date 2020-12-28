@@ -1,4 +1,4 @@
-{
+var iptv = {
   "data": [
     {
       "name": "CCTV",
@@ -466,3 +466,5 @@
     }
   ]
 }
+
+module.exports = iptv;

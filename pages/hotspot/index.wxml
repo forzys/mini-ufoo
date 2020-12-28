@@ -7,4 +7,5 @@
     <coustom-accordion template="hotspot_scroll" model:current="{{current}}" model:radio="{{radio}}" accordionList="{{initList}}" accordionData="{{initState}}">
         <block></block>
     </coustom-accordion>
+ 
 </view>

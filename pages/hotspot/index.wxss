@@ -1,5 +1,4 @@
-.hotspot_scroll_bar {
-  width: 100vw;
+.hotspot_scroll_bar { 
   border-radius: 10px;
   transition: all 0.38s ease-in-out 0s;
 }
@@ -21,4 +20,8 @@
 .accordion-list {
   width: calc(100vw - 24rpx);
   margin: 0 auto;
+}
+
+.cu-accordion {
+  filter: url("#goo");
 }

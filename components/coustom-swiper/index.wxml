@@ -7,7 +7,7 @@
         <slot name="header"></slot>
         <view class="{{headerClass}}">
             <block wx:for="{{swiperList}}" wx:key="key" wx:for-index="index">
-                <view class="nav-item {{current === index ? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent">
+                <view class="nav-item {{current === index ? 'focus':''}}" data-current="{{index}}" bindtap="onChangeCurrent" >
                     <text>{{item[swiperName]}}</text>
                 </view>
             </block>
@@ -20,7 +20,7 @@
         <swiper class="swiper-bar" model:current="{{current}}" circular="{{config.circular}}" vertical="{{config.vertical}}" autoplay="{{config.autoplay}}" interval="{{config.interval}}" duration="{{config.duration}}" indicator-dots="{{config.dots}}" style="height:{{ radio * pageH}}px">
             <block wx:for="{{swiperList}}" wx:key="key">
                 <swiper-item class="swiper-item flex">
-                    <template wx:if="{{template}}" is="{{template}}" data="{{item,swiperData,radio, pageH}}">
+                    <template wx:if="{{template}}" is="{{template}}" data="{{item,swiperData,radio,pageH,top}}">
                         <slot name="{{item.key}}"></slot>
                     </template>
                 </swiper-item>

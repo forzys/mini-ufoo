@@ -1,0 +1,33 @@
+
+<import src="../coustom-template/index.wxml" />
+
+<view class="cu-swipe-tabs"> 
+    <view class="tabs-menu"> 
+        <scroll-view class="tabs-menu" scroll-into-view="{{state.viewId}}">
+            <block wx:if="{{external}}">
+                <slot name="menu" /> 
+            </block>
+
+            <block wx:if="{{menus.length}}" wx:for="{{menus}}" wx:key="key" wx:for-index="index">
+                <view style="{{item.style}}" class="{{ ['menu-item',item.class] }}" id="tabs-menu-{{index}}">{{item.title}}</view>
+            </block>
+        </scroll-view> 
+    </view>
+    
+    <view class="tabs-pane"> 
+     <slot name="pane" /> 
+        <!-- <swiper model:current="{{current}}" bindchange="onChange" indicator-dots="{{false}}" autoplay="{{fralse}}" interval="{{5000}}" duration="{{500}}">   -->
+           <!-- <block wx:if="{{external}}" >
+                <slot name="pane" /> 
+            </block>   -->
+ <!-- <slot name="pane" />  -->
+            <!-- <swiper-item wx:if="{{menus.length}}" wx:for="{{menus}}" wx:key="key" wx:for-index="index">  -->
+                 <!-- <template wx:if="{{template}}" is="{{template}}" data="{{item,menus,index,current}}">
+                    <slot name="{{item.key}}"></slot>
+                </template> -->
+
+                <!-- <slot name="pane-{{index}}" /> -->
+            <!-- </swiper-item>   -->
+        <!-- </swiper>  -->
+    </view>   
+</view>

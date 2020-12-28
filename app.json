@@ -3,8 +3,8 @@
     "pages/hotspot/index",
     "pages/television/index",
     "pages/wallpaper/index",
-    "pages/webfiction/index"
-  
+    "pages/webfiction/index",
+    "pages/shortvideo/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -21,24 +21,22 @@
     "list": [
       {
         "pagePath": "pages/hotspot/index",
+        "iconPath": "assets/hotspot.png",
+        "selectedIconPath": "assets/hotspot_active.png",
         "text": "热点"
       },
       {
         "pagePath": "pages/wallpaper/index",
+        "iconPath": "assets/wallpaper.png",
+        "selectedIconPath": "assets/wallpaper_active.png",
         "text": "壁纸"
       },
       {
         "pagePath": "pages/television/index",
+        "iconPath": "assets/television.png",
+        "selectedIconPath": "assets/television_active.png",
         "text": "电视"
-      },
-      {
-        "pagePath": "pages/webfiction/index",
-        "text": "小说"
-      },
-      {
-        "pagePath": "pages/webfiction/index",
-        "text": "基金"
-      }
+      } 
     ]
   },
   "style": "v2",

@@ -54,7 +54,7 @@ const wallpaper = [
     },
   },
   {
-    name: "每日一图",
+    name: "必应",
     key: "bing",
     url: "bing",
   },

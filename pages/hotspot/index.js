@@ -24,12 +24,14 @@ Page({
     FetchHotspot({
       url: item.url,
       callback: (res) => {
+       
         let list = [];
         const data = res.data;
         item.key === "zhihu" && (list = data.data);
         item.key === "weibo" && (list = data.data.data.data);
         item.key === "baidu" && (list = data.result.topwords);
         list && list.length && this.setHotspotList(list, item.key);
+        console.log(res,list)
       },
     });
   },

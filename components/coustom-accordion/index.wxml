@@ -11,7 +11,7 @@
         </view>
         <!-- template -->
         <view class="accordion-content">
-            <template is="{{template}}" data="{{item,accordionData,pageH,radio:current===index?radio:0}}">
+            <template is="{{template}}" data="{{item,accordionData,pageH,radio:current===index?radio:0,current,index}}">
                 <slot name="{{item.key}}"></slot>
             </template>
         </view>

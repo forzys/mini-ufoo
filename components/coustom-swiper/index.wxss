@@ -9,7 +9,8 @@
 
 .swiper-nav {
   position: relative;
-  margin: 12px auto;
+  margin: 0 auto;
+  margin-bottom: 12px;
   overflow: hidden;
 }
 .swiper-list {

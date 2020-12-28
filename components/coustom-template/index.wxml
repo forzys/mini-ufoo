@@ -23,10 +23,10 @@
 wallpaper 
 ... -->
 <template name="wallpaper_scroll">
-    <scroll-view wx:if="{{item.key === 'bing'}}" scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
+    <scroll-view wx:if="{{item.key === 'bing'}}" scroll-top="{{top}}" scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
         <view wx:for="{{swiperData[item.key]}}" wx:for-item="paper" wx:key="key" class="paper-row flex" style="height:30vh">
             <view class="paper-col">
-                <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
+                <image class="paper-img img" mode="aspectFill" src="{{paper.img}}" lazy-load />
                 <text class="text-tag">{{paper.tag}}</text>
                 <view class="text-shadow">
                     <text class="text-cut"></text>
@@ -37,10 +37,10 @@ wallpaper
             <text style="color:var(--gray)">必应每日壁纸 bing.com</text>
         </view>
     </scroll-view>
-    <scroll-view wx:if="{{item.key !== 'bing'}}" scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
+    <scroll-view wx:if="{{item.key !== 'bing'}}" scroll-top="{{top}}" scroll-y scroll-with-animation lower-threshold="{{ 0.5 *  pageH }}" style="height:{{radio * pageH }}px" bindscrolltolower="{{comm.onScrollLower}}">
         <view wx:for="{{swiperData[item.key]}}" wx:for-item="wall" wx:key="key" class="paper-row flex" style="height:{{0.5*radio*pageH}}px">
             <view class="paper-col flex-item" wx:for="{{wall}}" wx:for-item="paper" wx:key="key">
-                <image class="paper-img" mode="aspectFill" src="{{paper.img}}" lazy-load />
+                <image class="paper-img img" mode="aspectFill" src="{{paper.img}}" lazy-load />
             </view>
         </view>
         <view class="paper-row flex center">
@@ -53,9 +53,9 @@ wallpaper
 television 
 ... -->
 <template name='television_scroll'>
-    <scroll-view class="television_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH }}px">
+    <scroll-view class="television_scroll_bar" scroll-y scroll-with-animation style="height:{{radio * pageH}}px">
         <view class="iptv-row flex" wx:for="{{item.list}}" wx:for-item="iptv" wx:key="key">
-            <view class="iptv-col flex-item" data-params="{{iptv}}" bindtap="{{comm.onTapScroll}}">
+            <view class="iptv-col flex-item {{swiperData.play === iptv.playUrl ? 'active':''}}" data-params="{{iptv}}" bindtap="{{comm.onTapScroll}}">
                 <text>{{iptv.name}}</text>
             </view>
         </view>
@@ -65,7 +65,7 @@ television
 hotspot
 .. -->
 <template name="hotspot_scroll">
-    <scroll-view scroll-y scroll-with-animation class="hotspot_scroll_bar" style="height:{{radio * pageH }}px">
+    <scroll-view scroll-y scroll-with-animation scroll-top="{{current===index?0:''}}" class="hotspot_scroll_bar" style="height:{{radio * pageH}}px">
         <block wx:if="{{item.key === 'baidu'}}">
             <view wx:for="{{accordionData[item.key]}}" wx:for-item="baidu" wx:key="key" class="hotspot-row flex">
                 <view class="hotspot-col flex center">
@@ -113,7 +113,7 @@ hotspot
                             <text class="text-tag">{{zhihu.hot}}</text>
                         </view>
                     </view>
-                    <image wx:if="{{zhihu.img}}" class="card-img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
+                    <image wx:if="{{zhihu.img}}" class="card-img img" mode="aspectFill" src="{{zhihu.img}}" lazy-load />
                 </view>
             </view>
             <view class="flex center text-gray text-sm" wx:if="{{accordionData[item.key]}}">

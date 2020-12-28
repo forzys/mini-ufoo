@@ -1,0 +1,20 @@
+<!-- index.wxml -->
+<view class="short-video-page">
+    <coustom-navbar>
+        <view slot="back" class="css-icon icon-arrow-left"></view>
+        <view slot="name">短视频</view>
+    </coustom-navbar>
+    <!-- menus="{{[{title:'1'},{title:'2'},{title:'3' }]}}" -->
+
+    <coustom-swipetabs external="{{true}}" model:current="{{current}}"  bindmenusTap="onMenusTap">  
+      <view slot="pane">
+        <view wx:for="{{[1,2,3,4,5]}}" wx:key="key" wx:for-index="index">
+            <view class="video-bar" >
+                    <view class="item" >
+                        hello
+                    </view>
+                </view> 
+        </view> 
+      </view> 
+    </coustom-swipetabs>
+</view>

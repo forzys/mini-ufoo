@@ -35,6 +35,8 @@ Component({
   data: {
     // 这里是一些组件内部数据
     pageH: storage.getSessionStorage("pageH"),
+    timex: 0,
+    top:0,
   },
   methods: {
     // 这里是一个自定义方法
@@ -44,6 +46,19 @@ Component({
     onChangeCurrent: function (e) {
       const dataset = e.currentTarget.dataset;
       this.setData({ current: dataset.current });
+ 
+      var curTime = e.timeStamp 
+      var lastTime = this.data.timex 
+      if (curTime - lastTime > 0) {
+        if (curTime - lastTime < 300) {//是双击事件 
+          this.setData({
+            top: this.data.top?0:1
+          }) 
+        } 
+      }
+      this.setData({
+        timex: curTime
+      }) 
     },
   },
 });

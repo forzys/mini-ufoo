@@ -1,4 +1,7 @@
-module.exports = {
+const host = 'https://api.zoooz.xyz:2233'
+
+
+module.exports = { 
   baseBing: "https://cn.bing.com/",
 
   // host:'https://api.zoooz.xyz:2233',
@@ -19,7 +22,7 @@ module.exports = {
 
 
   // bing
-  bing: "https://cn.bing.com/HPImageArchive.aspx?format=js&n=5",
+  bing: host+"/wallBing?format=js&n=5" || "https://cn.bing.com/HPImageArchive.aspx?format=js&n=5",
   // font
   font:
     "https://cdn.jsdelivr.net/gh/mforz/dataset@latest/font/fontquan0001.ttf",
@@ -27,7 +30,7 @@ module.exports = {
   // iptv github 手动更新
   iptv: "https://cdn.jsdelivr.net/gh/mforz/dataset/iptv/iptv.json",
   // wallpaper
-  picasso: "https://service.picasso.adesk.com/v1/vertical/vertical",
+  picasso:host+"/wallPicasso" || "https://service.picasso.adesk.com/v1/vertical/vertical",
 
   // wall 搜索
   wallsearch: "https://so.picasso.adesk.com/v1/",
@@ -50,11 +53,11 @@ module.exports = {
   baidu: "https://top.baidu.com/mobile_v2/buzz",
 
   // hotspot
-  hotspotBaidu: "https://top.baidu.com/mobile_v2/buzz/hotspot",
+  hotspotBaidu:host+"/hotspotBaidu"|| "https://top.baidu.com/mobile_v2/buzz/hotspot",
   hotspotWeibo:
-    "https://m.client.10010.com/service_toutiao/weibo/getWeiBoReSouList?pageSize=50",
+  host+"/hotspotWeibo?pageSize=50"||"https://m.client.10010.com/service_toutiao/weibo/getWeiBoReSouList?pageSize=50",
   hotspotZhihu:
-    "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=50&desktop=true",
+  host+"/hotspotZhihu?limit=50&desktop=true"||"https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=50&desktop=true",
 };
 
 // plan
