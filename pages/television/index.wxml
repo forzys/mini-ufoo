@@ -1,14 +1,14 @@
 <!-- index.wxml -->
 <view class="television">
-    <coustom-navbar>
-        <view slot="back" class="css-icon icon-arrow-left"></view>
-        <view slot="name">television</view>
-    </coustom-navbar>
-    <coustom-swiper model:current="{{current}}" radio="{{radio}}"  headerClass="flex center iptv-channel" swiperList="{{initList}}" swiperData="{{extra}}" template="television_scroll" bindscrollTap="onScrollTap">
-        <view slot="header" class="video-bar" bind:tap="onIptvTap">
-            <video  class="iptv-video round {{extra.status?'tip':''}}" id="iptv-video-player" bindloadedmetadata="onIptvLoad" vslide-gesture autoplay controls="{{true}}" src="{{play}}" binderror="onPlayError">
-                <view class="video-text"> {{ extra.videoText }} </view>
-            </video> 
-        </view>
-    </coustom-swiper>
+  <coustom-navbar>
+    <!-- <view slot="back" class="css-icon icon-arrow-left"></view> -->
+    <view slot="name">电视</view>
+  </coustom-navbar>
+  <coustom-swiper model:current="{{current}}" radio="{{radio}}" headerClass="flex center iptv-channel" swiperList="{{initList}}" swiperData="{{extra}}" template="television_scroll" bindscrollTap="onScrollTap">
+    <view slot="header" class="video-bar" bind:tap="onIptvTap">
+      <video class="iptv-video round {{extra.status?'tip':''}}" id="iptv-video-player" bindloadedmetadata="onIptvLoad" vslide-gesture autoplay controls="{{true}}" src="{{play}}" bindplay="onPlayStatus" binderror="onPlayStatus" bindpause="onPlayStatus">
+        <view class="video-text">{{ extra.videoText }}</view>
+      </video>
+    </view>
+  </coustom-swiper>
 </view>

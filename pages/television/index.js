@@ -16,21 +16,25 @@ Page({
     radio: 0.6,
     current: 0,
     initList: [],
-    extra:{  
-      status:0,
-      videoText:``
+    extra: {
+      status: 0,
+      videoText: ``
     },
-    
-  }, 
+
+  },
   onLoad: function () {
     this.getFetchIptv();
     this.videoContext = wx.createVideoContext('iptv-video-player')
-    console.log(this.videoContext)
+  },
+  onShow: function () {
+    if (this.videoContext) {
+      this.videoContext.pause()
+    }
   },
 
   onScrollTap: function (e) {
     const params = e.detail.params;
-    this.setData({ play: params.playUrl, extra:{ play:params.playUrl, status:1, videoText:'正在缓冲...',} });
+    this.setData({ play: params.playUrl, extra: { play: params.playUrl, status: 1, videoText: '正在缓冲...', } });
   },
 
   getFetchIptv() {
@@ -49,7 +53,7 @@ Page({
     this.setData({ initList: { ...tvs } });
   },
 
-  onIptvTap(e){
+  onIptvTap(e) {
     // var curTime = e.timeStamp 
     // var lastTime = this.data.timex 
     // if (curTime - lastTime > 0) {
@@ -77,12 +81,19 @@ Page({
     //   timex: curTime
     // }) 
   },
-  onPlayError(e){ 
-    if(e.type==='error'){
-      this.setData({ extra:{...this.data.extra,status:'tip',videoText:'播放失败'} });
-    }  
-  }, 
-  onIptvLoad(){
-    this.setData({ extra:{...this.data.extra,videoText:'',status:''} });
-  } 
+  onPlayError(e) {
+    if (e.type === 'error') {
+      this.setData({ extra: { ...this.data.extra, status: 'tip', videoText: '播放失败' } });
+    }
+    if (e.type === 'play') {
+      this.setData({ extra: { ...this.data.extra, status: '', videoText: '' } });
+    }
+    if (e.type === 'pause') {
+      this.setData({ extra: { ...this.data.extra, status: 'tip', videoText: '播放暂停' } });
+    }
+  },
+
+  onIptvLoad() {
+    this.setData({ extra: { ...this.data.extra, videoText: '', status: '' } });
+  }
 });

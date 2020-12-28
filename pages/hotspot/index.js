@@ -20,18 +20,29 @@ Page({
     });
   },
 
+  copyHotspot(e) {
+    wx.setClipboardData({
+      data: e.detail.title,
+      success: function (res) {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'none',
+        });
+      }
+    });
+  },
+
   getFetchHotspot(item) {
     FetchHotspot({
       url: item.url,
       callback: (res) => {
-       
         let list = [];
         const data = res.data;
         item.key === "zhihu" && (list = data.data);
         item.key === "weibo" && (list = data.data.data.data);
         item.key === "baidu" && (list = data.result.topwords);
         list && list.length && this.setHotspotList(list, item.key);
-        console.log(res,list)
+        console.log(res, list)
       },
     });
   },

@@ -18,7 +18,7 @@ Component({
   },
   methods: {
     // 这里是一个自定义方法
-    customMethod: function () {},
+    customMethod: function () { },
     onChangeCurrent: function (e) {
       const dataset = e.currentTarget.dataset;
       const current = this.properties.current;
@@ -26,7 +26,9 @@ Component({
       const radio = index === -1 ? 0.6 : 0.7;
       this.setData({ current: index, radio });
     },
-
+    onItemTap: function (e) {
+      this.triggerEvent("onItemTap", e);
+    },
     onRefreshing: function (e) {
       console.log("onRefreshing", e);
     },

@@ -65,4 +65,15 @@ Page({
 
     this.setData({ initState: { ...papers } });
   },
+
+  onWallTap(e) {
+
+    wx.previewImage({
+      urls: [e.detail.url],
+      current: e.detail.url,
+    })
+  },
+  onWallLongTap(e) {
+    console.log(e)
+  }
 });

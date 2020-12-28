@@ -11,6 +11,18 @@ module.exports = {
     var dataset = event.currentTarget.dataset;
     instance.triggerEvent("scrollTap", dataset);
   },
+  onCopyHotspot: function (event, instance) {
+    var dataset = event.currentTarget.dataset;
+    instance.triggerEvent("onItemTap", dataset);
+  },
+  onWallTap: function (event, instance) {
+    var dataset = event.currentTarget.dataset;
+    instance.triggerEvent("onItemTap", dataset);
+  },
+  onWallLongTap: function (event, instance) {
+    var dataset = event.currentTarget.dataset;
+    instance.triggerEvent("onItemLongTap", dataset);
+  },
   onToTop: function (flag, a) {
     if (flag) {
       return 0;
