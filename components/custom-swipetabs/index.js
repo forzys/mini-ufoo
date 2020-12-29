@@ -5,7 +5,7 @@ Component({
     multipleSlots: true,
   },
   properties: {
-    menus: Array,
+    tabs: Array,
     external:Boolean,
   },
   data: {
@@ -19,16 +19,12 @@ Component({
     // 这里是一个自定义方法 
 
     ready: function() {console.log(this.date)},
-    onBack: function () {},
- 
+    onBack: function () {}, 
     onChange:function(e){
       console.log(e)
-    },
-
-    onTap:function(){
-
-      console.log(  this.menus, this.data)
-      
+    }, 
+    onTap:function(){ 
+      console.log(  this.menus, this.data) 
     }
   },
 });

@@ -1,5 +1,5 @@
 
-<import src="../coustom-template/index.wxml" />
+<import src="../custom-template/index.wxml" />
 
 <view class="cu-swipe-tabs"> 
     <view class="tabs-menu"> 
@@ -8,26 +8,21 @@
                 <slot name="menu" /> 
             </block>
 
-            <block wx:if="{{menus.length}}" wx:for="{{menus}}" wx:key="key" wx:for-index="index">
-                <view style="{{item.style}}" class="{{ ['menu-item',item.class] }}" id="tabs-menu-{{index}}">{{item.title}}</view>
+            <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class] }}" id="tabs-menu-{{index}}">{{item.menu.title}}</view>
             </block>
         </scroll-view> 
     </view>
     
     <view class="tabs-pane"> 
-     <slot name="pane" /> 
-        <!-- <swiper model:current="{{current}}" bindchange="onChange" indicator-dots="{{false}}" autoplay="{{fralse}}" interval="{{5000}}" duration="{{500}}">   -->
-           <!-- <block wx:if="{{external}}" >
-                <slot name="pane" /> 
-            </block>   -->
- <!-- <slot name="pane" />  -->
-            <!-- <swiper-item wx:if="{{menus.length}}" wx:for="{{menus}}" wx:key="key" wx:for-index="index">  -->
-                 <!-- <template wx:if="{{template}}" is="{{template}}" data="{{item,menus,index,current}}">
-                    <slot name="{{item.key}}"></slot>
-                </template> -->
-
-                <!-- <slot name="pane-{{index}}" /> -->
-            <!-- </swiper-item>   -->
-        <!-- </swiper>  -->
+        <block wx:if="{{external}}">
+            <slot name="pane" /> 
+        </block> 
+        <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item"> 
+            <view wx:if="{{item.pane}}" style="{{item.pane.style}}" class="{{['menu-item',item.pane.class]}}">{{item.pane.title}}</view> 
+            <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,current}}">
+                <slot name="{{item.slot}}"></slot>
+            </template>
+        </block> 
     </view>   
 </view>

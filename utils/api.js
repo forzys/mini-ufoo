@@ -28,7 +28,7 @@ module.exports = {
     "https://cdn.jsdelivr.net/gh/mforz/dataset@latest/font/fontquan0001.ttf",
 
   // iptv github 手动更新
-  iptv: "https://cdn.jsdelivr.net/gh/mforz/dataset/iptv/iptv.json",
+  iptv: host+"/iptv"||"https://cdn.jsdelivr.net/gh/mforz/dataset/iptv/iptv.json",
   // wallpaper
   picasso:host+"/wallPicasso" || "https://service.picasso.adesk.com/v1/vertical/vertical",
 

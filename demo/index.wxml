@@ -1,0 +1,7 @@
+<!-- index.wxml -->
+<view class="container" style="background:url({{backgroundUrl}})">
+    <custom-navbar> 
+        <view slot="title">DEMO 测试</view>
+    </custom-navbar>
+    <view>swipetabs 组件demo</view> 
+</view>

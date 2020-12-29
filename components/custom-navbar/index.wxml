@@ -1,0 +1,28 @@
+
+
+
+<view class="cu-nav-bar" style="height: {{state.navBarH}}px" style="background: {{state.bg}}">
+  <view class="nav-bar" >
+    <view style="height:{{state.statusBarH}}px" />
+
+    <view style="height:{{state.contentH}}px" class="navbar-content">
+        <view  class="go-back" style="width:{{state.capsuleW}}px">
+          <navigator wx:if="{{back}}" open-type="switchTab" class="go-back-navigate" hover-class="none" url="{{state.url}}"> 
+            <view class="icon-nav-bar-back {{state.backIcon}}">
+                <slot name="back" />
+            </view>
+          </navigator>
+        </view>
+
+        <view class="navbar-title">
+            <text>{{title}}</text>
+            <slot name="title" /> 
+        </view>
+
+        <view class="navbar-capsule" style="width:{{state.capsuleW}}px"> </view>
+    </view>
+
+  </view>
+</view>
+
+<view style="width:100%;height:{{state.navBarH}}px"></view>  

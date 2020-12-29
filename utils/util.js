@@ -56,7 +56,7 @@ const getGlobalInfo = (callback) => {
       const pageH = e.windowHeight - customBarH;
 
       storage.setSessionStorage("pageH", pageH);
-      storage.setSessionStorage("custom", capsule);
+      storage.setSessionStorage("capsule", capsule); 
       storage.setSessionStorage("windowW", e.windowWidth);
       storage.setSessionStorage("windowH", e.windowHeight);
       storage.setSessionStorage("customBarH", customBarH);
@@ -79,8 +79,47 @@ const debounce = (fn, time) => {
   };
 };
 
+const globalInfo = {
+  state: {},
+  getSystemInfo:function(){
+    wx.getSystemInfo({
+      success: (e) => {
+        const capsule = wx.getMenuButtonBoundingClientRect();
+        const customBarH = capsule.bottom + capsule.top - e.statusBarHeight;
+        const pageH = e.windowHeight - customBarH; 
+        storage.setSessionStorage("pageH", pageH);
+        storage.setSessionStorage("capsule", capsule);
+        storage.setSessionStorage("windowW", e.windowWidth);
+        storage.setSessionStorage("windowH", e.windowHeight);
+        storage.setSessionStorage("customBarH", customBarH);
+        storage.setSessionStorage("statusBarH", e.statusBarHeight); 
+        if (!capsule) {
+          storage.setSessionStorage("customBarH", e.statusBarHeight + 50);
+        } 
+        this.setState({
+          pageH:pageH,
+          capsule:capsule,
+          windowW:e.windowWidth,
+          windowH:e.windowHeight,
+          customBarH:capsule?customBarH:e.statusBarHeight + 50,
+          statusBarH:e.statusBarHeight,
+        })
+      },
+    });
+  },
+  setState:function(info){
+    if(typeof info !== 'object'){
+      return
+    }
+    for(let i in info){
+      this.state[i] = info[i]
+    } 
+  }
+}
+
 module.exports = {
   formatTime: formatTime,
   replaceNumber: replaceNumber,
   getGlobalInfo: getGlobalInfo,
+  globalInfo: globalInfo,
 };

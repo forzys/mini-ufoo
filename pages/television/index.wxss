@@ -33,6 +33,8 @@
 
 .iptv-channel{
   height: 20%;
+  display: flex;
+  align-items: center;
 }
 .round {
   width: 100%;

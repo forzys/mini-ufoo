@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+      "custom-swipetabs": "../../components/custom-swipetabs",
+      "custom-navbar": "../../components/custom-navbar"
+    },
+    "navigationStyle": "custom",
+    "disableScroll": true,
+    "multipleSlots": true
+  }
+  

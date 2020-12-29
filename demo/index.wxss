@@ -1,0 +1,21 @@
+/**index.wxss**/
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .main,
+  .header,
+  .footer {
+    position: relative;
+    width: 100%;
+    height: 33.3vh;
+  }
+  
+  .daily {
+    transition: all 1s;
+  }
+  

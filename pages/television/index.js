@@ -28,7 +28,7 @@ Page({
   },
   onShow: function () {
     if (this.videoContext) {
-      this.videoContext.pause()
+      this.videoContext.pause() 
     }
   },
 
@@ -37,14 +37,17 @@ Page({
     this.setData({ play: params.playUrl, extra: { play: params.playUrl, status: 1, videoText: '正在缓冲...', } });
   },
 
-  getFetchIptv() {
-    this.setData({ initList: iptvs.data });
-    // FetchIptv({
-    //   url: "iptv",
-    //   callback: (res) => {
-    //     res.data.data && this.setData({ initList: iptvs });
-    //   },
-    // });
+  getFetchIptv() { 
+    FetchIptv({
+      url: "iptv",
+      callback: (res) => {  
+        if(res && Array.isArray( res.data) ){
+          this.setData({ initList: res.data });
+        }else{
+          this.setData({ initList: iptvs }); 
+        } 
+      },
+    });
   },
 
   setIptvList(tvlist, key) {
@@ -52,36 +55,8 @@ Page({
     const tvs = { ...initList };
     this.setData({ initList: { ...tvs } });
   },
-
-  onIptvTap(e) {
-    // var curTime = e.timeStamp 
-    // var lastTime = this.data.timex 
-    // if (curTime - lastTime > 0) {
-    //   if (curTime - lastTime < 300) {//是双击事件 
-    //     if(this.data.extra.status !== 2){
-    //       this.videoContext.requestFullScreen()
-    //       this.setData({ extra:{...this.data.extra, status:2}})
-    //     }
-    //     if(this.data.extra.status !== 1){
-    //       this.videoContext.exitFullScreen()
-    //       this.setData({ extra:{...this.data.extra, status:1}})
-    //     } 
-    //   }else{
-    //     if(this.data.extra.status !== 3){
-    //       this.videoContext.pause()
-    //       this.setData({ extra:{...this.data.extra, status:3, videoText:'已暂停'}})
-    //     }
-    //     if(this.data.extra.status !== 1){
-    //       this.videoContext.requestFullScreen()
-    //       this.setData({ extra:{...this.data.extra, status:1 }})
-    //     } 
-    //   }
-    // }
-    // this.setData({
-    //   timex: curTime
-    // }) 
-  },
-  onPlayError(e) {
+ 
+  onPlayStatus(e) {
     if (e.type === 'error') {
       this.setData({ extra: { ...this.data.extra, status: 'tip', videoText: '播放失败' } });
     }
@@ -89,7 +64,7 @@ Page({
       this.setData({ extra: { ...this.data.extra, status: '', videoText: '' } });
     }
     if (e.type === 'pause') {
-      this.setData({ extra: { ...this.data.extra, status: 'tip', videoText: '播放暂停' } });
+      this.setData({ extra: { ...this.data.extra, status: '', videoText: '' } });
     }
   },
 

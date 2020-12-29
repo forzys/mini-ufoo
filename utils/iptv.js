@@ -80,143 +80,263 @@ var iptv = {
       "key": "wstv",
       "lock": false,
       "list": [
-        {
-          "name": "湖南卫视",
-          "playUrl": "http://hbsh.chinashadt.com:2036/live/2.stream/playlist.m3u8"
-        },
-        {
-          "name": "天津卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/tianjin_2_hd.m3u8"
-        },
-        {
-          "name": "重庆卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/chongqing_2_hd.m3u8"
-        },
-        {
-          "name": "河北卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/hebei_2_hd.m3u8"
-        },
-        {
-          "name": "山西卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shan1xi_2_hd.m3u8"
-        },
-        {
-          "name": "辽宁卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/liaoning_2_hd.m3u8"
-        },
-        {
-          "name": "吉林卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/jilin_2_hd.m3u8"
-        },
+       
         {
           "name": "北京卫视",
-          "playUrl": "http://ivi.bupt.edu.cn/hls/btv1.m3u8"
-        },
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225543/index.m3u8"
+        },   
+       
         {
-          "name": "黑龙江卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/heilongjiang_2_hd.m3u8"
-        },
+          "name": "四川卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225695/index.m3u8",
+          "playUrl2": "http://182.138.51.71/PLTV/88888920/224/3221225539/index.m3u8",
+          "playUrl3": "http://182.138.51.71/PLTV/88888920/224/3221225696/index.m3u8"
+        },  
+        {
+          "name": "天津卫视",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226489/1.m3u8", 
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225899/1.m3u8", 
+          // "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/chongqing_2_hd.m3u8", 
+        },   
         {
           "name": "安徽卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/anhui_2_hd.m3u8"
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225595/index.m3u8", 
+        },    
+        {
+          "name": "山东卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225534/index.m3u8", 
+        }, 
+        {
+          "name": "山西卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225588/index.m3u8", 
+        },  
+        {
+          "name": "广东卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225535/index.m3u8", 
+        }, 
+        {
+          "name": "广西卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225594/index.m3u8", 
+        }, 
+        {
+          "name": "新疆卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225608/index.m3u8", 
+        },  
+        {
+          "name": "江苏卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225545/index.m3u8", 
+        },  
+        {
+          "name": "江西卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225596/index.m3u8", 
+        },    
+        {
+          "name": "河北卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225590/index.m3u8", 
+        }, 
+        {
+          "name": "河南卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225604/index.m3u8", 
+        }, 
+        {
+          "name": "海南卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225592/index.m3u8", 
+        },  
+        {
+          "name": "深圳卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225542/index.m3u8", 
+        }, 
+        {
+          "name": "湖北卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225536/index.m3u8", 
+        },  
+        {
+          "name": "宁夏卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225583/index.m3u8", 
+        },  
+        {
+          "name": "甘肃卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225602/index.m3u8", 
+        },   
+        {
+          "name": "西藏卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225603/index.m3u8", 
+        },   
+        {
+          "name": "贵州卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225597/index.m3u8", 
+        },    
+        {
+          "name": "辽宁卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225605/index.m3u8", 
+        },     
+        {
+          "name": "重庆卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225600/index.m3u8", 
+        }, 
+        {
+          "name": "吉林卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225599/index.m3u8"
+        }, 
+        {
+          "name": "云南卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225601/index.m3u8"
+        }, 
+        {
+          "name": "内蒙古卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225606/index.m3u8"
+        },  
+        {
+          "name": "陕西卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225587/index.m3u8", 
+        },  
+        {
+          "name": "青海卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225589/index.m3u8", 
+        },   
+        {
+          "name": "黑龙江卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225533/index.m3u8", 
+        },   
+        {
+          "name": "四川康巴卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225586/index.m3u8", 
         },
         {
           "name": "东南卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/dongnan_2_hd.m3u8"
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225598/index.m3u8", 
         },
         {
-          "name": "江西卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/jiangxi_2_hd.m3u8"
+          "name": "东方卫视",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225541/index.m3u8", 
         },
-        {
-          "name": "山东卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shandong_2_hd.m3u8"
-        },
-        {
-          "name": "河南卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/henan_2_hd.m3u8"
-        },
-        {
-          "name": "湖北卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/hubei_2_hd.m3u8"
-        },
-        {
-          "name": "深圳卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shenzhen_2_hd.m3u8"
-        },
-        {
-          "name": "海南卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/travel_2_hd.m3u8"
-        },
-        {
-          "name": "四川卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/sichuan_2_hd.m3u8"
-        },
-        {
-          "name": "贵州卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/guizhou_2_hd.m3u8"
-        },
-        {
-          "name": "云南卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/yunnan_2_hd.m3u8"
-        },
-        {
-          "name": "陕西卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shan3xi_2_hd.m3u8"
-        },
-        {
-          "name": "甘肃卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/gansu_2_hd.m3u8"
-        },
-        {
-          "name": "青海卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/qinghai_2_hd.m3u8"
-        },
-        {
-          "name": "内蒙古卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/neimenggu_2_hd.m3u8"
-        },
-        {
-          "name": "广西卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/guangxi_2_hd.m3u8"
-        },
-        {
-          "name": "西藏卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/xizang_2_hd.m3u8"
-        },
-        {
-          "name": "宁夏卫视",
-          "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/ningxia_2_hd.m3u8\""
-        },
-        {
-          "name": "兵团卫视",
-          "playUrl": "http://v.btzx.com.cn:1935/live/weishi.stream/playlist.m3u8"
-        }
       ]
     },
-    {
-      "name": "CETV",
-      "key": "cetv",
-      "lock": false,
-      "list": [
-        {
-          "name": "CETV1教育一套",
-          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv1_2/index.m3u8"
-        },
-        {
-          "name": "CETV2教育二套",
-          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv2_2/index.m3u8"
-        },
-        {
-          "name": "CETV3教育三套",
-          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv3_2/index.m3u8"
-        },
-        {
-          "name": "CETV4教育四套",
-          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv4_2/index.m3u8"
-        }
-      ]
-    },
+    // {
+    //   "name": "卫视",
+    //   "key": "wstv",
+    //   "lock": false,
+    //   "list": [
+    //     {
+    //       "name": "湖南卫视",
+    //       "playUrl": "http://hbsh.chinashadt.com:2036/live/2.stream/playlist.m3u8"
+    //     },
+    //     {
+    //       "name": "江苏卫视",
+    //       "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225545/index.m3u8"
+    //     },
+    //     {
+    //       "name": "天津卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/tianjin_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "重庆卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/chongqing_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "河北卫视",
+    //       "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225590/index.m3u8",
+    //       "playUrl2": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/hebei_2_hd.m3u8",
+    //     },
+    //     {
+    //       "name": "山西卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shan1xi_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "辽宁卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/liaoning_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "吉林卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/jilin_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "北京卫视",
+    //       "playUrl": "http://ivi.bupt.edu.cn/hls/btv1.m3u8"
+    //     },
+    //     {
+    //       "name": "黑龙江卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/heilongjiang_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "安徽卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/anhui_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "东南卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/dongnan_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "江西卫视",
+    //       "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225596/index.m3u8",
+    //       "playUrl2": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/jiangxi_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "山东卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shandong_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "河南卫视",
+    //       "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225604/index.m3u8"
+    //     },
+    //     {
+    //       "name": "湖北卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/hubei_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "深圳卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shenzhen_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "海南卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/travel_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "四川卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/sichuan_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "贵州卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/guizhou_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "云南卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/yunnan_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "陕西卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/shan3xi_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "甘肃卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/gansu_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "青海卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/qinghai_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "内蒙古卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/neimenggu_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "广西卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/guangxi_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "西藏卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/xizang_2_hd.m3u8"
+    //     },
+    //     {
+    //       "name": "宁夏卫视",
+    //       "playUrl": "http://cctvtxyh5ca.liveplay.myqcloud.com/wstv/ningxia_2_hd.m3u8\""
+    //     },
+    //     {
+    //       "name": "兵团卫视",
+    //       "playUrl": "http://v.btzx.com.cn:1935/live/weishi.stream/playlist.m3u8"
+    //     }
+    //   ]
+    // }, 
     {
       "name": "地方",
       "key": "local",
@@ -456,14 +576,63 @@ var iptv = {
         },
         {
           "name": "凤凰资讯",
-          "playUrl": "http://117.169.120.138:8080/live/fhzixun/.m3u8"
+          "playUrl": "http://117.169.120.138:8080/live/fhzixun/.m3u8",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225949/1.m3u8",
         },
         {
           "name": "凤凰香港",
           "playUrl": "http://183.207.249.35/PLTV/3/224/3221226975/index.m3u8"
+        },
+        {
+          "name": "凤凰中文",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225942/1.m3u8"
+        },
+      ]
+    },
+    {
+      "name": "其他",
+      "key": "cetv",
+      "lock": false,
+      "list": [
+        {
+          "name": "风景",
+          "playUrl": "http://182.138.51.71/PLTV/88888920/224/3221225794/index.m3u8"
+        }, 
+        {
+          "name": "咪咕视频",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226376/1.m3u8"
+        }, 
+        {
+          "name": "NewTv-超级综艺",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226231/1.m3u8",
+          "playUrl2": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226127/1.m3u8",
+          "playUrl2": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226370/1.m3u8",
+        },
+        {
+          "name": "NewTv-金牌综艺",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225920/1.m3u8",
+          "playUrl2": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226296/1.m3u8",
+          "playUrl2": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226347/1.m3u8",
+        },
+        {
+          "name": "CETV1教育一套",
+          "playUrl2": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv1_2/index.m3u8",
+          "playUrl": "http://221.179.217.9/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226494/1.m3u8"
+        },
+        {
+          "name": "CETV2教育二套",
+          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv2_2/index.m3u8"
+        },
+        {
+          "name": "CETV3教育三套",
+          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv3_2/index.m3u8"
+        },
+        {
+          "name": "CETV4教育四套",
+          "playUrl": "http://cctvalih5ca.v.myalicdn.com/cstv/cetv4_2/index.m3u8"
         }
       ]
-    }
+    },
   ]
 }
 

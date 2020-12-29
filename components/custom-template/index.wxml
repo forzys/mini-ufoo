@@ -1,0 +1,19 @@
+<wxs src="./index.wxs" module="wxs" />
+<!-- ...
+模板默认 
+... -->
+<template name="custom-card">
+  <view class="cu-card">
+    <image src="{{novel.cover}}" mode="aspectFill"></image>
+    <view class="card-content">
+      <view class="card-title">
+        <view class="text-cut">{{novel.name}}</view>
+      </view>
+      <view class="card-content">折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由！</view>
+      <view class="card-tag">
+        <view class="cu-tag bg-red light sm round">正义天使</view>
+        <view class="cu-tag bg-green light sm round">史诗</view>
+      </view>
+    </view>
+  </view>
+</template>

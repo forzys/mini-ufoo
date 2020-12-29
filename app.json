@@ -1,10 +1,12 @@
 {
-  "pages": [  
+  "pages": [   
+    
     "pages/hotspot/index",
     "pages/television/index",
     "pages/wallpaper/index",
     "pages/webfiction/index",
-    "pages/shortvideo/index"
+    "pages/shortvideo/index",
+    "demo/index"
   ],
   "permission": {
     "scope.userLocation": {
