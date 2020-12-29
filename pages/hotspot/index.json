@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "coustom-navbar": "../../../components/coustom-navbar",
+    "custom-navbar": "../../../components/custom-navbar",
     "coustom-accordion": "../../../components/coustom-accordion"
   },
   "navigationStyle": "custom",

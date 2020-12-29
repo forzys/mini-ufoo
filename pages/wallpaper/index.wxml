@@ -1,9 +1,9 @@
 <!-- index.wxml -->
 <view class="wall-paper">
-  <coustom-navbar>
+  <custom-navbar title="壁纸">
     <!-- <view slot="back" class="css-icon icon-arrow-left"></view> -->
-    <view slot="name">壁纸</view>
-  </coustom-navbar>
+    <!-- <view slot="name">壁纸</view> -->
+  </custom-navbar>
   <coustom-swiper bindonItemLongTap="onWallLongTap" bindonItemTap="onWallTap" bindscrollLower="onScollLower" model:current="{{current}}" radio="{{radio}}" swiperList="{{initList}}" swiperData="{{initState}}" headerClass="flex center" template="wallpaper_scroll">
     <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
     <!-- <view>模板传递solt</view> -->

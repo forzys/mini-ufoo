@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "coustom-swiper": "../../../components/coustom-swiper",
-    "coustom-navbar": "../../../components/coustom-navbar"
+    "custom-navbar": "../../../components/custom-navbar"
   },
   "navigationStyle": "custom",
   "multipleSlots": true,

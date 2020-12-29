@@ -1,0 +1,33 @@
+
+
+
+.cu-swipe-tabs{
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs-menu{ 
+  flex:0 0 15%;
+}
+
+.swipe-menu{
+  width:100%;
+  height:100%;
+}
+
+.menu-item{
+  height: 20vh;
+}
+ 
+.tabs-pane{ 
+  flex:0 0 85%;
+  overflow: hidden;
+}
+.pane-item{
+  width: 100%;
+  height:100%;
+  position: relative;
+  overflow: hidden;
+}

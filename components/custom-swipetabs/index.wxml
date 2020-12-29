@@ -1,28 +1,28 @@
-
 <import src="../custom-template/index.wxml" />
-
-<view class="cu-swipe-tabs"> 
-    <view class="tabs-menu"> 
-        <scroll-view class="tabs-menu" scroll-into-view="{{state.viewId}}">
-            <block wx:if="{{external}}">
-                <slot name="menu" /> 
-            </block>
-
-            <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
-                <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class] }}" id="tabs-menu-{{index}}">{{item.menu.title}}</view>
-            </block>
-        </scroll-view> 
-    </view>
-    
-    <view class="tabs-pane"> 
-        <block wx:if="{{external}}">
-            <slot name="pane" /> 
-        </block> 
-        <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item"> 
-            <view wx:if="{{item.pane}}" style="{{item.pane.style}}" class="{{['menu-item',item.pane.class]}}">{{item.pane.title}}</view> 
-            <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,current}}">
-                <slot name="{{item.slot}}"></slot>
-            </template>
-        </block> 
-    </view>   
+<view class="cu-swipe-tabs">
+  <view class="tabs-menu">
+    <scroll-view class="swipe-menu" scroll-into-view="{{state.viewId}}" scroll-x="{{sx}}" scroll-y="{{sy}}">
+      <block wx:if="{{external}}">
+        <slot name="menu" />
+      </block>
+      <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+        <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class] }}" id="tabs-menu-{{index}}">
+          {{item.menu.title}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="tabs-pane">
+    <block wx:if="{{external}}">
+      <slot name="pane" />
+    </block>
+    <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+      <view wx:if="{{item.pane}}" style="{{item.pane.style}}" class="{{['pane-item',item.pane.class]}}">
+        {{item.pane.title}}
+      </view>
+      <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,current}}">
+        <slot name="{{item.slot}}"></slot>
+      </template>
+    </block>
+  </view>
 </view>

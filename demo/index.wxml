@@ -1,7 +1,12 @@
 <!-- index.wxml -->
 <view class="container" style="background:url({{backgroundUrl}})">
-    <custom-navbar> 
-        <view slot="title">DEMO 测试</view>
-    </custom-navbar>
-    <view>swipetabs 组件demo</view> 
+  <custom-navbar title="DEMO 测试">
+    <!-- <view slot="back" class="css-icon icon-arrow-left"></view> -->
+    <!-- <view slot="title">DEMO 测试</view> -->
+  </custom-navbar>
+  <view style='text-align:center;'>swipetabs 组件demo</view>
+  <view style='height:5vh;background:#ccc'></view>
+  <view style='height:60vh;background:#fff;'>
+    <custom-swipetabs tabs="{{tabs}}"></custom-swipetabs>
+  </view>
 </view>
