@@ -6,28 +6,45 @@
   height:100%;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
+  background-color: #fafbfc;
+
+  
 }
 
 .tabs-menu{ 
-  flex:0 0 15%;
+  flex:0 0 15%; 
+  background-color: #fff;
 }
+.tabs-pane{ 
+  flex: 0 0 85%; 
+  overflow: visible; 
+  transition-duration: 600ms; 
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); 
+  --trans: calc(-100 * var(--tabs-index, 0%) - var(--tabs-move, 0px));
+} 
 
 .swipe-menu{
   width:100%;
   height:100%;
-}
-
+} 
 .menu-item{
   height: 20vh;
-}
- 
-.tabs-pane{ 
-  flex:0 0 85%;
-  overflow: hidden;
-}
+} 
 .pane-item{
   width: 100%;
-  height:100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+
+.cu-swipe-tabs.moving .tabs-pane{
+  transition: all 0s linear;
+}
+
+.cu-swipe-tabs.left .tabs-pane,
+.cu-swipe-tabs.right .tabs-pane{
+  
+  transform: translate3d(0px, var(--trans, 0px), 0px) translateZ(0px);
 }

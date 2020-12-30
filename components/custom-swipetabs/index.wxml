@@ -1,28 +1,35 @@
 <import src="../custom-template/index.wxml" />
-<view class="cu-swipe-tabs">
-  <view class="tabs-menu">
-    <scroll-view class="swipe-menu" scroll-into-view="{{state.viewId}}" scroll-x="{{sx}}" scroll-y="{{sy}}">
-      <block wx:if="{{external}}">
-        <slot name="menu" />
-      </block>
-      <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+
+
+<view class="cu-swipe-tabs {{position}} {{moving}}" style="--tabs-move:{{move}}px;--tabs-index:{{curr}}%;"> 
+  <view class="tabs-menu"> 
+    <block wx:if="{{menuExtra}}">
+      <slot name="menu" />
+    </block> 
+    <scroll-view wx:else class="swipe-menu" scroll-into-view="{{state.viewId}}" scroll-x="{{sx}}" scroll-y="{{sy}}"> 
+      <block wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
         <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class] }}" id="tabs-menu-{{index}}">
           {{item.menu.title}}
         </view>
       </block>
-    </scroll-view>
+    </scroll-view> 
   </view>
-  <view class="tabs-pane">
-    <block wx:if="{{external}}">
-      <slot name="pane" />
+ 
+  <view class="tabs-pane" catch:touchstart="onTouchStart" catch:touchmove="onTouchMove" catch:touchend="onTouchEnd"> 
+    <block wx:if="{{paneExtra}}">
+      <slot></slot>
     </block>
-    <block wx:if="{{tabs.length}}" wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
-      <view wx:if="{{item.pane}}" style="{{item.pane.style}}" class="{{['pane-item',item.pane.class]}}">
-        {{item.pane.title}}
-      </view>
-      <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,current}}">
-        <slot name="{{item.slot}}"></slot>
-      </template>
-    </block>
+
+    <block wx:else>
+      <block wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item"> 
+        <view wx:if="{{item.pane}}" style="{{item.pane.style}}" class="{{['pane-item',item.pane.class]}}">
+          {{item.pane.title}}
+        </view> 
+        <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,current}}">
+          <slot name="{{item.slot}}"></slot>
+        </template> 
+      </block> 
+    </block> 
   </view>
+
 </view>

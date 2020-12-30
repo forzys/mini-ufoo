@@ -7,6 +7,15 @@
   <view style='text-align:center;'>swipetabs 组件demo</view>
   <view style='height:5vh;background:#ccc'></view>
   <view style='height:60vh;background:#fff;'>
-    <custom-swipetabs tabs="{{tabs}}"></custom-swipetabs>
+    <custom-swipetabs tabs="{{tabs}}" paneExtra>
+        <view style='width:100%;height:100%;'>pane1</view>
+        <view style='width:100%;height:100%;'>pane2</view>
+        <view style='width:100%;height:100%;'>pane3</view>
+        <view style='width:100%;height:100%;'>pane4</view> 
+ 
+        <view slot='menu'>
+          <view>ewrft4</view>
+        </view> 
+    </custom-swipetabs>
   </view>
 </view>

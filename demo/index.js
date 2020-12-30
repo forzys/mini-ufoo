@@ -11,19 +11,19 @@ Page({
     tabs: [
       {
         menu: { title: 'menu1' },
-        pane: { title: 'pane1' },
+        // pane: { title: 'pane1' },
       },
       {
         menu: { title: 'menu2' },
-        pane: { title: 'pane2' },
+        // pane: { title: 'pane2' },
       },
       {
         menu: { title: 'menu3' },
-        pane: { title: 'pane3' },
+        // pane: { title: 'pane3' },
       },
       {
         menu: { title: 'menu4' },
-        pane: { title: 'pane4' },
+        // pane: { title: 'pane4' },
       },
     ],
   },
