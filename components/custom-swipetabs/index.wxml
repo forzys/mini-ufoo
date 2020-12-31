@@ -2,18 +2,17 @@
 
 
 <view class="cu-swipe-tabs {{position}} {{moving}}" style="--tabs-move:{{move}}px;--tabs-index:{{curr}}%;"> 
-  <view class="tabs-menu"> 
-    <block wx:if="{{menuExtra}}">
-      <slot name="menu" />
-    </block> 
-    <scroll-view wx:else class="swipe-menu" scroll-into-view="{{state.viewId}}" scroll-x="{{sx}}" scroll-y="{{sy}}"> 
-      <block wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
-        <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class] }}" id="tabs-menu-{{index}}">
-          {{item.menu.title}}
-        </view>
-      </block>
-    </scroll-view> 
-  </view>
+ 
+  <block wx:if="{{menuExtra}}">
+    <slot name="menu" />
+  </block> 
+  <scroll-view wx:else class="tabs-menu" scroll-with-animation  scroll-into-view="tabs-menu-{{curr-1>0?curr-1:0}}" scroll-x="{{sx}}" scroll-y="{{sy}}"> 
+    <block wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+      <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class,curr===index?'active':'']}}" id="tabs-menu-{{index}}" data-curr="{{index}}" bindtap="onTap">
+        <text class="text-cut">{{item.menu.title}}</text>
+      </view>
+    </block>
+  </scroll-view> 
  
   <view class="tabs-pane" catch:touchstart="onTouchStart" catch:touchmove="onTouchMove" catch:touchend="onTouchEnd"> 
     <block wx:if="{{paneExtra}}">
@@ -25,7 +24,7 @@
         <view wx:if="{{item.pane}}" style="{{item.pane.style}}" class="{{['pane-item',item.pane.class]}}">
           {{item.pane.title}}
         </view> 
-        <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,current}}">
+        <template wx:if="{{item.template}}" is="{{template}}" data="{{item,index,curr}}">
           <slot name="{{item.slot}}"></slot>
         </template> 
       </block> 

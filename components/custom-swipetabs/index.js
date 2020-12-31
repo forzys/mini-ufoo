@@ -19,36 +19,41 @@ Component({
     distanceMin:{
       type: Number,
       value: 10,
-    },
-    
+    }, 
   },
   data: { // 这里是一些组件内部数据  
     state: {},
     curr: 0,
     move:0,
     moving:'',
+    
   },
   ready: function () {
     const { position } = this.data
     const sx = ['top', 'bottom'].includes(position)
     const sy = ['left', 'right'].includes(position) 
     this.setData({ sx, sy }) 
-  },
-
-  methods: { // 这里是一个自定义方法 
-  
+  }, 
+  methods: { // 这里是一个自定义方法  
     onChange: function (e) {
       console.log(e)
     },
-    onTap: function () {
-      console.log(this.menus, this.data)
+    onTap: function (e) { 
+      const dataset = e.currentTarget.dataset  
+      this.setData({ curr:dataset.curr }) 
     }, 
     onTouchStart:function(e){ 
+      const { position } = this.data
       const start = e.touches[0] 
+      const sx = ['top', 'bottom'].includes(position)
+      const sy = ['left', 'right'].includes(position) 
+      this.data.sx = sx 
+      this.data.sy = sy
       this.data.state.startX = start.pageX
       this.data.state.startY = start.pageY 
+     
     },
-    onTouchMove:function(e){ 
+    onTouchMove:function(e){  
       const {  sy, state, tabs, curr,distanceMin} = this.data
       const len = tabs.length - 1 
       const move = e.touches[0]  

@@ -9,23 +9,28 @@ Page({
     sentenceZhTxt: "",
 
     tabs: [
-      {
-        menu: { title: 'menu1' },
-        // pane: { title: 'pane1' },
-      },
-      {
-        menu: { title: 'menu2' },
-        // pane: { title: 'pane2' },
-      },
-      {
-        menu: { title: 'menu3' },
-        // pane: { title: 'pane3' },
-      },
-      {
-        menu: { title: 'menu4' },
-        // pane: { title: 'pane4' },
-      },
+      { menu: { title: 'menssssu1sssssss' } },
+      { menu: { title: 'menu2' } },
+      { menu: { title: 'menu3' } },
+      { menu: { title: 'menu4' } },
+      { menu: { title: 'menu5' } },
+      { menu: { title: 'menu6' } },
+      { menu: { title: 'menu7' } },
+      { menu: { title: 'menu8' } },
+      { menu: { title: 'menu9' } },
+      { menu: { title: 'menu0' } },
     ],
+
+    position:'left',
+  },
+
+  change:function(){ 
+    const tabs = ['left','right','top','bottom'] 
+    this.i  = this.i || 0  
+    this.i += 1
+    this.i = this.i%4
+ 
+    this.setData({position:tabs[this.i]}) 
   },
 
   //事件处理函数
