@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+      "custom-navbar": "../../../components/custom-navbar" 
+    },
+    "navigationStyle": "custom",
+    "multipleSlots": true,
+    "disableScroll": true
+}

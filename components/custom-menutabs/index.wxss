@@ -1,0 +1,320 @@
+/* .cu-menu{
+    position: fixed;    
+    transition-duration: 300ms; 
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);  
+    overflow: hidden; 
+    z-index: 1000; 
+}
+
+.menu-content{
+    width:100%; 
+    height:100%;
+    position: relative; 
+    background-color: #fff; 
+    z-index: 120;  
+}
+ 
+.menu-bar{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+    background-color: red; 
+    position: fixed;
+    right: 24px;
+    bottom:24px;
+    z-index: 130;  
+}
+
+.close{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red; 
+    right: 24px;
+    bottom:24px; 
+    overflow: hidden; 
+}
+ 
+.open{
+    width:100%; 
+    height: 30vh; 
+    bottom:0;  
+    right:0; 
+}
+
+.mask{
+    transition-duration: 1000ms; 
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);  
+}
+.open .mask{
+    position: fixed;
+    top: -200px;
+    bottom:-200px;
+    left:-200px;
+    right:-200px;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 110;  
+}
+.close .mask{
+    position: fixed;
+    width: 1px;
+    height: 1px;  
+    right: 24px;
+    bottom:24px;  
+    background-color: rgba(0,0,0,0.4);
+}
+ 
+
+.menu-pane{
+    width:100%; 
+    display: flex;
+    flex-wrap: wrap;
+    transform: all 5s;
+}
+
+.menu-item{
+    width: 25%;
+    padding: 12px 6px;
+
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+} */
+
+.cu-nav-bar{
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+  }
+  
+  .nav-bar{
+    position: relative;
+  }
+  
+  .navbar-content{
+    display: flex;
+    align-items: center;
+  }
+    
+  .navbar-title{
+    flex:1;
+    text-align: center;
+  }
+
+.ripple-main {
+	height: 100%;
+	background: url('http://pwxt9ivat.bkt.clouddn.com/ku_an.jpg') no-repeat;
+	background-size: cover;
+}
+
+.v-content {
+	display: flex;
+	height: 100%;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+	justify-content: center;
+}
+
+.tx {
+	color: white;
+	background: rgba(96,125,139,0.5);
+	width: 100%;
+}
+
+.ripple {
+	background-color: #f5f5f5;
+	opacity: 0.85;
+	position: absolute;
+	z-index: 1000;
+	bottom:0;
+}
+
+.bar {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 1002;
+	bottom: 0rpx;
+}
+
+.send {
+	width: 90rpx;
+	height: 90rpx;
+	background: #607d8b;
+	border-radius: 100%;
+	display: flex;
+}
+
+.add {
+	width: 100%;
+	height: 90rpx;
+	margin: 10rpx 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 1005;
+	bottom: 5rpx;
+}
+
+.add view {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	font-size: 35rpx;
+	color: #fff;
+	z-index: 1005;
+	height: 90rpx;
+	width: 90rpx;
+	text-align: center;
+	line-height: 90rpx;
+}
+ 
+
+.add1 {
+	width: 100%;
+	height: 90rpx;
+	margin: 10rpx 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 999;
+	bottom: 5rpx;
+}
+
+
+@keyframes menuO {
+	form {
+		transform: rotate(0deg);
+		color: #fff
+	}
+
+	to {
+		transform: rotate(180deg);
+		color: #000
+	}
+}
+
+@keyframes menuC {
+	form {
+		transform: rotate(0deg);
+		color: #000
+	}
+
+	to {
+		transform: rotate(-180deg);
+		/* color: #fff */
+	}
+}
+
+.menuOpen {
+	animation: 0.3s linear 0s menuO;
+	animation-fill-mode: both
+}
+
+.menuClose {
+	animation: 0.3s linear 0s menuC;
+	animation-fill-mode: both
+}
+
+.tabicon {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	height: 100%;
+	width: 100%;
+}
+
+.menu {
+	padding: 20rpx;
+	color: #607d8b;
+	font-size: 30rpx;
+	font-weight: 600;
+	text-shadow: 5rpx 5rpx 25rpx #607d8b;
+}
+
+.bottom {
+	/* background: #607d8b; */
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column-reverse;
+	padding-bottom: 110rpx;
+	position: relative;
+}
+
+.bottom .navlist {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding-bottom: 15rpx;
+}
+
+.item {
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.item image {
+	width: 64rpx;
+	height: 64rpx;
+	margin-bottom: 8rpx;
+	/* box-shadow: 0rpx 0rpx 25rpx #607d8b; */
+	border-radius: 100%;
+}
+
+.item .string {
+	color: #607d8b;
+	font-size: 25rpx;
+	font-weight: 600;
+	/* text-shadow: 5rpx 5rpx 25rpx #607d8b; */
+}
+
+.animation-nav {
+	animation-name: bounceInDown;
+	animation-duration: .45s;
+	animation-timing-function: linear;
+	animation-fill-mode: both
+}
+
+.filter{
+	filter: blur(15rpx);
+}
+
+@keyframes bounceInDown {
+
+	0% {
+		opacity: 0;
+		transform: translateY(100%)
+	}
+
+	60% {
+		transform: translateY(-10%);
+	}
+
+	80% {
+		transform: translateY(10%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0%)
+	}
+}

@@ -1,0 +1,5 @@
+<!-- index.wxml -->
+<view class="wall-paper">
+  <custom-navbar title="天气"></custom-navbar>
+   
+</view>

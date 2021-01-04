@@ -1,19 +1,19 @@
 <import src="../custom-template/index.wxml" />
-
-
-<view class="cu-swipe-tabs {{position}} {{moving}}" style="--tabs-move:{{move}}px;--tabs-index:{{curr}}%;"> 
  
+ 
+<view class="cu-swipe-tabs {{position}} {{moving}}" style="--tabs-move:{{move}}px;--tabs-index:{{curr}}%;">  
   <block wx:if="{{menuExtra}}">
     <slot name="menu" />
-  </block> 
+  </block>
+
   <scroll-view wx:else class="tabs-menu" scroll-with-animation  scroll-into-view="tabs-menu-{{curr-1>0?curr-1:0}}" scroll-x="{{sx}}" scroll-y="{{sy}}"> 
     <block wx:for="{{tabs}}" wx:key="key" wx:for-index="index" wx:for-item="item">
-      <view style="{{item.menu.style}}" class="{{ ['menu-item',item.menu.class,curr===index?'active':'']}}" id="tabs-menu-{{index}}" data-curr="{{index}}" bindtap="onTap">
+      <view style="{{item.menu.style}}" class="{{['menu-item',item.menu.class,curr===index?'active':'']}}" id="tabs-menu-{{index}}" data-curr="{{index}}" bindtap="onTap">
         <text class="text-cut">{{item.menu.title}}</text>
       </view>
     </block>
-  </scroll-view> 
- 
+  </scroll-view>
+   
   <view class="tabs-pane" catch:touchstart="onTouchStart" catch:touchmove="onTouchMove" catch:touchend="onTouchEnd"> 
     <block wx:if="{{paneExtra}}">
       <slot></slot>

@@ -39,7 +39,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.12.2",
+  "libVersion": "2.14.1",
   "appid": "wx77a1c127b9c784e7",
   "projectname": "ufoo",
   "cloudfunctionTemplateRoot": "",

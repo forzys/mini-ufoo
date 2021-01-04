@@ -1,12 +1,16 @@
 <!-- index.wxml -->
-<view class="container" style="background:url({{backgroundUrl}})">
-  <custom-navbar title="DEMO 测试">
-    <!-- <view slot="back" class="css-icon icon-arrow-left"></view> -->
-    <!-- <view slot="title">DEMO 测试</view> -->
-  </custom-navbar>
+<view class="container" style="background:#fff">
+  <!-- <custom-navbar title="DEMO 测试"> 
+  </custom-navbar> -->
+  <custom-menutabs 
+   title="DEMO 测试"
+    menu
+    menus="{{menus}}"
+  ></custom-menutabs>
+
   <view style='text-align:center;'>swipetabs 组件demo</view>
   <view style='height:5vh;background:#ccc' bind:tap="change"></view>
-  <view style='height:60vh;background:#fff;'>
+  <!-- <view style='height:60vh;background:#fff;'>
     <custom-swipetabs tabs="{{tabs}}" paneExtra position="{{position}}">
         <view style='width:100%;height:100%;'>pane1</view>
         <view style='width:100%;height:100%;'>pane2</view>
@@ -33,5 +37,5 @@
           <view>ewrft4</view>
         </view> 
     </custom-swipetabs>
-  </view>
+  </view> -->
 </view>
