@@ -89,24 +89,30 @@
 } */
 
 .cu-nav-bar{
-    width: 100%;
-    position: fixed;
-    z-index: 999999;
-  }
-  
-  .nav-bar{
-    position: relative;
-  }
-  
-  .navbar-content{
-    display: flex;
-    align-items: center;
-  }
+  width: 100%;
+  position: fixed;
+  z-index: 999999;
+}
+
+.nav-bar{
+  position: relative;
+}
+
+.navbar-content{
+  display: flex;
+  align-items: center;
+}
     
-  .navbar-title{
-    flex:1;
-    text-align: center;
-  }
+.navbar-title{
+  flex:1;
+  text-align: center;
+}
+
+.nav-menu{
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
 
 .ripple-main {
 	height: 100%;
