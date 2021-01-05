@@ -1,4 +1,5 @@
 const storage = require("./storage");
+const {fetch} = require("./request")();
 
 const formatTime = (date) => {
   const year = date.getFullYear();
@@ -81,6 +82,14 @@ const debounce = (fn, time) => {
 
 const globalInfo = {
   state: {},
+  fetch,
+  storage,
+  getRandom:function(range){
+    range = range || [0,9]
+    const [min, max] = range
+    min > max && (range = [max, min])
+    return Math.floor( Math.random()* (max-min + 1) ) + min
+  },
   getSystemInfo: function () {
     wx.getSystemInfo({
       success: (e) => {

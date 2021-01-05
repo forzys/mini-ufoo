@@ -1,9 +1,9 @@
 <!-- index.wxml -->
 <view class="wall-paper">
-  <custom-navbar title="热点">
+  <custom-menutabs title="热点" menu hitokoto>
     <!-- <view slot="back" class="css-icon icon-arrow-left"></view> -->
     <!-- <view slot="name">热点</view> -->
-  </custom-navbar>
+  </custom-menutabs>
   <coustom-accordion template="hotspot_scroll" bindonItemTap="copyHotspot" model:current="{{current}}" model:radio="{{radio}}" accordionList="{{initList}}" accordionData="{{initState}}">
     <block></block>
   </coustom-accordion>

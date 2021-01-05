@@ -1,52 +1,55 @@
-<view class="cu-nav-bar" style="height: {{state.navBarH}}px" style="background: {{state.bg}}">
+<view class="cu-nav-bar" style="height: {{state.navBarH}}px" style="background: {{bg}}">
   <view class="nav-bar">
-    <view style="height:{{state.statusBarH}}px" />
-    <view style="height:{{state.contentH}}px" class="navbar-content">
+    <!-- status bar 状态栏 占位 -->
+    <view style="height:{{state.statusBarH}}px" /> 
+    <!-- nav bar content 内容区域 -->
+    <view style="height:{{state.contentH}}px" class="navbar-content"> 
+      <!-- 左侧返回按钮区域 -->
       <view class="cu-item navbar-back" style="width:{{state.capsuleW}}px">
         <navigator wx:if="{{back}}" open-type="switchTab" class="go-back-navigate" hover-class="none" url="{{url}}">
           <view class="icon-nav-bar-back {{state.backIcon}}">
             <slot name="back" />
           </view>
         </navigator>
-        <view wx:if="{{menu}}" bindtap="onClickAdd" class="nav-menu">
-          <text class="css-icon icon-{{isShow?'close':'menu'}} {{menuStyle}}"></text>
+        <view wx:if="{{menu}}" bindtap="onMenuTap" class="nav-menu">
+          <text class="css-icon icon-{{show?'close':'menu'}} {{menuStyle}}"></text>
         </view>
-      </view>
-      <view class="cu-item navbar-title">
+      </view> 
+      <!-- 中间 title 内容区域 --> 
+      <view class="cu-item navbar-title" bindtap="onTitleTap">
         <text>{{title}}</text>
         <slot name="title" />
-      </view>
-      <view class="cu-item navbar-capsule" style="width:{{state.capsuleW}}px"></view>
+      </view> 
+      <!-- 右侧胶囊占位区域 -->
+      <view class="cu-item navbar-capsule" style="width:{{state.capsuleW}}px" />  
     </view>
   </view>
 </view>
-<view style="width:100%;height:{{state.navBarH}}px"></view>
-<view class="ripple-main {{isShow?'filter':''}}">
-  <view class="v-content">
-    <!-- <view class="tx" style="height: {{CustomBar-StatusBar}}px;padding-top: {{StatusBar}}px;line-height: {{CustomBar-StatusBar}}px;">仿酷安menu</view> -->
-    <view class="ripple" animation="{{animationData}}" hidden='{{hidden}}' style='{{myStyle}}'></view>
-  </view>
+  <!-- nav bar 占位 -->
+<view style="width:100%;height:{{state.navBarH}}px" />
+ 
+<view class="ripple-main {{show ? 'open' : ''}}"> 
+  <view class="ripple-content" >
+    <view class="ripple" animation="{{animationData}}" hidden='{{hidden}}'></view>
+  </view> 
 </view>
-<view class='bar'>
-  <view class='tabicon'>
-    <view hidden='{{!isShow}}' class='menu' style='height:{{CustomBar}}px;padding-top:{{CustomBar}}px;'>
-      分享生活的点滴，见证美好的明天
-    </view>
-    <view class='bottom' hidden='{{!isShow}}'>
-      <view class='navlist' wx:for='{{nav}}' wx:for-item="i" wx:for-index="d">
-        <view class='item  {{isShow?"animation-nav":""}}' style='animation-delay: {{(index+1)*0.1}}s;' wx:for='{{i.navigation}}'>
-          <image mode='widthFix' src='{{item.src}}'></image>
+
+
+<view class='menu-bar' hidden='{{!show}}'>
+  <view style="width:100%;height:{{state.navBarH}}px" /> 
+  <view hidden='{{!show}}'>
+    <view class="tokoto">{{tokoto}}</view>
+    <slot name="menu-content"></slot>
+  </view>
+
+  <view class="menu-content">
+    <view class='menu-list' hidden='{{!show}}' bindtap="onMenuTap">
+      <view class='menus'> 
+        <view class='item {{show?"animation-nav":""}}' wx:for='{{menus}}' data-menu="{{item}}" style='animation-delay: {{(index+1)*0.1}}s;' catch:tap="onJumpTo">
+          <image mode='widthFix' src='{{item.img}}'></image>
           <text class='string'>{{item.name}}</text>
         </view>
       </view>
-    </view>
-  </view>
-</view>
-<!-- <view class="add1" hidden='{{isShow}}'>
-	<view class='send'></view>
-</view>
-<view class="add">
-	<view bindtap="onClickAdd">
-		<text class="css-icon icon-plus {{menuStyle}}"></text>
-	</view>
-</view> -->
+    </view> 
+  </view> 
+</view> 

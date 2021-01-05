@@ -1,12 +1,8 @@
 const app = getApp();
-//是否显示 默认不显示
-var isShow = false,
-  //动画对象实例
-  animation,
-  //获取当前设备的高度
-  height = wx.getSystemInfoSync().windowHeight;
-
-const init = app.globalData.state
+//是否显示 默认不显示 
+const state = app.globalData
+const init = app.globalData.state  
+const height = init.windowH
 
 Component({
   options: {
@@ -14,122 +10,133 @@ Component({
     multipleSlots: true,
   },
   properties: {
+    bg: String,
     url: String,
-    menu: Boolean,
+    menu: Boolean, 
+    hitokoto:Boolean,
     back: Boolean,
     title: String,
   },
 
   data: {
+    tokoto:"",
     state: {
+      windowH: init.windowH,
       navBarH: init.customBarH,
       statusBarH: init.statusBarH,
       contentH: init.customBarH - init.statusBarH,
       capsuleW: init.windowW - init.capsule.left,
-    },
-
-    // StatusBar: app.globalData.StatusBar, //状态栏高度
-    // CustomBar: app.globalData.CustomBar, //titleBar高度
-    CustomBar: init.customBarH,
-    StatusBar: init.statusBarH,
-    // navBarH: init.customBarH,
-    // statusBarH: init.statusBarH,
-    // contentH: init.customBarH - init.statusBarH,
-    // capsuleW: init.windowW - init.capsule.left,
-
+    }, 
+    menus: [
+      {name:'热点',forbid:false,img:'../../assets/hotspot.png',path:'/pages/hotspot/index'},
+      {name:'壁纸',forbid:false,img:'../../assets/hotspot.png',path:'/pages/wallpaper/index'},
+      {name:'天气',forbid:true,img:'../../assets/hotspot.png',path:'/pages/hotspot/index' },
+      {name:'电视',forbid:true,img:'../../assets/hotspot.png',path:'/pages/hotspot/index' },
+      {name:'漫画',forbid:true,img:'../../assets/hotspot.png',path:'/pages/hotspot/index' },
+      {name:'影视',forbid:true,img:'../../assets/hotspot.png',path:'/pages/hotspot/index' },
+      {name:'音乐',forbid:true,img:'../../assets/hotspot.png',path:'/pages/hotspot/index' },
+      {name:'好物',forbid:true,img:'../../assets/hotspot.png',path:'/pages/hotspot/index' },
+    ],
     hidden: true, //默认为隐藏
-    isShow,
-    //默认为圆形    宽高为设备高度÷15      
-    myStyle: "border-radius: " +
-      height + "px;height: " +
-      height / 15 + "px;width: " +
-      height / 15 + "px;",
-    nav: [{
-      navigation: [{
-        name: '动态',
-        src: '../../assets/hotspot.png'
-      },
-      {
-        name: '酷图',
-        src: '../../assets/weather.png'
-      },
-      {
-        name: '应用集',
-        src: '../../assets/wallpaper.png'
-      },
-      {
-        name: '扫一扫',
-        src: '../../assets/hotspot.png'
-      },
-
-      ],
-    }, {
-      navigation: [{
-        name: '分享',
-        src: '../../assets/wallpaper.png'
-      },
-      {
-        name: '图文',
-        src: '../../assets/hotspot.png'
-      },
-      {
-        name: '提问',
-        src: '../../assets/weather.png'
-      },
-      {
-        name: '话题',
-        src: '../../assets/hotspot.png'
-      },
-
-      ],
-    }]
+    show:false,    
+    animation:null, 
   },
 
   lifetimes: {
-    attached: () => {
-      console.log('-----组件初始化:', this)
-      animation = wx.createAnimation({
-        duration: 300,
-        timingFunction: 'linear',
+    attached: function() {
+      console.log('-----组件初始化:',this.data.hitokoto ) 
+      this.setData({
+        animation: wx.createAnimation({
+          duration: 300,
+          timingFunction: 'linear',
+        })
       })
+      if(this.data.hitokoto){
+        this.getHitokoto()
+      } 
     }
   },
+  pageLifetimes:{
+    hide: function() {
+      // 页面被隐藏
+      this.setData({ show:false })
+    },
+  },
 
-  methods: {
-    onClickAdd: function (e) {
-      var menuStyle = ''
-      var that = this
-      that.animation = animation
-      that.setData({
-        hidden: false, //隐藏白色面板(ripple)
-        menuStyle: menuStyle, //设置底部加号按钮style
-      })
+  methods: { 
+    onTitleTap:function(){ 
+      if(this.data.menu){
+        this.onMenuTap()
+      } 
+      this.triggerEvent("onTitleTap"); 
+    }, 
+    onMenuTap: function () {
+      let { show , animation,hitokoto } = this.data
+      var menuStyle = ''  
       //判断是否显示
-      if (!isShow) {
-        //未显示 则执行动画 缩放设备高度÷15高度
-        that.animation.scale(height / 15).step()
-        //加号按钮执行打开动画
+      if (!show) { 
+        animation.scale(height / 15).step() 
         menuStyle = 'menuOpen'
-      } else {
-        //已显示 则执行动画 缩放回0
-        that.animation.scale(0).step()
-        //加号按钮执行关闭动画
+      } else { 
+        animation.scale(0).step() 
         menuStyle = 'menuClose'
       }
-      isShow = !isShow //存储显示状态
-      that.setData({
-        animationData: that.animation.export(), //动画赋值
+      show = !show //存储显示状态
+      this.setData({
+        hidden: false,
+        animationData: animation.export(), //动画赋值
         menuStyle: menuStyle, //加号按钮style赋值
       })
       //如果显示状态为true 延时200毫秒后执行内容显示 否则立即隐藏
-      isShow ?
-        setTimeout(function () {
-          that.setData({
-            isShow
-          })
-        }, 200) : that.setData({
-          isShow
-        })
+  
+      if(show){
+        setTimeout(()=>{
+          this.setData({ show })
+        }, 200) 
+      }else{
+        this.setData({ show })
+        hitokoto && this.getHitokoto()
+      } 
+    }, 
+    onJumpTo:function(e){ 
+      var menu = e.currentTarget.dataset.menu 
+      if(menu.forbid){  
+        wx.showToast({
+          title:'暂不支持',
+          icon:'none',
+        }) 
+
+        return 
+      }
+      if(menu.path){  
+        wx.switchTab({
+          url:menu.path,
+        }) 
+        this.setData({ show:false })
+      }
     },
+    getHitokoto:function(){ 
+      const fetch = state.fetch
+      const storage = state.storage 
+      const hitokotos =  storage.getLocalStorage('hitokotos') || []
+       
+      if(hitokotos.length < 10){ // 一言 - 列表
+         fetch({
+          url:'hitokoto',
+          callback:(res)=>{
+            hitokotos.push(res.data) 
+            storage.setLocalStorage('hitokotos', hitokotos, 1000*60*3600*24)
+
+            this.setData({
+              tokoto: res.data,
+            })
+          }
+        })
+      }else{
+        this.setData({
+          tokoto:hitokotos[state.getRandom()],
+        }) 
+      } 
+    }
   }
 })

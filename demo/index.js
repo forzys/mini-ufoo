@@ -22,11 +22,11 @@ Page({
     ],
 
     menus: [
-      {name:'小说',url:'pages/webfiction/index'},
-      {name:'壁纸',url:'pages/wallpaper/index' },
-      {name:'天气',url:'pages/wallpaper/index' },
-      {name:'热点',url:'pages/wallpaper/index' },
-      {name:'新闻',url:'pages/wallpaper/index' },
+      {name:'小说',img:'../../assets/hotspot.png',path:'pages/webfiction/index'},
+      {name:'壁纸',img:'../../assets/hotspot.png',path:'pages/wallpaper/index' },
+      {name:'天气',img:'../../assets/hotspot.png',path:'pages/wallpaper/index' },
+      {name:'热点',img:'../../assets/hotspot.png',path:'pages/wallpaper/index' },
+      {name:'新闻',img:'../../assets/hotspot.png',path:'pages/wallpaper/index' },
     ],
 
     position:'left',

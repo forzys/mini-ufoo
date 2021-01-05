@@ -21,6 +21,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "custom": false,
     "list": [
       {
         "pagePath": "pages/hotspot/index",
@@ -33,15 +34,11 @@
         "iconPath": "assets/wallpaper.png",
         "selectedIconPath": "assets/wallpaper_active.png",
         "text": "壁纸"
-      },
-      {
-        "pagePath": "pages/weather/index",
-        "iconPath": "assets/weather.png",
-        "selectedIconPath": "assets/weather_active.png",
-        "text": "天气"
-      }
-    ]
+      } 
+    ] 
   },
-  "style": "v2",
+  "style": "v2", 
   "sitemapLocation": "sitemap.json"
 }
+
+
