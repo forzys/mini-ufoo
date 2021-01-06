@@ -1,6 +1,5 @@
 {
   "pages": [   
-    
     "pages/hotspot/index",
     "pages/weather/index",
     "pages/television/index",
@@ -34,7 +33,13 @@
         "iconPath": "assets/wallpaper.png",
         "selectedIconPath": "assets/wallpaper_active.png",
         "text": "壁纸"
-      } 
+      },
+      {
+        "pagePath": "pages/television/index",
+        "iconPath": "assets/wallpaper.png",
+        "selectedIconPath": "assets/wallpaper_active.png",
+        "text": "电视"
+      }
     ] 
   },
   "style": "v2", 

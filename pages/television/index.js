@@ -25,6 +25,22 @@ Page({
   onLoad: function () {
     this.getFetchIptv();
     this.videoContext = wx.createVideoContext('iptv-video-player')
+    console.log(this.videoContext)
+    FetchIptv({
+      url: "douyin",
+      data:{
+        url:'https://v.douyin.com/JGHHTtG/'
+      },
+      callback: (res) => {   
+        this.setData({play:res.data.video})
+
+        wx.saveImageToPhotosAlbum({
+          
+        })
+      },
+    });
+
+    
   },
   onShow: function () {
     if (this.videoContext) {

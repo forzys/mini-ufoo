@@ -4,7 +4,7 @@ const host = 'https://api.zoooz.xyz:2233'
 
 module.exports = { 
   baseBing: "https://cn.bing.com/",
-
+  douyin:host+'/douyin',
   // host:'https://api.zoooz.xyz:2233',
   // hotspotBaidu: '/hotspotBaidu',
   // hotspotZhihu: '/hotspotZhihu',

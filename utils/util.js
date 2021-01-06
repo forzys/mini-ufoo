@@ -123,6 +123,21 @@ const globalInfo = {
     for (let i in info) {
       this.state[i] = info[i]
     }
+  },
+  numPad:function(num,pos,bit){
+    let [int,dec] = String(num).split('.')
+    let res = [] 
+    if(typeof pos === "number"){ 
+      res.push(int.padStart(pos,0))
+    }else{
+      res.push(int)
+    } 
+    if(typeof bit === "number"){
+      res.push((dec||'0').padEnd(bit,0)) 
+    }else{
+      dec && res.push(dec)
+    } 
+    return res.join('.')
   }
 }
 

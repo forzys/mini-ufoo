@@ -57,8 +57,7 @@ Component({
     }
   },
   pageLifetimes:{
-    hide: function() {
-      // 页面被隐藏
+    hide: function() { // 页面被隐藏
       this.setData({ show:false })
     },
   },
@@ -67,8 +66,7 @@ Component({
     onTitleTap:function(){ 
       if(this.data.menu){
         this.onMenuTap()
-      } 
-      this.triggerEvent("onTitleTap"); 
+      }  this.triggerEvent("onTitleTap"); 
     }, 
     onMenuTap: function () {
       let { show , animation,hitokoto } = this.data
